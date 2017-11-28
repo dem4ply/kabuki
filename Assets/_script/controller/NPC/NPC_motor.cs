@@ -8,6 +8,7 @@ namespace controller {
 		public class NPC_motor : Motor {
 			#region variables publicas
 			public float runner_multiply = 2.0f;
+			public float max_horizontal_speed = 10f;
 			#endregion
 
 			#region variables protegidas
@@ -64,8 +65,10 @@ namespace controller {
 
 			protected virtual Vector2 _proccess_to_velocity()
 			{
-				Vector2 speed_vector =
-					new Vector2( direction_vector.x, 0 ) * move_speed;
+				float horizontal_speed = direction_vector.x * move_speed;
+				horizontal_speed = Mathf.Clamp(
+					horizontal_speed, -max_horizontal_speed, max_horizontal_speed);
+				Vector2 speed_vector = new Vector2( horizontal_speed, 0 );
 				if ( is_running )
 					speed_vector *= runner_multiply;
 				return new Vector2( speed_vector.x, _rigidbody.velocity.y );
