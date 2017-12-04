@@ -4,7 +4,7 @@ using System;
 
 namespace controller {
 	namespace animator {
-		public class Unitychan_animator : animator.NPC_animator {
+		public class Unitychan_animator_2d : animator.NPC_animator_2d {
 			public float max_walk_speed = 0.5f;
 			public float max_run_speed = 1.0f;
 

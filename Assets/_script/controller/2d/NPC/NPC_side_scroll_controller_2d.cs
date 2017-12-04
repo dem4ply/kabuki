@@ -6,10 +6,10 @@ using System;
 
 namespace controller {
 	namespace controllers {
-		public class NPC_controller : Controller {
+		public class NPC_side_scroll_controller_2d : Controller_2d {
 
 			#region variables protected
-			protected new NPC_motor _motor;
+			protected new NPC_side_scroll_motor_2d _motor;
 			#endregion
 
 			#region propiedades publicas
@@ -37,7 +37,7 @@ namespace controller {
 
 			#region funciones protegidas
 			protected override void _init_cache_motor() {
-				_motor = GetComponent<motor.NPC_motor>();
+				_motor = GetComponent<motor.NPC_side_scroll_motor_2d>();
 			}
 			#endregion
 		}

@@ -6,7 +6,7 @@ using System;
 
 namespace controller {
 	namespace motor {
-		public class Motor : Chibi_behaviour {
+		public class Motor_2d : Chibi_behaviour {
 			#region variables publicas
 			public float move_speed = 10f;
 			#endregion

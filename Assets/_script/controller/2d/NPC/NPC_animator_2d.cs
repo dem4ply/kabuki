@@ -4,7 +4,8 @@ using System;
 
 namespace controller {
 	namespace animator {
-		public class NPC_animator : animator.Animator_base{
+		public class NPC_animator_2d : animator.Animator_base
+		{
 			protected Vector2 _move_vector = Vector2.zero;
 			protected bool _is_moving = false;
 			protected bool _is_running = false;

@@ -6,10 +6,10 @@ using chibi_base;
 
 namespace controller {
 	namespace controllers {
-		public class Controller : Chibi_behaviour {
+		public class Controller_2d : Chibi_behaviour {
 
 			#region variables protected
-			protected controller.motor.Motor _motor;
+			protected controller.motor.Motor_2d _motor;
 			#endregion
 
 			#region funciones protegidas
@@ -18,7 +18,7 @@ namespace controller {
 			}
 
 			protected virtual void _init_cache_motor() {
-				_motor = GetComponent<motor.Motor>();
+				_motor = GetComponent<motor.Motor_2d>();
 			}
 			#endregion
 		}

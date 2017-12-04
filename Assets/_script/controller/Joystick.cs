@@ -11,7 +11,7 @@ namespace controller {
 
 			#region public vars
 			public string key_map = "player 1";
-			public controller.controllers.NPC_controller controller;
+			public controller.controllers.NPC_side_scroll_controller_2d controller;
 
 			public Vector2 axis_mouse = Vector2.zero;
 			public Vector2 axis_esdf = Vector2.zero;
@@ -111,7 +111,7 @@ namespace controller {
 			/// </summary>
 			protected virtual void _init_cache_controller() {
 				if ( controller == null )
-					controller = GetComponent<NPC_controller>();
+					controller = GetComponent<NPC_side_scroll_controller_2d>();
 			}
 
 			/// <summary>

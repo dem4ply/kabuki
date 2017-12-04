@@ -5,14 +5,14 @@ using System;
 
 namespace controller {
 	namespace motor {
-		public class NPC_motor : Motor {
+		public class NPC_side_scroll_motor_2d : Motor_2d {
 			#region variables publicas
-			public float runner_multiply = 2.0f;
+			float runner_multiply = 2.0f;
 			public float max_horizontal_speed = 10f;
 			#endregion
 
 			#region variables protegidas
-			protected new NPC_animator _animator;
+			protected new NPC_animator_2d _animator;
 			public Vector2 _direction_vector = Vector2.zero;
 			public bool _is_moving = false;
 			public bool _is_running = false;
@@ -60,7 +60,7 @@ namespace controller {
 			}
 
 			protected override void _init_cache_animator() {
-				_animator = GetComponent<animator.NPC_animator>();
+				_animator = GetComponent<animator.NPC_animator_2d>();
 			}
 
 			protected virtual Vector2 _proccess_to_velocity()
