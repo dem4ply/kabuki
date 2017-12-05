@@ -20,7 +20,13 @@ namespace controller
 
 			protected virtual void Update()
 			{
-				this.controller.direction_vector = desire_direction;
+				controller.direction_vector = desire_direction;
+			}
+
+			protected void OnDrawGizmos()
+			{
+				helper.draw.arrow.gizmo(
+					transform.position, desire_direction, Color.magenta );
 			}
 		}
 	}

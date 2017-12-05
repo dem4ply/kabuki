@@ -35,10 +35,21 @@ namespace helper
 					Quaternion.LookRotation( direction )
 					* Quaternion.Euler( 0, 180 - arrow_head_angle, 0 )
 					* new Vector3( 0, 0, 1 );
+				Vector3 up =
+					Quaternion.LookRotation( direction )
+					* Quaternion.Euler( 180 +  arrow_head_angle, 0 , 0 )
+					* new Vector3( 0, 0, 1 );
+				Vector3 down =
+					Quaternion.LookRotation( direction )
+					* Quaternion.Euler( 180 -  arrow_head_angle, 0 , 0 )
+					* new Vector3( 0, 0, 1 );
 
 				Gizmos.DrawRay( position + direction, right * arrow_head_length );
 				Gizmos.DrawRay( position + direction, left * arrow_head_length );
+				Gizmos.DrawRay( position + direction, up * arrow_head_length );
+				Gizmos.DrawRay( position + direction, down * arrow_head_length );
 			}
+
 			/// <summary>
 			/// dibuja una flecha con un color en especifico
 			/// </summary>
@@ -56,7 +67,7 @@ namespace helper
 			{
 				Color current_color = Gizmos.color;
 				Gizmos.color = color;
-				gizmo( position, direction, arrow_head_angle, arrow_head_length );
+				gizmo( position, direction, arrow_head_length, arrow_head_angle );
 				Gizmos.color = current_color;
 			}
 		}
