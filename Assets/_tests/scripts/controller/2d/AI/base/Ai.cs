@@ -6,25 +6,35 @@ using controller.ai;
 using controller.controllers;
 
 public class Test_ai_when_intanciate {
+	GameObject player, floor;
 
-	[UnityTest]
-	public IEnumerator when_start_wihout_a_controller_asignated_should_find_the_controller_in_the_gameobject() {
-		var uni = Resources.Load( "_prefab/tests/ai test_without_controller_assigned" ) as GameObject;
-		GameObject unitychan =
+	[SetUp]
+	public void Instanciate_scenary()
+	{
+		player =
 			(GameObject) Resources.Load(
 				"_prefab/tests/ai test_without_controller_assigned" );
-		GameObject floor =
+		floor =
 			(GameObject) Resources.Load(
 				"_prefab/tests/floor_1" );
+		player = helper.instantiate._( player );
+		floor = helper.instantiate._( floor );
+	}
 
-		Debug.Log( unitychan );
-		Debug.Log( unitychan.transform );
-		Ai ai = unitychan.transform.GetComponent<Ai>();
+	[TearDown]
+	public void clean_scenary()
+	{
+		MonoBehaviour.DestroyImmediate( player );
+		MonoBehaviour.DestroyImmediate( floor );
+	}
+
+	[UnityTest]
+	public IEnumerator when_start_without_a_controller_asignated_should_find_the_controller_in_the_gameobject() {
+		Ai ai = player.transform.GetComponent<Ai>();
 
 		Controller_2d expected_controller =
-			unitychan.transform.GetComponent<Controller_2d>();
+			player.transform.GetComponent<Controller_2d>();
 
-		Assert.AreEqual( null, ai.controller );
 		yield return null;
 
 		Assert.AreEqual( expected_controller, ai.controller );

@@ -30,5 +30,10 @@ namespace helper {
 		public static int angle_region( float angle, float size_region ) {
 			return ( int )Math.Floor( angle / size_region );
 		}
+
+		public static bool between( float number, float min, float max )
+		{
+			return number > min && number < max;
+		}
 	}
 }
