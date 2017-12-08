@@ -184,7 +184,7 @@ namespace geometry {
 				center.x += base_cell.width * 0.5f;
 				center.y -= base_cell.height * 0.5f;
 
-				float x_initial = center.x;
+				// float x_initial = center.x;
 				float y_initial = center.y;
 
 				for ( int i = 0; i < columns; ++i ) {

@@ -1,14 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using controller.animator;
-using controller.motor;
-using controller.controllers;
-using chibi_base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using UnityEngine;
 
 namespace controller
 {
