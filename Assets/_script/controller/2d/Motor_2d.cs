@@ -3,6 +3,7 @@ using System.Collections;
 using controller;
 using chibi_base;
 using System;
+using System.Collections.Generic;
 
 namespace controller {
 	namespace motor {
@@ -15,6 +16,8 @@ namespace controller {
 			protected Transform _transform;
 			protected Rigidbody2D _rigidbody;
 			protected Vector2 _move_vector;
+
+			protected Dictionary<GameObject, Vector3> collitions;
 
 			protected animator.Animator_base _animator;
 			#endregion
@@ -36,8 +39,8 @@ namespace controller {
 			#region funcion publicas
 			#endregion
 
-			#region funciones protegidas
 			protected void FixedUpdate() {
+			//protected void Update() {
 				update_motor();
 			}
 			/// <summary>
@@ -68,9 +71,7 @@ namespace controller {
 			}
 
 			public virtual void after_update_motor() {
-				throw new NotImplementedException();
 			}
-			#endregion
 		}
 	}
 }

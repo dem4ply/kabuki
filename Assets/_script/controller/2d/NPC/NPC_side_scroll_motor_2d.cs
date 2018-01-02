@@ -9,6 +9,8 @@ namespace controller {
 			#region variables publicas
 			float runner_multiply = 2.0f;
 			public float max_horizontal_speed = 10f;
+
+			public float force_of_jump = 10f;
 			#endregion
 
 			#region variables protegidas
@@ -16,6 +18,8 @@ namespace controller {
 			public Vector2 _direction_vector = Vector2.zero;
 			public bool _is_moving = false;
 			public bool _is_running = false;
+			public bool try_to_jump_the_next_update = false;
+			public bool _is_grounded = false;
 			#endregion
 
 			#region propiedades publicas
@@ -40,6 +44,16 @@ namespace controller {
 					return _is_moving;
 				}
 			}
+
+			public virtual bool is_grounded
+			{
+				get {
+					return _is_grounded;
+				}
+				set {
+					_is_grounded = value;
+				}
+			}
 			#endregion
 
 			#region funciones protegidas
@@ -51,6 +65,13 @@ namespace controller {
 				Vector2 speed_vector = this._proccess_to_velocity();
 
 				_rigidbody.velocity = speed_vector;
+
+				if ( this.try_to_jump_the_next_update && this.is_grounded )
+				{
+					_rigidbody.AddForce( new Vector2( 0, force_of_jump ) );
+					try_to_jump_the_next_update = false;
+					is_grounded = false;
+				}
 			}
 
 			public override void update_animator() {
@@ -74,8 +95,36 @@ namespace controller {
 				return new Vector2( speed_vector.x, _rigidbody.velocity.y );
 			}
 
-			public override void after_update_motor() {
-				//direction_vector = Vector2.zero;
+			protected virtual bool _is_the_collition_a_floor(
+				Collision2D collision )
+			{
+				if ( collision.gameObject.tag == helper.consts.tags.scenary )
+					foreach( ContactPoint2D contact in collision.contacts )
+					{
+						float angle = Vector2.Angle( Vector2.left, contact.normal );
+						if ( helper.math.between( angle, 20, 160 ) )
+							return true;
+					}
+				return false;
+			}
+
+			protected virtual void OnCollisionStay2D( Collision2D collision )
+			{
+				bool is_floor = this._is_the_collition_a_floor( collision );
+				if ( is_floor )
+					is_grounded = true;
+			}
+
+			protected virtual void OnCollisionEnter2D( Collision2D collision )
+			{
+				bool is_floor = this._is_the_collition_a_floor( collision );
+				if ( is_floor )
+					is_grounded = true;
+			}
+
+			public virtual void jump()
+			{
+				this.try_to_jump_the_next_update = true;
 			}
 			#endregion
 		}

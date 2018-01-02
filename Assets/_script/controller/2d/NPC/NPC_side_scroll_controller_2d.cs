@@ -12,7 +12,6 @@ namespace controller {
 			protected new NPC_side_scroll_motor_2d _motor;
 			#endregion
 
-			#region propiedades publicas
 			/// <summary>
 			/// modifca el vector de moviento del personaje
 			/// </summary>
@@ -33,13 +32,15 @@ namespace controller {
 					_motor.is_running = value;
 				}
 			}
-			#endregion
 
-			#region funciones protegidas
 			protected override void _init_cache_motor() {
 				_motor = GetComponent<motor.NPC_side_scroll_motor_2d>();
 			}
-			#endregion
+
+			public virtual void jump()
+			{
+				_motor.jump();
+			}
 		}
 	}
 }
