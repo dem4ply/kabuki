@@ -10,7 +10,7 @@ namespace controller {
 			float runner_multiply = 2.0f;
 			public float max_horizontal_speed = 10f;
 
-			public float force_of_jump = 10f;
+			public float force_of_jump = 150f;
 			#endregion
 
 			#region variables protegidas
@@ -48,10 +48,7 @@ namespace controller {
 			public virtual bool is_grounded
 			{
 				get {
-					return _is_grounded;
-				}
-				set {
-					_is_grounded = value;
+					return manager_collisions.get( "is_grounded" );
 				}
 			}
 			#endregion
@@ -70,8 +67,11 @@ namespace controller {
 				{
 					_rigidbody.AddForce( new Vector2( 0, force_of_jump ) );
 					try_to_jump_the_next_update = false;
-					is_grounded = false;
 				}
+			}
+
+			protected override void check_contact_points()
+			{
 			}
 
 			public override void update_animator() {
@@ -108,18 +108,15 @@ namespace controller {
 				return false;
 			}
 
-			protected virtual void OnCollisionStay2D( Collision2D collision )
-			{
-				bool is_floor = this._is_the_collition_a_floor( collision );
-				if ( is_floor )
-					is_grounded = true;
-			}
-
 			protected virtual void OnCollisionEnter2D( Collision2D collision )
 			{
 				bool is_floor = this._is_the_collition_a_floor( collision );
-				if ( is_floor )
-					is_grounded = true;
+				manager_collisions.add(
+					collision.gameObject, "is_grounded", is_floor);
+			}
+			protected virtual void OnCollisionExit2D( Collision2D collision )
+			{
+				manager_collisions.remove( collision.gameObject );
 			}
 
 			public virtual void jump()

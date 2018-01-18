@@ -17,7 +17,10 @@ namespace controller {
 			protected Rigidbody2D _rigidbody;
 			protected Vector2 _move_vector;
 
-			protected Dictionary<GameObject, Vector3> collitions;
+			protected Dictionary<GameObject, Dictionary<string, bool> >
+				collisions = new Dictionary<
+					GameObject, Dictionary<string, bool>>();
+			protected manager.Collision manager_collisions;
 
 			protected animator.Animator_base _animator;
 			#endregion
@@ -41,6 +44,7 @@ namespace controller {
 
 			protected void FixedUpdate() {
 			//protected void Update() {
+				check_contact_points();
 				update_motor();
 			}
 			/// <summary>
@@ -50,13 +54,19 @@ namespace controller {
 				_transform = transform;
 				_rigidbody = GetComponent<Rigidbody2D>();
 				_init_cache_animator();
+				manager_collisions = new manager.Collision();
 			}
 
 			protected virtual void _init_cache_animator() {
 				_animator = GetComponent<animator.Animator_base>();
 			}
 
-			public void update_motor() {
+			protected virtual void check_contact_points()
+			{
+
+			}
+
+			public virtual void update_motor() {
 				update_motion();
 				update_animator();
 				after_update_motor();
@@ -71,6 +81,22 @@ namespace controller {
 			}
 
 			public virtual void after_update_motor() {
+			}
+
+			public virtual void proccess_status_collision(
+				GameObject obj, string key, bool status )
+			{
+				Dictionary<string, bool> map_of_collisions;
+				if ( this.collisions.TryGetValue( obj, out map_of_collisions ) )
+				{
+					map_of_collisions[key] = status;
+				}
+				else
+				{
+					map_of_collisions = new Dictionary<string, bool>();
+					map_of_collisions.Add( key, status );
+					this.collisions.Add( obj, map_of_collisions );
+				}
 			}
 		}
 	}
