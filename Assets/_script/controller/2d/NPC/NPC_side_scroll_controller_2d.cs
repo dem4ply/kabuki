@@ -41,6 +41,11 @@ namespace controller {
 			{
 				_motor.jump();
 			}
+
+			public virtual void stop_jump()
+			{
+				_motor.stop_jump();
+			}
 		}
 	}
 }

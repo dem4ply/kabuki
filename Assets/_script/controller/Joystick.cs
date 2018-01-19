@@ -20,6 +20,7 @@ namespace controller {
 
 			public bool run_key = false;
 			public bool jump_key = false;
+			public bool jump_key_release = false;
 
 			public float dead_zone_esdf_axis = 0.01f;
 			public float dead_zone_mouse_axis = 0.01f;
@@ -51,6 +52,7 @@ namespace controller {
 			public void update_all_buttons() {
 				_get_keys_running();
 				_get_keys_jump();
+				_get_key_jump_is_release();
 			}
 			#endregion
 
@@ -67,6 +69,9 @@ namespace controller {
 				controller.is_running = run_key;
 				if ( jump_key )
 					controller.jump();
+				else
+					controller.stop_jump();
+				//if ( jump_key_release )
 				_draw_debug();
 			}
 
@@ -90,6 +95,13 @@ namespace controller {
 			/// </summary>
 			protected void _get_keys_jump() {
 				jump_key = Input.GetButton( "jump" );
+			}
+
+			/// <summary>
+			/// revisa si se dejo de precionar el boton de salto
+			/// </summary>
+			protected void _get_key_jump_is_release() {
+				jump_key_release = Input.GetButtonUp( "jump" );
 			}
 
 			/// <summary>

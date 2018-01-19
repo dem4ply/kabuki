@@ -359,6 +359,7 @@ MonoBehaviour:
   mouse_position: {x: 0, y: 0}
   mouse_wheel: 0
   run_key: 0
+  jump_key: 0
   dead_zone_esdf_axis: 0.01
   dead_zone_mouse_axis: 0.01
   dead_zone_mouse_wheel: 0.01
@@ -401,10 +402,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 10
-  runner_multiply: 2
+  max_horizontal_speed: 10
+  force_of_jump: 150
+  min_jump_time: 0.5
+  max_jump_time: 2
   _direction_vector: {x: 0, y: 0}
   _is_moving: 0
   _is_running: 0
+  try_to_jump_the_next_update: 0
+  _is_grounded: 0
   model: {fileID: 0}
 --- !u!50 &80866372
 Rigidbody2D:
@@ -1400,7 +1406,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 392734700}
-  m_LocalRotation: {x: -0.093746535, y: 0.6978551, z: 0.707469, w: 0.060806736}
+  m_LocalRotation: {x: -0.093746535, y: 0.6978551, z: 0.707469, w: 0.06080672}
   m_LocalPosition: {x: -0.05543403, y: 0.0017306843, z: 0.098653734}
   m_LocalScale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
   m_Children:
@@ -3575,7 +3581,7 @@ GameObject:
   - component: {fileID: 1241718095}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: asdf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3677,7 +3683,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!1 &1242356455
 GameObject:

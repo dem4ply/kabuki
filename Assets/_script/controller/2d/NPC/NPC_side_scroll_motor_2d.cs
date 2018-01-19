@@ -11,18 +11,31 @@ namespace controller {
 			public float max_horizontal_speed = 10f;
 
 			public float force_of_jump = 150f;
+			public float jump_velocity_change = 1f;
+			public float jump_aceleration = 1f;
+			public Vector2 ground_jump_vector = Vector2.up;
+			public float min_jump_time = 0.5f;
+			public float max_jump_time = 2f;
+
+
+			public float jump_heigh = 4f;
+			public float jump_time = 0.4f;
+
+			public float jump_velocity;
+			public float gravity = -9.8f;
 			#endregion
 
 			#region variables protegidas
 			protected new NPC_animator_2d _animator;
-			public Vector2 _direction_vector = Vector2.zero;
-			public bool _is_moving = false;
-			public bool _is_running = false;
-			public bool try_to_jump_the_next_update = false;
-			public bool _is_grounded = false;
+			protected Vector2 _direction_vector = Vector2.zero;
+			protected bool _is_moving = false;
+			protected bool _is_running = false;
+			protected bool try_to_jump_the_next_update = false;
+			protected bool _is_grounded = false;
+
+			protected float time_that_is_been_jumping = 0.0f;
 			#endregion
 
-			#region propiedades publicas
 			public bool is_running {
 				get; set;
 			}
@@ -51,7 +64,19 @@ namespace controller {
 					return manager_collisions.get( "is_grounded" );
 				}
 			}
-			#endregion
+
+			public virtual bool is_not_grounded
+			{
+				get {
+					return !is_grounded;
+				}
+			}
+			
+			public virtual bool is_jumping
+			{
+				get;
+				set;
+			}
 
 			#region funciones protegidas
 			/// <summary>
@@ -59,19 +84,16 @@ namespace controller {
 			/// </summary>
 			public override void update_motion() {
 				//helper.vector2.if_need_normalize( ref _move_vector );
-				Vector2 speed_vector = this._proccess_to_velocity();
+				Vector2 speed_vector = _proccess_to_velocity();
+				_process_jump( ref speed_vector );
 
 				_rigidbody.velocity = speed_vector;
-
-				if ( this.try_to_jump_the_next_update && this.is_grounded )
-				{
-					_rigidbody.AddForce( new Vector2( 0, force_of_jump ) );
-					try_to_jump_the_next_update = false;
-				}
 			}
 
-			protected override void check_contact_points()
+			protected virtual void _process_jump( ref Vector2 speed_vector )
 			{
+				if ( try_to_jump_the_next_update && is_grounded )
+					speed_vector.y = jump_velocity;
 			}
 
 			public override void update_animator() {
@@ -89,10 +111,13 @@ namespace controller {
 				float horizontal_speed = direction_vector.x * move_speed;
 				horizontal_speed = Mathf.Clamp(
 					horizontal_speed, -max_horizontal_speed, max_horizontal_speed);
-				Vector2 speed_vector = new Vector2( horizontal_speed, 0 );
 				if ( is_running )
-					speed_vector *= runner_multiply;
-				return new Vector2( speed_vector.x, _rigidbody.velocity.y );
+					horizontal_speed *= runner_multiply;
+
+				float vertical_speed = _rigidbody.velocity.y;
+				vertical_speed += ( gravity * Time.deltaTime );
+
+				return new Vector2( horizontal_speed, vertical_speed );
 			}
 
 			protected virtual bool _is_the_collition_a_floor(
@@ -121,7 +146,19 @@ namespace controller {
 
 			public virtual void jump()
 			{
-				this.try_to_jump_the_next_update = true;
+				try_to_jump_the_next_update = true;
+				time_that_is_been_jumping = 0.0f;
+			}
+			public virtual void stop_jump()
+			{
+				try_to_jump_the_next_update = false;
+			}
+
+			protected override void Start()
+			{
+				base.Start();
+				gravity = - ( 2 * jump_heigh ) / ( jump_time * jump_time );
+				jump_velocity = Math.Abs( gravity ) * jump_time;
 			}
 			#endregion
 		}
