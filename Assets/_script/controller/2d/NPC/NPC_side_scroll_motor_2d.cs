@@ -71,6 +71,20 @@ namespace controller {
 					return !is_grounded;
 				}
 			}
+
+			public virtual bool is_walled
+			{
+				get {
+					return manager_collisions.get( "is_walled" );
+				}
+			}
+
+			public virtual bool is_not_walled
+			{
+				get {
+					return !is_walled;
+				}
+			}
 			
 			public virtual bool is_jumping
 			{
@@ -133,11 +147,27 @@ namespace controller {
 				return false;
 			}
 
+			protected virtual bool _is_the_collition_a_wall(
+				Collision2D collision )
+			{
+				if ( collision.gameObject.tag == helper.consts.tags.scenary )
+					foreach( ContactPoint2D contact in collision.contacts )
+					{
+						float angle = Vector2.Angle( Vector2.up, contact.normal );
+						if ( helper.math.between( angle, 70, 110 ) )
+							return true;
+					}
+				return false;
+			}
+
 			protected virtual void OnCollisionEnter2D( Collision2D collision )
 			{
-				bool is_floor = this._is_the_collition_a_floor( collision );
+				bool is_floor = _is_the_collition_a_floor( collision );
+				bool is_wall = _is_the_collition_a_wall( collision );
 				manager_collisions.add(
 					collision.gameObject, "is_grounded", is_floor);
+				manager_collisions.add(
+					collision.gameObject, "is_walled", is_wall );
 			}
 			protected virtual void OnCollisionExit2D( Collision2D collision )
 			{
