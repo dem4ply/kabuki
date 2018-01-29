@@ -23,6 +23,8 @@ namespace controller {
 
 			public float jump_velocity;
 			public float gravity = -9.8f;
+
+			public float multiplier_velocity_wall_slice = 0.8f;
 			#endregion
 
 			#region variables protegidas
@@ -130,6 +132,9 @@ namespace controller {
 
 				float vertical_speed = _rigidbody.velocity.y;
 				vertical_speed += ( gravity * Time.deltaTime );
+
+				if ( is_not_grounded && is_walled )
+					vertical_speed *= multiplier_velocity_wall_slice;
 
 				return new Vector2( horizontal_speed, vertical_speed );
 			}
