@@ -87,6 +87,34 @@ namespace controller {
 					return !is_walled;
 				}
 			}
+
+			public virtual bool is_walled_left
+			{
+				get {
+					return manager_collisions.get( "is_walled_left" );
+				}
+			}
+
+			public virtual bool is_walled_right
+			{
+				get {
+					return manager_collisions.get( "is_walled_right" );
+				}
+			}
+
+			public virtual bool no_is_walled_left
+			{
+				get {
+					return !is_walled_left;
+				}
+			}
+
+			public virtual bool no_is_walled_right
+			{
+				get {
+					return !is_walled_right;
+				}
+			}
 			
 			public virtual bool is_jumping
 			{
@@ -139,7 +167,7 @@ namespace controller {
 				return new Vector2( horizontal_speed, vertical_speed );
 			}
 
-			protected virtual bool _is_the_collition_a_floor(
+			protected virtual void _is_the_collition_a_floor(
 				Collision2D collision )
 			{
 				if ( collision.gameObject.tag == helper.consts.tags.scenary )
@@ -147,12 +175,15 @@ namespace controller {
 					{
 						float angle = Vector2.Angle( Vector2.left, contact.normal );
 						if ( helper.math.between( angle, 20, 160 ) )
-							return true;
+						{
+							manager_collisions.add(
+								collision.gameObject, "is_grounded", true );
+							return;
+						}
 					}
-				return false;
 			}
 
-			protected virtual bool _is_the_collition_a_wall(
+			protected virtual void _is_the_collition_a_wall(
 				Collision2D collision )
 			{
 				if ( collision.gameObject.tag == helper.consts.tags.scenary )
@@ -160,19 +191,32 @@ namespace controller {
 					{
 						float angle = Vector2.Angle( Vector2.up, contact.normal );
 						if ( helper.math.between( angle, 70, 110 ) )
-							return true;
+						{
+							manager_collisions.add(
+								collision.gameObject, "is_walled", true );
+							if ( contact.normal.x > 0 )
+							{
+								manager_collisions.add(
+									collision.gameObject, "is_walled_left", true );
+								manager_collisions.add(
+									collision.gameObject, "is_walled_right", false );
+							}
+							else if ( contact.normal.x < 0 )
+							{
+								manager_collisions.add(
+									collision.gameObject, "is_walled_right", true );
+								manager_collisions.add(
+									collision.gameObject, "is_walled_left", false );
+							}
+							return;
+						}
 					}
-				return false;
 			}
 
 			protected virtual void OnCollisionEnter2D( Collision2D collision )
 			{
-				bool is_floor = _is_the_collition_a_floor( collision );
-				bool is_wall = _is_the_collition_a_wall( collision );
-				manager_collisions.add(
-					collision.gameObject, "is_grounded", is_floor);
-				manager_collisions.add(
-					collision.gameObject, "is_walled", is_wall );
+				_is_the_collition_a_floor( collision );
+				_is_the_collition_a_wall( collision );
 			}
 			protected virtual void OnCollisionExit2D( Collision2D collision )
 			{

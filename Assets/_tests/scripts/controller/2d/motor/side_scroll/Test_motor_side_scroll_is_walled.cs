@@ -47,4 +47,33 @@ public class Test_motor_side_scroll_is_walled
 		Assert.IsTrue( motor.is_walled );
 		Assert.IsFalse( motor.is_not_walled );
 	}
+
+	[UnityTest]
+	public IEnumerator if_touch_left_wall_should_player_be_walled_left()
+	{
+		NPC_side_scroll_motor_2d motor =
+			player_left.GetComponent<NPC_side_scroll_motor_2d>();
+		Assert.IsFalse( motor.is_walled );
+		Assert.IsTrue( motor.is_not_walled );
+		Assert.IsTrue( motor.no_is_walled_left );
+		Assert.IsTrue( motor.no_is_walled_right );
+		yield return new WaitForSeconds( 1 );
+		Assert.IsTrue( motor.is_walled_left );
+		Assert.IsFalse( motor.is_walled_right );
+	}
+
+	[UnityTest]
+	public IEnumerator if_touch_left_wall_should_player_be_walled_right()
+	{
+		NPC_side_scroll_motor_2d motor =
+			player_right.GetComponent<NPC_side_scroll_motor_2d>();
+		Assert.IsFalse( motor.is_walled );
+		Assert.IsTrue( motor.is_not_walled );
+		Assert.IsTrue( motor.no_is_walled_left );
+		Assert.IsTrue( motor.no_is_walled_right );
+		yield return new WaitForSeconds( 1 );
+		Assert.IsTrue( motor.is_walled_right );
+		Assert.IsFalse( motor.is_walled_left );
+	}
+
 }
