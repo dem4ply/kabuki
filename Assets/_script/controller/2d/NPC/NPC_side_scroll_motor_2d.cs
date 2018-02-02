@@ -8,15 +8,9 @@ namespace controller {
 		public class NPC_side_scroll_motor_2d : Motor_2d {
 			#region variables publicas
 			float runner_multiply = 2.0f;
-			public float max_horizontal_speed = 10f;
 
-			public float force_of_jump = 150f;
-			public float jump_velocity_change = 1f;
-			public float jump_aceleration = 1f;
-			public Vector2 ground_jump_vector = Vector2.up;
 			public float min_jump_time = 0.5f;
 			public float max_jump_time = 2f;
-
 
 			public float jump_heigh = 4f;
 			public float jump_time = 0.4f;
@@ -25,6 +19,13 @@ namespace controller {
 			public float gravity = -9.8f;
 
 			public float multiplier_velocity_wall_slice = 0.8f;
+
+			public Vector2 wall_jump_climp;
+			public Vector2 wall_jump_off;
+			public Vector2 wall_jump_leap;
+
+			float acceleration_time_in_ground = 0.1f;
+			float acceleration_time_in_air = 0.2f;
 			#endregion
 
 			#region variables protegidas
@@ -36,6 +37,8 @@ namespace controller {
 			protected bool _is_grounded = false;
 
 			protected float time_that_is_been_jumping = 0.0f;
+
+			protected float horizontal_velocity_smooth;
 			#endregion
 
 			public bool is_running {
@@ -136,8 +139,33 @@ namespace controller {
 
 			protected virtual void _process_jump( ref Vector2 speed_vector )
 			{
-				if ( try_to_jump_the_next_update && is_grounded )
-					speed_vector.y = jump_velocity;
+				if ( try_to_jump_the_next_update )
+				{
+					if ( is_walled && is_not_grounded)
+					{
+						int jump_direction = is_walled_left ? -1 : 1;
+						if ( Math.Sign( direction_vector.x ) == jump_direction )
+						{
+							Debug.Log( "jump climp" );
+							speed_vector.x = -jump_direction * wall_jump_climp.x;
+							speed_vector.y = wall_jump_climp.y;
+						}
+						else if ( direction_vector.x == 0)
+						{
+							speed_vector.x = -jump_direction * wall_jump_off.x;
+							speed_vector.y = wall_jump_off.y;
+							Debug.Log( string.Format( "jump off :: {0}", speed_vector ) );
+						}
+						else
+						{
+							Debug.Log( "jump leap" );
+							speed_vector.x = -jump_direction * wall_jump_leap.x;
+							speed_vector.y = wall_jump_leap.y;
+						}
+					}
+					else if ( is_grounded )
+						speed_vector.y = jump_velocity;
+				}
 			}
 
 			public override void update_animator() {
@@ -152,11 +180,21 @@ namespace controller {
 
 			protected virtual Vector2 _proccess_to_velocity()
 			{
-				float horizontal_speed = direction_vector.x * move_speed;
-				horizontal_speed = Mathf.Clamp(
-					horizontal_speed, -max_horizontal_speed, max_horizontal_speed);
+				float desire_horizontal_velocity = direction_vector.x * move_speed;
 				if ( is_running )
-					horizontal_speed *= runner_multiply;
+					desire_horizontal_velocity *= runner_multiply;
+
+				float current_horizontal_velocity = _rigidbody.velocity.x;
+
+				float acceleration_time = 0f;
+				if ( is_grounded )
+					acceleration_time = acceleration_time_in_ground;
+				else
+					acceleration_time = acceleration_time_in_air;
+
+				float final_horizontal_velocity = Mathf.SmoothDamp(
+					current_horizontal_velocity, desire_horizontal_velocity,
+					ref horizontal_velocity_smooth, acceleration_time_in_ground );
 
 				float vertical_speed = _rigidbody.velocity.y;
 				vertical_speed += ( gravity * Time.deltaTime );
@@ -164,7 +202,7 @@ namespace controller {
 				if ( is_not_grounded && is_walled )
 					vertical_speed *= multiplier_velocity_wall_slice;
 
-				return new Vector2( horizontal_speed, vertical_speed );
+				return new Vector2( final_horizontal_velocity, vertical_speed );
 			}
 
 			protected virtual void _is_the_collition_a_floor(
