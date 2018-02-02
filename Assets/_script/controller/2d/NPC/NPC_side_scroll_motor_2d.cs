@@ -137,6 +137,38 @@ namespace controller {
 				_rigidbody.velocity = speed_vector;
 			}
 
+			protected virtual Vector2 _proccess_to_velocity()
+			{
+				float desire_horizontal_velocity = direction_vector.x * move_speed;
+				if ( is_running )
+					desire_horizontal_velocity *= runner_multiply;
+
+				float current_horizontal_velocity = _rigidbody.velocity.x;
+
+				float acceleration_time = 0f;
+				if ( is_grounded )
+					acceleration_time = acceleration_time_in_ground;
+				else
+					acceleration_time = acceleration_time_in_air;
+
+				float final_horizontal_velocity = Mathf.SmoothDamp(
+					current_horizontal_velocity, desire_horizontal_velocity,
+					ref horizontal_velocity_smooth, acceleration_time_in_ground );
+
+				return new Vector2(
+					final_horizontal_velocity, _rigidbody.velocity.y );
+			}
+
+			protected virtual void _proccess_gravity(
+				ref Vector2 velocity_vector )
+			{
+				velocity_vector.y += ( gravity * Time.deltaTime );
+
+				if ( is_not_grounded && is_walled )
+					velocity_vector.y *= multiplier_velocity_wall_slice;
+			}
+
+
 			protected virtual void _process_jump( ref Vector2 speed_vector )
 			{
 				if ( try_to_jump_the_next_update )
@@ -176,33 +208,6 @@ namespace controller {
 
 			protected override void _init_cache_animator() {
 				_animator = GetComponent<animator.NPC_animator_2d>();
-			}
-
-			protected virtual Vector2 _proccess_to_velocity()
-			{
-				float desire_horizontal_velocity = direction_vector.x * move_speed;
-				if ( is_running )
-					desire_horizontal_velocity *= runner_multiply;
-
-				float current_horizontal_velocity = _rigidbody.velocity.x;
-
-				float acceleration_time = 0f;
-				if ( is_grounded )
-					acceleration_time = acceleration_time_in_ground;
-				else
-					acceleration_time = acceleration_time_in_air;
-
-				float final_horizontal_velocity = Mathf.SmoothDamp(
-					current_horizontal_velocity, desire_horizontal_velocity,
-					ref horizontal_velocity_smooth, acceleration_time_in_ground );
-
-				float vertical_speed = _rigidbody.velocity.y;
-				vertical_speed += ( gravity * Time.deltaTime );
-
-				if ( is_not_grounded && is_walled )
-					vertical_speed *= multiplier_velocity_wall_slice;
-
-				return new Vector2( final_horizontal_velocity, vertical_speed );
 			}
 
 			protected virtual void _is_the_collition_a_floor(
