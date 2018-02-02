@@ -131,19 +131,24 @@ namespace controller {
 			/// </summary>
 			public override void update_motion() {
 				//helper.vector2.if_need_normalize( ref _move_vector );
-				Vector2 speed_vector = _proccess_to_velocity();
-				_process_jump( ref speed_vector );
+				Vector2 velocity_vector = new Vector2(
+					_rigidbody.velocity.x, _rigidbody.velocity.y );
 
-				_rigidbody.velocity = speed_vector;
+				_proccess_to_velocity( ref velocity_vector );
+				_proccess_gravity( ref velocity_vector );
+				_process_jump( ref velocity_vector );
+
+				_rigidbody.velocity = velocity_vector;
 			}
 
-			protected virtual Vector2 _proccess_to_velocity()
+			protected virtual void _proccess_to_velocity(
+				ref Vector2 velocity_vector )
 			{
 				float desire_horizontal_velocity = direction_vector.x * move_speed;
 				if ( is_running )
 					desire_horizontal_velocity *= runner_multiply;
 
-				float current_horizontal_velocity = _rigidbody.velocity.x;
+				float current_horizontal_velocity = velocity_vector.x;
 
 				float acceleration_time = 0f;
 				if ( is_grounded )
@@ -151,12 +156,12 @@ namespace controller {
 				else
 					acceleration_time = acceleration_time_in_air;
 
+				// suavizado de la velocidad horizontal
 				float final_horizontal_velocity = Mathf.SmoothDamp(
 					current_horizontal_velocity, desire_horizontal_velocity,
 					ref horizontal_velocity_smooth, acceleration_time_in_ground );
 
-				return new Vector2(
-					final_horizontal_velocity, _rigidbody.velocity.y );
+				velocity_vector.x = final_horizontal_velocity;
 			}
 
 			protected virtual void _proccess_gravity(
