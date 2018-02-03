@@ -126,6 +126,7 @@ namespace controller {
 			}
 
 			#region funciones protegidas
+			#region funciones de movimiento
 			/// <summary>
 			/// actualiza el movimiento de NPC
 			/// </summary>
@@ -141,6 +142,10 @@ namespace controller {
 				_rigidbody.velocity = velocity_vector;
 			}
 
+			/// <summary>
+			/// modifica el vector de velocidad para agregar la direcion deseada
+			/// </summary>
+			/// <param name="velocity_vector">actual velocidad</param>
 			protected virtual void _proccess_to_velocity(
 				ref Vector2 velocity_vector )
 			{
@@ -164,6 +169,10 @@ namespace controller {
 				velocity_vector.x = final_horizontal_velocity;
 			}
 
+			/// <summary>
+			/// agraga la gravedad al vector de velocidad
+			/// </summary>
+			/// <param name="velocity_vector">actual velocidad</param>
 			protected virtual void _proccess_gravity(
 				ref Vector2 velocity_vector )
 			{
@@ -174,6 +183,11 @@ namespace controller {
 			}
 
 
+			/// <summary>
+			/// agrega la velocida de salto al vector de velocidad
+			/// una consecuencia elimina la gravedad si agrego alguna
+			/// </summary>
+			/// <param name="speed_vector">actual velocidad</param>
 			protected virtual void _process_jump( ref Vector2 speed_vector )
 			{
 				if ( try_to_jump_the_next_update )
@@ -205,6 +219,9 @@ namespace controller {
 				}
 			}
 
+			#endregion
+
+			#region funciones de animador
 			public override void update_animator() {
 				_animator.direction_vector = direction_vector;
 				_animator.is_moving = _rigidbody.velocity.magnitude > 0.1f;
@@ -215,6 +232,9 @@ namespace controller {
 				_animator = GetComponent<animator.NPC_animator_2d>();
 			}
 
+			#endregion
+
+			#region procesamiento de colisiones
 			protected virtual void _is_the_collition_a_floor(
 				Collision2D collision )
 			{
@@ -266,10 +286,12 @@ namespace controller {
 				_is_the_collition_a_floor( collision );
 				_is_the_collition_a_wall( collision );
 			}
+
 			protected virtual void OnCollisionExit2D( Collision2D collision )
 			{
 				manager_collisions.remove( collision.gameObject );
 			}
+			#endregion
 
 			public virtual void jump()
 			{
