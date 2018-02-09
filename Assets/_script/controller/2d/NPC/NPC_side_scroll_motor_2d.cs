@@ -24,8 +24,8 @@ namespace controller {
 			public Vector2 wall_jump_off;
 			public Vector2 wall_jump_leap;
 
-			float acceleration_time_in_ground = 0.1f;
-			float acceleration_time_in_air = 0.2f;
+			public float acceleration_time_in_ground = 0.1f;
+			public float acceleration_time_in_air = 0.2f;
 			#endregion
 
 			#region variables protegidas
@@ -135,7 +135,10 @@ namespace controller {
 				Vector2 velocity_vector = new Vector2(
 					_rigidbody.velocity.x, _rigidbody.velocity.y );
 
-				_proccess_to_velocity( ref velocity_vector );
+				if ( is_grounded )
+					_proccess_ground_horizontal_velocity( ref velocity_vector );
+				else
+					_proccess_air_horizontal_velocity( ref velocity_vector );
 				_proccess_gravity( ref velocity_vector );
 				_process_jump( ref velocity_vector );
 
@@ -146,7 +149,7 @@ namespace controller {
 			/// modifica el vector de velocidad para agregar la direcion deseada
 			/// </summary>
 			/// <param name="velocity_vector">actual velocidad</param>
-			protected virtual void _proccess_to_velocity(
+			protected virtual void _proccess_ground_horizontal_velocity(
 				ref Vector2 velocity_vector )
 			{
 				float desire_horizontal_velocity = direction_vector.x * move_speed;
@@ -155,18 +158,40 @@ namespace controller {
 
 				float current_horizontal_velocity = velocity_vector.x;
 
-				float acceleration_time = 0f;
-				if ( is_grounded )
-					acceleration_time = acceleration_time_in_ground;
-				else
-					acceleration_time = acceleration_time_in_air;
-
 				// suavizado de la velocidad horizontal
 				float final_horizontal_velocity = Mathf.SmoothDamp(
 					current_horizontal_velocity, desire_horizontal_velocity,
 					ref horizontal_velocity_smooth, acceleration_time_in_ground );
 
 				velocity_vector.x = final_horizontal_velocity;
+			}
+
+			/// <summary>
+			/// modifica el vector de velocidad a la direcion deseada en el aire
+			/// </summary>
+			/// <param name="velocity_vector">actual velocidad</param>
+			protected virtual void _proccess_air_horizontal_velocity(
+				ref Vector2 velocity_vector )
+			{
+				int current_direction = Math.Sign( velocity_vector.x );
+				int desire_direction = Math.Sign( direction_vector.x );
+				// no hace nada porque no hay actualizacion en la direcion
+				if ( desire_direction == 0 )
+					return;
+
+				float desire_horizontal_velocity = direction_vector.x * move_speed;
+				if ( is_running )
+					desire_horizontal_velocity *= runner_multiply;
+
+				float current_horizontal_velocity = velocity_vector.x;
+
+				// suavizado de la velocidad horizontal
+				float final_horizontal_velocity = Mathf.SmoothDamp(
+					current_horizontal_velocity, desire_horizontal_velocity,
+					ref horizontal_velocity_smooth, acceleration_time_in_air );
+				
+				velocity_vector.x = final_horizontal_velocity;
+
 			}
 
 			/// <summary>
@@ -197,7 +222,6 @@ namespace controller {
 						int jump_direction = is_walled_left ? -1 : 1;
 						if ( Math.Sign( direction_vector.x ) == jump_direction )
 						{
-							Debug.Log( "jump climp" );
 							speed_vector.x = -jump_direction * wall_jump_climp.x;
 							speed_vector.y = wall_jump_climp.y;
 						}
@@ -205,11 +229,9 @@ namespace controller {
 						{
 							speed_vector.x = -jump_direction * wall_jump_off.x;
 							speed_vector.y = wall_jump_off.y;
-							Debug.Log( string.Format( "jump off :: {0}", speed_vector ) );
 						}
 						else
 						{
-							Debug.Log( "jump leap" );
 							speed_vector.x = -jump_direction * wall_jump_leap.x;
 							speed_vector.y = wall_jump_leap.y;
 						}

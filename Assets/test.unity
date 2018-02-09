@@ -403,11 +403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 10
-  max_horizontal_speed: 10
-  force_of_jump: 150
-  jump_velocity_change: 1
-  jump_aceleration: 1
-  ground_jump_vector: {x: 0, y: 1}
   min_jump_time: 0.5
   max_jump_time: 2
   jump_heigh: 4
@@ -415,6 +410,11 @@ MonoBehaviour:
   jump_velocity: 0
   gravity: -9.8
   multiplier_velocity_wall_slice: 0.8
+  wall_jump_climp: {x: 14, y: 14}
+  wall_jump_off: {x: 8, y: 5}
+  wall_jump_leap: {x: 14, y: 20}
+  acceleration_time_in_ground: 0.1
+  acceleration_time_in_air: 0.2
   model: {fileID: 0}
 --- !u!50 &80866372
 Rigidbody2D:
@@ -1410,7 +1410,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 392734700}
-  m_LocalRotation: {x: -0.09374654, y: 0.6978552, z: 0.70746905, w: 0.060806714}
+  m_LocalRotation: {x: -0.093746535, y: 0.6978551, z: 0.707469, w: 0.0608067}
   m_LocalPosition: {x: -0.05543403, y: 0.0017306843, z: 0.098653734}
   m_LocalScale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
   m_Children:
