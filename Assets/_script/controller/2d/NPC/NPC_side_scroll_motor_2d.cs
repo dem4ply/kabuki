@@ -9,13 +9,13 @@ namespace controller {
 			#region variables publicas
 			float runner_multiply = 2.0f;
 
-			public float min_jump_time = 0.5f;
-			public float max_jump_time = 2f;
 
-			public float jump_heigh = 4f;
+			public float max_jump_heigh = 4f;
+			public float min_jump_heigh = 1f;
 			public float jump_time = 0.4f;
 
-			public float jump_velocity;
+			public float max_jump_velocity;
+			public float min_jump_velocity;
 			public float gravity = -9.8f;
 
 			public float multiplier_velocity_wall_slice = 0.8f;
@@ -35,8 +35,6 @@ namespace controller {
 			protected bool _is_running = false;
 			protected bool try_to_jump_the_next_update = false;
 			protected bool _is_grounded = false;
-
-			protected float time_that_is_been_jumping = 0.0f;
 
 			protected float horizontal_velocity_smooth;
 			#endregion
@@ -237,8 +235,10 @@ namespace controller {
 						}
 					}
 					else if ( is_grounded )
-						speed_vector.y = jump_velocity;
+						speed_vector.y = max_jump_velocity;
 				}
+				else if ( speed_vector.y > min_jump_velocity )
+					speed_vector.y = min_jump_velocity;
 			}
 
 			#endregion
@@ -318,7 +318,6 @@ namespace controller {
 			public virtual void jump()
 			{
 				try_to_jump_the_next_update = true;
-				time_that_is_been_jumping = 0.0f;
 			}
 			public virtual void stop_jump()
 			{
@@ -328,8 +327,10 @@ namespace controller {
 			protected override void Start()
 			{
 				base.Start();
-				gravity = - ( 2 * jump_heigh ) / ( jump_time * jump_time );
-				jump_velocity = Math.Abs( gravity ) * jump_time;
+				gravity = - ( 2 * max_jump_heigh ) / ( jump_time * jump_time );
+				max_jump_velocity = Math.Abs( gravity ) * jump_time;
+				min_jump_velocity = ( float )Math.Sqrt(
+					2.0 * Math.Abs( gravity ) * min_jump_heigh );
 			}
 			#endregion
 		}
