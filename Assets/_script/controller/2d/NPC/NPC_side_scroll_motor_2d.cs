@@ -20,12 +20,20 @@ namespace controller {
 
 			public float multiplier_velocity_wall_slice = 0.8f;
 
-			public Vector2 wall_jump_climp;
-			public Vector2 wall_jump_off;
-			public Vector2 wall_jump_leap;
+			public Vector2 wall_jump_climp = new Vector2( 14, 14 );
+			public Vector2 wall_jump_off = new Vector2( 8, 5 );
+			public Vector2 wall_jump_leap = new Vector2( 14, 20 );
 
 			public float acceleration_time_in_ground = 0.1f;
 			public float acceleration_time_in_air = 0.2f;
+
+			Vector2 angle_vector_for_floor = Vector2.left;
+			public float min_angle_for_floor = 20f;
+			public float max_angle_for_floor = 160;
+
+			Vector2 angle_vector_for_wall = Vector2.up;
+			public float min_angle_for_wall = 70f;
+			public float max_angle_for_wall = 110;
 			#endregion
 
 			#region variables protegidas
@@ -257,56 +265,57 @@ namespace controller {
 			#endregion
 
 			#region procesamiento de colisiones
-			protected virtual void _is_the_collition_a_floor(
-				Collision2D collision )
+			protected virtual void _proccess_collsion( Collision2D collision )
 			{
 				if ( collision.gameObject.tag == helper.consts.tags.scenary )
+				{
 					foreach( ContactPoint2D contact in collision.contacts )
 					{
-						float angle = Vector2.Angle( Vector2.left, contact.normal );
-						if ( helper.math.between( angle, 20, 160 ) )
-						{
-							manager_collisions.add(
-								collision.gameObject, "is_grounded", true );
-							return;
-						}
+						_check_is_contact_a_floor( contact, collision.gameObject );
+						_check_is_contact_a_wall( contact, collision.gameObject );
+						//_check_is_contact_is_slope( contact, collision.gameObject );
 					}
+				}
 			}
 
-			protected virtual void _is_the_collition_a_wall(
-				Collision2D collision )
+			protected virtual void _check_is_contact_a_floor(
+				ContactPoint2D contact, GameObject game_object )
 			{
-				if ( collision.gameObject.tag == helper.consts.tags.scenary )
-					foreach( ContactPoint2D contact in collision.contacts )
+				float angle = Vector2.Angle( angle_vector_for_floor, contact.normal );
+				if ( helper.math.between(
+						angle, min_angle_for_floor, max_angle_for_floor ) )
+				{
+					manager_collisions.add( game_object, "is_grounded", true );
+				}
+			}
+
+			protected virtual void _check_is_contact_a_wall(
+				ContactPoint2D contact, GameObject game_object )
+			{
+				float angle = Vector2.Angle( angle_vector_for_wall, contact.normal );
+				bool is_walled_left = false, is_walled_right = false;
+				if ( helper.math.between(
+						angle, min_angle_for_wall, max_angle_for_wall ) )
+				{
+					manager_collisions.add( game_object, "is_walled", true );
+					if ( contact.normal.x > 0 )
 					{
-						float angle = Vector2.Angle( Vector2.up, contact.normal );
-						if ( helper.math.between( angle, 70, 110 ) )
-						{
-							manager_collisions.add(
-								collision.gameObject, "is_walled", true );
-							if ( contact.normal.x > 0 )
-							{
-								manager_collisions.add(
-									collision.gameObject, "is_walled_left", true );
-								manager_collisions.add(
-									collision.gameObject, "is_walled_right", false );
-							}
-							else if ( contact.normal.x < 0 )
-							{
-								manager_collisions.add(
-									collision.gameObject, "is_walled_right", true );
-								manager_collisions.add(
-									collision.gameObject, "is_walled_left", false );
-							}
-							return;
-						}
+						is_walled_left = true; is_walled_right = false;
 					}
+					else if ( contact.normal.x < 0 )
+					{
+						is_walled_left = false; is_walled_right = true;
+					}
+					manager_collisions.add(
+						game_object, "is_walled_left", is_walled_left );
+					manager_collisions.add(
+						game_object, "is_walled_right", is_walled_right );
+				}
 			}
 
 			protected virtual void OnCollisionEnter2D( Collision2D collision )
 			{
-				_is_the_collition_a_floor( collision );
-				_is_the_collition_a_wall( collision );
+				_proccess_collsion( collision );
 			}
 
 			protected virtual void OnCollisionExit2D( Collision2D collision )
