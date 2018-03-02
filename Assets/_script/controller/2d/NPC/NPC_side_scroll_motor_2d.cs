@@ -9,7 +9,6 @@ namespace controller {
 			#region variables publicas
 			float runner_multiply = 2.0f;
 
-
 			public float max_jump_heigh = 4f;
 			public float min_jump_heigh = 1f;
 			public float jump_time = 0.4f;
@@ -27,11 +26,11 @@ namespace controller {
 			public float acceleration_time_in_ground = 0.1f;
 			public float acceleration_time_in_air = 0.2f;
 
-			Vector2 angle_vector_for_floor = Vector2.left;
+			public Vector2 angle_vector_for_floor = Vector2.left;
 			public float min_angle_for_floor = 20f;
 			public float max_angle_for_floor = 160;
 
-			Vector2 angle_vector_for_wall = Vector2.up;
+			public Vector2 angle_vector_for_wall = Vector2.up;
 			public float min_angle_for_wall = 70f;
 			public float max_angle_for_wall = 110;
 			#endregion
