@@ -1,6 +1,5 @@
 fileFormatVersion: 2
 guid: ffe87c9e4c26d174b8df06771ce447bf
-timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -606,6 +605,7 @@ ModelImporter:
     13700034: shirts_sode_BK
     13700036: uwagi_BK
     13700038: cheek
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -630,6 +630,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
