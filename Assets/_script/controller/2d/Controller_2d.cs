@@ -9,7 +9,38 @@ namespace controller {
 		public class Controller_2d : Chibi_behaviour {
 
 			#region variables protected
-			protected controller.motor.Motor_2d _motor;
+			[System.NonSerialized]
+			public controller.motor.Motor_2d _motor;
+			#endregion
+
+			#region propiedades publicas
+			public virtual bool is_running {
+				set {
+					_motor.is_running = value;
+				}
+			}
+
+			/// <summary>
+			/// modifca el vector de moviento del personaje
+			/// </summary>
+			public virtual Vector2 direction_vector{
+				set {
+					_motor.direction_vector = value;
+				}
+			}
+			#endregion
+
+			#region funciones publicas
+			public virtual void jump()
+			{
+				_motor.jump();
+			}
+
+			public virtual void stop_jump()
+			{
+				_motor.stop_jump();
+			}
+
 			#endregion
 
 			#region funciones protegidas

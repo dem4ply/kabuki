@@ -7,7 +7,6 @@ namespace controller {
 	namespace motor {
 		public class NPC_side_scroll_motor_2d : Motor_2d {
 			#region variables publicas
-			float runner_multiply = 2.0f;
 
 			public float max_jump_heigh = 4f;
 			public float min_jump_heigh = 1f;
@@ -36,37 +35,14 @@ namespace controller {
 			#endregion
 
 			#region variables protegidas
+			[System.NonSerialized]
 			protected new NPC_animator_2d _animator;
-			protected Vector2 _direction_vector = Vector2.zero;
-			protected bool _is_moving = false;
 			protected bool _is_running = false;
 			protected bool try_to_jump_the_next_update = false;
 			protected bool _is_grounded = false;
 
 			protected float horizontal_velocity_smooth;
 			#endregion
-
-			public bool is_running {
-				get; set;
-			}
-
-			public Vector2 direction_vector {
-				set {
-					_direction_vector = value;
-				}
-				protected get {
-					return _direction_vector;
-				}
-			}
-
-			public bool is_moving {
-				set {
-					_is_moving = value;
-				}
-				protected get {
-					return _is_moving;
-				}
-			}
 
 			public virtual bool is_grounded
 			{
@@ -253,7 +229,6 @@ namespace controller {
 			#region funciones de animador
 			public override void update_animator() {
 				_animator.direction_vector = direction_vector;
-				_animator.is_moving = _rigidbody.velocity.magnitude > 0.1f;
 				_animator.is_running = is_running;
 			}
 
@@ -323,11 +298,11 @@ namespace controller {
 			}
 			#endregion
 
-			public virtual void jump()
+			public override void jump()
 			{
 				try_to_jump_the_next_update = true;
 			}
-			public virtual void stop_jump()
+			public override void stop_jump()
 			{
 				try_to_jump_the_next_update = false;
 			}

@@ -10,15 +10,18 @@ namespace controller {
 		public class Motor_2d : Chibi_behaviour {
 			#region variables publicas
 			public float move_speed = 10f;
+			public float runner_multiply = 2.0f;
 			#endregion
 
 			#region variables protegidas
 			protected Transform _transform;
 			protected Rigidbody2D _rigidbody;
 			protected Vector2 _move_vector;
+			protected Vector2 _direction_vector = Vector2.zero;
 
 			protected manager.Collision manager_collisions;
 
+			[System.NonSerialized]
 			protected animator.Animator_base _animator;
 			#endregion
 
@@ -33,6 +36,28 @@ namespace controller {
 				set {
 					_move_vector = value;
 				}
+			}
+
+			public Vector2 direction_vector {
+				set {
+					_direction_vector = value;
+				}
+				protected get {
+					return _direction_vector;
+				}
+			}
+
+			public virtual void jump()
+			{
+				throw new NotImplementedException();
+			}
+			public virtual void stop_jump()
+			{
+				throw new NotImplementedException();
+			}
+
+			public bool is_running {
+				get; set;
 			}
 			#endregion
 
