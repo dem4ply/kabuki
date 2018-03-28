@@ -75,6 +75,9 @@ namespace helper
 				Vector3 position, Vector3 direction,
 				float arrow_head_length = 0.25f, float arrow_head_angle = 20.0f )
 			{
+				if ( direction.magnitude == 0 )
+					return;
+
 				Debug.DrawRay( position, direction );
 
 				Vector3 right =
