@@ -95,6 +95,14 @@ namespace controller {
 				throw new NotImplementedException();
 			}
 
+			public virtual void attack() {
+				throw new NotImplementedException();
+			}
+
+			public virtual void stop_attack() {
+				throw new NotImplementedException();
+			}
+
 			public virtual void after_update_motor() {
 			}
 		}

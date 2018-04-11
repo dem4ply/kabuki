@@ -41,6 +41,12 @@ namespace controller {
 				_motor.stop_jump();
 			}
 
+			public virtual void attack()
+			{
+				Debug.Log( "atacando" );
+				_motor.attack();
+			}
+
 			#endregion
 
 			#region funciones protegidas

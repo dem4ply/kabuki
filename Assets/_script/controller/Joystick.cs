@@ -22,6 +22,8 @@ namespace controller {
 			public bool jump_key = false;
 			public bool jump_key_release = false;
 
+			public bool fire_1_down = false;
+
 			public float dead_zone_esdf_axis = 0.01f;
 			public float dead_zone_mouse_axis = 0.01f;
 			public float dead_zone_mouse_wheel = 0.01f;
@@ -53,6 +55,7 @@ namespace controller {
 				_get_keys_running();
 				_get_keys_jump();
 				_get_key_jump_is_release();
+				_fire_key_down( 1 );
 			}
 			#endregion
 
@@ -71,7 +74,10 @@ namespace controller {
 					controller.jump();
 				else
 					controller.stop_jump();
-				//if ( jump_key_release )
+
+				if ( _fire_key_down( 1 ) )
+					controller.attack();
+
 				_draw_debug();
 			}
 
@@ -102,6 +108,17 @@ namespace controller {
 			/// </summary>
 			protected void _get_key_jump_is_release() {
 				jump_key_release = Input.GetButtonUp( "jump" );
+			}
+
+			/// <summary>
+			/// revisa si el boton de fire se preciono, no es un auto fire
+			/// </summary>
+			/// <param name="fire_number">numero de boton de fire</param>
+			/// <returns></returns>
+			protected bool _fire_key_down( int fire_number )
+			{
+				string fire_key = string.Format( "fire_{0}", fire_number );
+				return Input.GetButtonDown( fire_key );
 			}
 
 			/// <summary>
