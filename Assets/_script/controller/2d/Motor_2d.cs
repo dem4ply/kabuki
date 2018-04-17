@@ -18,6 +18,7 @@ namespace controller {
 			protected Rigidbody2D _rigidbody;
 			protected Vector2 _move_vector;
 			protected Vector2 _direction_vector = Vector2.zero;
+			protected bool _is_dead = false;
 
 			protected manager.Collision manager_collisions;
 
@@ -58,6 +59,20 @@ namespace controller {
 
 			public bool is_running {
 				get; set;
+			}
+
+			public bool is_dead
+			{
+				get {
+					return _is_dead;
+				}
+				protected set {
+					_is_dead = value;
+				}
+			}
+			public bool is_not_dead {
+				get {
+					return !is_dead; }
 			}
 			#endregion
 
@@ -101,6 +116,11 @@ namespace controller {
 
 			public virtual void stop_attack() {
 				throw new NotImplementedException();
+			}
+
+			public virtual void died()
+			{
+				is_dead = true;
 			}
 
 			public virtual void after_update_motor() {
