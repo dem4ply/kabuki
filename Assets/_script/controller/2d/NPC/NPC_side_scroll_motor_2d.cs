@@ -229,7 +229,7 @@ namespace controller {
 			#region funciones de animador
 			public override void update_animator() {
 				_animator.direction_vector = direction_vector;
-				_animator.is_running = is_running;
+				_animator.speed = direction_vector.magnitude;
 			}
 
 			protected override void _init_cache_animator() {

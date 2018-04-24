@@ -1,0 +1,732 @@
+fileFormatVersion: 2
+guid: 71b8b6f66b961044a82a7c6b031bdce7
+timeCreated: 1500877294
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: tool_prepare_watercan_up_1
+    21300002: tool_prepare_watercan_up_2
+    21300004: tool_prepare_watercan_up_3
+    21300006: tool_prepare_watercan_up_4
+    21300008: tool_prepare_watercan_up_5
+    21300010: tool_prepare_watercan_up_6
+    21300012: tool_prepare_watercan_up_7
+    21300014: tool_prepare_watercan_up_8
+    21300016: tool_prepare_watercan_right_1
+    21300018: tool_prepare_watercan_right_2
+    21300020: tool_prepare_watercan_right_3
+    21300022: tool_prepare_watercan_right_4
+    21300024: tool_prepare_watercan_right_5
+    21300026: tool_prepare_watercan_right_6
+    21300028: tool_prepare_watercan_right_7
+    21300030: tool_prepare_watercan_right_8
+    21300032: tool_prepare_watercan_left_1
+    21300034: tool_prepare_watercan_left_2
+    21300036: tool_prepare_watercan_left_3
+    21300038: tool_prepare_watercan_left_4
+    21300040: tool_prepare_watercan_left_5
+    21300042: tool_prepare_watercan_left_6
+    21300044: tool_prepare_watercan_left_7
+    21300046: tool_prepare_watercan_left_8
+    21300048: tool_prepare_watercan_down_1
+    21300050: tool_prepare_watercan_down_2
+    21300052: tool_prepare_watercan_down_3
+    21300054: tool_prepare_watercan_down_4
+    21300056: tool_prepare_watercan_down_5
+    21300058: tool_prepare_watercan_down_6
+    21300060: tool_prepare_watercan_down_7
+    21300062: tool_prepare_watercan_down_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: tool_prepare_watercan_up_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 27}
+        - {x: -8, y: 25}
+        - {x: -10, y: 18}
+        - {x: -10, y: -5}
+        - {x: -6, y: -6}
+        - {x: 9, y: -6}
+        - {x: 12, y: -3}
+        - {x: 12, y: 23}
+        - {x: 8, y: 27}
+    - name: tool_prepare_watercan_up_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 27}
+        - {x: 1, y: 27}
+        - {x: -5, y: 25}
+        - {x: -10, y: 23}
+        - {x: -10, y: -6}
+        - {x: 9, y: -6}
+        - {x: 15, y: 11}
+        - {x: 15, y: 21}
+        - {x: 14, y: 22}
+    - name: tool_prepare_watercan_up_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 26}
+        - {x: -11, y: 22}
+        - {x: -11, y: -2}
+        - {x: -8, y: -6}
+        - {x: 6, y: -6}
+        - {x: 13, y: -4}
+        - {x: 21, y: 13}
+        - {x: 21, y: 24}
+        - {x: 18, y: 26}
+    - name: tool_prepare_watercan_up_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 26}
+        - {x: -11, y: 22}
+        - {x: -11, y: -2}
+        - {x: -8, y: -6}
+        - {x: 6, y: -6}
+        - {x: 13, y: -4}
+        - {x: 21, y: 13}
+        - {x: 21, y: 24}
+        - {x: 18, y: 26}
+    - name: tool_prepare_watercan_up_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 26}
+        - {x: -11, y: 22}
+        - {x: -11, y: -2}
+        - {x: -8, y: -6}
+        - {x: 6, y: -6}
+        - {x: 13, y: -4}
+        - {x: 21, y: 13}
+        - {x: 21, y: 24}
+        - {x: 18, y: 26}
+    - name: tool_prepare_watercan_up_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 26}
+        - {x: -11, y: 22}
+        - {x: -11, y: -2}
+        - {x: -8, y: -6}
+        - {x: 6, y: -6}
+        - {x: 13, y: -4}
+        - {x: 21, y: 13}
+        - {x: 21, y: 24}
+        - {x: 18, y: 26}
+    - name: tool_prepare_watercan_up_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 31}
+        - {x: -13, y: 23}
+        - {x: -13, y: 6}
+        - {x: -11, y: -2}
+        - {x: -5, y: -6}
+        - {x: 8, y: -6}
+        - {x: 21, y: 14}
+        - {x: 21, y: 24}
+        - {x: 9, y: 31}
+    - name: tool_prepare_watercan_up_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 31}
+        - {x: -13, y: 26}
+        - {x: -13, y: 5}
+        - {x: -11, y: -2}
+        - {x: -7, y: -6}
+        - {x: 5, y: -6}
+        - {x: 13, y: -4}
+        - {x: 21, y: 9}
+        - {x: 21, y: 22}
+        - {x: 15, y: 31}
+    - name: tool_prepare_watercan_right_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 4}
+        - {x: 22, y: 7}
+        - {x: 23, y: 9}
+        - {x: 23, y: 13}
+        - {x: 21, y: 14}
+        - {x: 4, y: 25}
+        - {x: -4, y: 28}
+        - {x: -8, y: 28}
+        - {x: -13, y: 24}
+        - {x: -13, y: 8}
+        - {x: -12, y: -2}
+        - {x: -5, y: -6}
+        - {x: 8, y: -6}
+        - {x: 12, y: 2}
+        - {x: 7, y: 5}
+        - {x: 5, y: 5}
+    - name: tool_prepare_watercan_right_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 22}
+        - {x: 9, y: 27}
+        - {x: -7, y: 27}
+        - {x: -14, y: 24}
+        - {x: -14, y: -5}
+        - {x: -8, y: -6}
+        - {x: 9, y: -6}
+        - {x: 14, y: -3}
+        - {x: 18, y: 10}
+        - {x: 18, y: 19}
+    - name: tool_prepare_watercan_right_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 27}
+        - {x: -14, y: 22}
+        - {x: -14, y: 10}
+        - {x: -11, y: -2}
+        - {x: -6, y: -6}
+        - {x: 7, y: -6}
+        - {x: 10, y: -3}
+        - {x: 10, y: 22}
+        - {x: 1, y: 27}
+    - name: tool_prepare_watercan_right_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 27}
+        - {x: -14, y: 22}
+        - {x: -14, y: 10}
+        - {x: -11, y: -2}
+        - {x: -6, y: -6}
+        - {x: 7, y: -6}
+        - {x: 10, y: -3}
+        - {x: 10, y: 22}
+        - {x: 1, y: 27}
+    - name: tool_prepare_watercan_right_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 27}
+        - {x: -14, y: 22}
+        - {x: -14, y: 10}
+        - {x: -11, y: -2}
+        - {x: -6, y: -6}
+        - {x: 7, y: -6}
+        - {x: 10, y: -3}
+        - {x: 10, y: 22}
+        - {x: 1, y: 27}
+    - name: tool_prepare_watercan_right_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 27}
+        - {x: -14, y: 22}
+        - {x: -14, y: 10}
+        - {x: -11, y: -2}
+        - {x: -6, y: -6}
+        - {x: 7, y: -6}
+        - {x: 10, y: -3}
+        - {x: 10, y: 22}
+        - {x: 1, y: 27}
+    - name: tool_prepare_watercan_right_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 32}
+        - {x: -19, y: 26}
+        - {x: -19, y: 15}
+        - {x: -7, y: -6}
+        - {x: 6, y: -6}
+        - {x: 10, y: -3}
+        - {x: 10, y: 25}
+        - {x: -1, y: 32}
+    - name: tool_prepare_watercan_right_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 33}
+        - {x: -9, y: 32}
+        - {x: -11, y: 29}
+        - {x: -11, y: 26}
+        - {x: -13, y: 29}
+        - {x: -16, y: 28}
+        - {x: -18, y: 24}
+        - {x: -18, y: 7}
+        - {x: -10, y: -6}
+        - {x: 10, y: -6}
+        - {x: 10, y: 25}
+        - {x: 2, y: 33}
+    - name: tool_prepare_watercan_left_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 28}
+        - {x: -5, y: 26}
+        - {x: -23, y: 14}
+        - {x: -23, y: 10}
+        - {x: -22, y: 7}
+        - {x: -8, y: 3}
+        - {x: -8, y: 5}
+        - {x: -5, y: 5}
+        - {x: -7, y: 5}
+        - {x: -10, y: 1}
+        - {x: -10, y: -1}
+        - {x: -8, y: -6}
+        - {x: 10, y: -6}
+        - {x: 13, y: -1}
+        - {x: 13, y: 23}
+        - {x: 11, y: 28}
+    - name: tool_prepare_watercan_left_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 27}
+        - {x: -18, y: 19}
+        - {x: -18, y: 11}
+        - {x: -15, y: -4}
+        - {x: -8, y: -6}
+        - {x: 14, y: -6}
+        - {x: 14, y: 27}
+    - name: tool_prepare_watercan_left_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 27}
+        - {x: -10, y: 20}
+        - {x: -10, y: -6}
+        - {x: 8, y: -6}
+        - {x: 14, y: 6}
+        - {x: 14, y: 23}
+        - {x: 11, y: 26}
+    - name: tool_prepare_watercan_left_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 27}
+        - {x: -1, y: 27}
+        - {x: -10, y: 20}
+        - {x: -10, y: -6}
+        - {x: 8, y: -6}
+        - {x: 14, y: 6}
+        - {x: 14, y: 23}
+        - {x: 11, y: 26}
+    - name: tool_prepare_watercan_left_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 27}
+        - {x: -10, y: 25}
+        - {x: -10, y: -6}
+        - {x: 8, y: -6}
+        - {x: 14, y: 6}
+        - {x: 14, y: 23}
+        - {x: 11, y: 27}
+    - name: tool_prepare_watercan_left_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 27}
+        - {x: -10, y: 25}
+        - {x: -10, y: -6}
+        - {x: 8, y: -6}
+        - {x: 14, y: 6}
+        - {x: 14, y: 23}
+        - {x: 11, y: 27}
+    - name: tool_prepare_watercan_left_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 32}
+        - {x: -10, y: 24}
+        - {x: -10, y: -2}
+        - {x: -9, y: -6}
+        - {x: 9, y: -6}
+        - {x: 19, y: 12}
+        - {x: 19, y: 24}
+        - {x: 9, y: 32}
+    - name: tool_prepare_watercan_left_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 33}
+        - {x: -10, y: 33}
+        - {x: -10, y: -4}
+        - {x: -6, y: -6}
+        - {x: 9, y: -6}
+        - {x: 18, y: 11}
+        - {x: 18, y: 23}
+        - {x: 16, y: 27}
+    - name: tool_prepare_watercan_down_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 28}
+        - {x: -2, y: 28}
+        - {x: -8, y: 26}
+        - {x: -10, y: 18}
+        - {x: -10, y: -5}
+        - {x: -6, y: -6}
+        - {x: 8, y: -6}
+        - {x: 11, y: -2}
+        - {x: 11, y: 23}
+    - name: tool_prepare_watercan_down_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 28}
+        - {x: -5, y: 27}
+        - {x: -13, y: 9}
+        - {x: -13, y: 0}
+        - {x: -8, y: -6}
+        - {x: 7, y: -6}
+        - {x: 14, y: -4}
+        - {x: 15, y: 5}
+        - {x: 15, y: 27}
+        - {x: 14, y: 28}
+    - name: tool_prepare_watercan_down_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 29}
+        - {x: -16, y: 16}
+        - {x: -16, y: 6}
+        - {x: -7, y: -5}
+        - {x: 8, y: -5}
+        - {x: 16, y: 8}
+        - {x: 16, y: 24}
+        - {x: 14, y: 29}
+    - name: tool_prepare_watercan_down_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 28}
+        - {x: -16, y: 15}
+        - {x: -16, y: 5}
+        - {x: -7, y: -6}
+        - {x: 8, y: -6}
+        - {x: 16, y: 7}
+        - {x: 16, y: 23}
+        - {x: 14, y: 28}
+    - name: tool_prepare_watercan_down_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 28}
+        - {x: -8, y: 25}
+        - {x: -16, y: 9}
+        - {x: -16, y: 0}
+        - {x: -14, y: -6}
+        - {x: 12, y: -6}
+        - {x: 16, y: 9}
+        - {x: 16, y: 26}
+        - {x: 12, y: 28}
+    - name: tool_prepare_watercan_down_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 28}
+        - {x: -8, y: 25}
+        - {x: -16, y: 9}
+        - {x: -16, y: 0}
+        - {x: -14, y: -6}
+        - {x: 12, y: -6}
+        - {x: 16, y: 9}
+        - {x: 16, y: 26}
+        - {x: 12, y: 28}
+    - name: tool_prepare_watercan_down_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 31}
+        - {x: -16, y: 12}
+        - {x: -16, y: 4}
+        - {x: -6, y: -6}
+        - {x: 9, y: -6}
+        - {x: 22, y: 12}
+        - {x: 22, y: 31}
+    - name: tool_prepare_watercan_down_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 33}
+        - {x: -16, y: 12}
+        - {x: -16, y: -1}
+        - {x: -9, y: -6}
+        - {x: 14, y: -6}
+        - {x: 21, y: 12}
+        - {x: 21, y: 33}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

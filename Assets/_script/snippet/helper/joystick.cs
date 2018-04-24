@@ -9,7 +9,7 @@ namespace helper {
 		/// </summary>
 		public static float axis_left_x {
 			get {
-				return Input.GetAxis( "horizontal" );
+				return Input.GetAxisRaw( "horizontal" );
 			}
 		}
 
@@ -18,7 +18,7 @@ namespace helper {
 		/// </summary>
 		public static float axis_left_y {
 			get {
-				return Input.GetAxis( "vertical" );
+				return Input.GetAxisRaw( "vertical" );
 			}
 		}
 

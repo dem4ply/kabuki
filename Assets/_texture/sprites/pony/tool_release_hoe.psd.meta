@@ -1,0 +1,304 @@
+fileFormatVersion: 2
+guid: 3efd2684a7e22154f9fe0ce4a58fba5d
+timeCreated: 1500877381
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: tool_release_hoe_up_1
+    21300002: tool_release_hoe_up_2
+    21300004: tool_release_hoe_up_3
+    21300006: tool_release_hoe_right_1
+    21300008: tool_release_hoe_right_2
+    21300010: tool_release_hoe_right_3
+    21300012: tool_release_hoe_left_1
+    21300014: tool_release_hoe_left_2
+    21300016: tool_release_hoe_left_3
+    21300018: tool_release_hoe_down_1
+    21300020: tool_release_hoe_down_2
+    21300022: tool_release_hoe_down_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: tool_release_hoe_up_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 32}
+        - {x: -11, y: -2}
+        - {x: -9, y: -6}
+        - {x: 15, y: -6}
+        - {x: 15, y: 31}
+        - {x: 9, y: 32}
+    - name: tool_release_hoe_up_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 23}
+        - {x: -21, y: 6}
+        - {x: -21, y: -16}
+        - {x: 9, y: -16}
+        - {x: 12, y: -15}
+        - {x: 12, y: 16}
+        - {x: 6, y: 23}
+    - name: tool_release_hoe_up_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 27}
+        - {x: -17, y: 18}
+        - {x: -17, y: -7}
+        - {x: -15, y: -10}
+        - {x: 3, y: -10}
+        - {x: 15, y: 0}
+        - {x: 15, y: 24}
+        - {x: 8, y: 27}
+    - name: tool_release_hoe_right_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 34}
+        - {x: -16, y: -6}
+        - {x: 13, y: -6}
+        - {x: 15, y: 2}
+        - {x: 15, y: 34}
+    - name: tool_release_hoe_right_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 28}
+        - {x: 10, y: 25}
+        - {x: 12, y: 18}
+        - {x: 6, y: 24}
+        - {x: 0, y: 27}
+        - {x: -7, y: 27}
+        - {x: -12, y: 24}
+        - {x: -12, y: -6}
+        - {x: 26, y: -6}
+        - {x: 26, y: 11}
+        - {x: 14, y: 28}
+    - name: tool_release_hoe_right_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 27}
+        - {x: -17, y: 25}
+        - {x: -17, y: -6}
+        - {x: 25, y: -6}
+        - {x: 25, y: 14}
+        - {x: 8, y: 27}
+    - name: tool_release_hoe_left_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 34}
+        - {x: -15, y: 33}
+        - {x: -15, y: 13}
+        - {x: -10, y: -2}
+        - {x: -9, y: -6}
+        - {x: 8, y: -6}
+        - {x: 16, y: -3}
+        - {x: 16, y: 26}
+        - {x: 5, y: 34}
+    - name: tool_release_hoe_left_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 28}
+        - {x: -4, y: 28}
+        - {x: -6, y: 24}
+        - {x: -12, y: 19}
+        - {x: -12, y: 14}
+        - {x: -10, y: 26}
+        - {x: -13, y: 28}
+        - {x: -25, y: 24}
+        - {x: -26, y: 18}
+        - {x: -26, y: -6}
+        - {x: 5, y: -6}
+        - {x: 11, y: -2}
+        - {x: 12, y: 3}
+        - {x: 12, y: 26}
+    - name: tool_release_hoe_left_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 27}
+        - {x: -8, y: 25}
+        - {x: -25, y: 13}
+        - {x: -25, y: 6}
+        - {x: -21, y: -3}
+        - {x: -11, y: -6}
+        - {x: 10, y: -6}
+        - {x: 17, y: -3}
+        - {x: 17, y: 21}
+        - {x: 16, y: 27}
+    - name: tool_release_hoe_down_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 38}
+        - {x: -14, y: 27}
+        - {x: -14, y: 5}
+        - {x: -8, y: -6}
+        - {x: 7, y: -6}
+        - {x: 11, y: -4}
+        - {x: 11, y: 35}
+        - {x: 10, y: 38}
+    - name: tool_release_hoe_down_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 34}
+        - {x: -8, y: 33}
+        - {x: -14, y: 22}
+        - {x: -14, y: 0}
+        - {x: -11, y: -6}
+        - {x: 13, y: -6}
+        - {x: 17, y: -5}
+        - {x: 19, y: -3}
+        - {x: 19, y: 14}
+        - {x: 12, y: 34}
+    - name: tool_release_hoe_down_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 29}
+        - {x: -14, y: 24}
+        - {x: -14, y: 0}
+        - {x: -13, y: -3}
+        - {x: -5, y: -6}
+        - {x: 7, y: -6}
+        - {x: 18, y: 4}
+        - {x: 18, y: 18}
+        - {x: 11, y: 29}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

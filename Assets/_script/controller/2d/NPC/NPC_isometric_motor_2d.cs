@@ -98,10 +98,16 @@ namespace controller
 				if ( is_atacking )
 				{
 					isometric_animator.direction_vector = atack_direciont;
+					isometric_animator.speed = 0;
 				}
 				else
 				{
 					isometric_animator.direction_vector = direction_vector;
+					if ( direction_vector.magnitude > 0 )
+						isometric_animator.speed = !is_running ? 0.3f : 0.8f;
+					else
+						isometric_animator.speed = 0;
+
 				}
 			}
 			#endregion

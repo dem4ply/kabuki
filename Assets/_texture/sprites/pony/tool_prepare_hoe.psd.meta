@@ -1,0 +1,698 @@
+fileFormatVersion: 2
+guid: 8b86ae18420c4ea4b81e267bb0c8c5e5
+timeCreated: 1500876283
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: tool_prepare_hoe_up_1
+    21300002: tool_prepare_hoe_up_2
+    21300004: tool_prepare_hoe_up_3
+    21300006: tool_prepare_hoe_up_4
+    21300008: tool_prepare_hoe_up_5
+    21300010: tool_prepare_hoe_up_6
+    21300012: tool_prepare_hoe_up_7
+    21300014: tool_prepare_hoe_up_8
+    21300016: tool_prepare_hoe_right_1
+    21300018: tool_prepare_hoe_right_2
+    21300020: tool_prepare_hoe_right_3
+    21300022: tool_prepare_hoe_right_4
+    21300024: tool_prepare_hoe_right_5
+    21300026: tool_prepare_hoe_right_6
+    21300028: tool_prepare_hoe_right_7
+    21300030: tool_prepare_hoe_right_8
+    21300032: tool_prepare_hoe_left_1
+    21300034: tool_prepare_hoe_left_2
+    21300036: tool_prepare_hoe_left_3
+    21300038: tool_prepare_hoe_left_4
+    21300040: tool_prepare_hoe_left_5
+    21300042: tool_prepare_hoe_left_6
+    21300044: tool_prepare_hoe_left_7
+    21300046: tool_prepare_hoe_left_8
+    21300048: tool_prepare_hoe_down_1
+    21300050: tool_prepare_hoe_down_2
+    21300052: tool_prepare_hoe_down_3
+    21300054: tool_prepare_hoe_down_4
+    21300056: tool_prepare_hoe_down_5
+    21300058: tool_prepare_hoe_down_6
+    21300060: tool_prepare_hoe_down_7
+    21300062: tool_prepare_hoe_down_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: tool_prepare_hoe_up_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 34}
+        - {x: -11, y: 1}
+        - {x: -8, y: -6}
+        - {x: 9, y: -6}
+        - {x: 15, y: 4}
+        - {x: 15, y: 23}
+        - {x: 7, y: 34}
+    - name: tool_prepare_hoe_up_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 32}
+        - {x: -11, y: -1}
+        - {x: -9, y: -6}
+        - {x: 10, y: -6}
+        - {x: 16, y: 1}
+        - {x: 16, y: 28}
+        - {x: 6, y: 32}
+    - name: tool_prepare_hoe_up_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 29}
+        - {x: -11, y: 1}
+        - {x: -8, y: -6}
+        - {x: 10, y: -6}
+        - {x: 15, y: 4}
+        - {x: 15, y: 23}
+        - {x: 3, y: 29}
+    - name: tool_prepare_hoe_up_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 29}
+        - {x: -11, y: 1}
+        - {x: -8, y: -6}
+        - {x: 10, y: -6}
+        - {x: 15, y: 4}
+        - {x: 15, y: 23}
+        - {x: 3, y: 29}
+    - name: tool_prepare_hoe_up_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 29}
+        - {x: -11, y: -3}
+        - {x: -9, y: -6}
+        - {x: 9, y: -6}
+        - {x: 15, y: 1}
+        - {x: 15, y: 26}
+        - {x: 1, y: 29}
+    - name: tool_prepare_hoe_up_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 29}
+        - {x: -11, y: -3}
+        - {x: -9, y: -6}
+        - {x: 9, y: -6}
+        - {x: 15, y: 1}
+        - {x: 15, y: 26}
+        - {x: 1, y: 29}
+    - name: tool_prepare_hoe_up_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 31}
+        - {x: -11, y: 30}
+        - {x: -11, y: -5}
+        - {x: -8, y: -6}
+        - {x: 12, y: -6}
+        - {x: 15, y: 2}
+        - {x: 15, y: 26}
+        - {x: 12, y: 31}
+    - name: tool_prepare_hoe_up_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 30}
+        - {x: -11, y: 29}
+        - {x: -11, y: -4}
+        - {x: -10, y: -6}
+        - {x: 15, y: -6}
+        - {x: 15, y: 28}
+        - {x: 9, y: 30}
+    - name: tool_prepare_hoe_right_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 33}
+        - {x: -20, y: 24}
+        - {x: -20, y: 12}
+        - {x: -8, y: -6}
+        - {x: 7, y: -6}
+        - {x: 10, y: -5}
+        - {x: 10, y: 16}
+        - {x: 8, y: 23}
+        - {x: -7, y: 32}
+        - {x: -9, y: 33}
+    - name: tool_prepare_hoe_right_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 28}
+        - {x: -21, y: 7}
+        - {x: -13, y: -4}
+        - {x: -7, y: -6}
+        - {x: 9, y: -6}
+        - {x: 10, y: -5}
+        - {x: 10, y: 26}
+        - {x: -3, y: 28}
+    - name: tool_prepare_hoe_right_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22}
+        - {x: -22, y: 18}
+        - {x: -22, y: 8}
+        - {x: -17, y: -3}
+        - {x: -6, y: -6}
+        - {x: 10, y: -6}
+        - {x: 10, y: 13}
+        - {x: 7, y: 22}
+    - name: tool_prepare_hoe_right_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22}
+        - {x: -22, y: 18}
+        - {x: -22, y: 8}
+        - {x: -17, y: -3}
+        - {x: -6, y: -6}
+        - {x: 10, y: -6}
+        - {x: 10, y: 13}
+        - {x: 7, y: 22}
+    - name: tool_prepare_hoe_right_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22}
+        - {x: -22, y: 18}
+        - {x: -22, y: 8}
+        - {x: -17, y: -3}
+        - {x: -6, y: -6}
+        - {x: 10, y: -6}
+        - {x: 10, y: 13}
+        - {x: 7, y: 22}
+    - name: tool_prepare_hoe_right_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22}
+        - {x: -22, y: 18}
+        - {x: -22, y: 8}
+        - {x: -17, y: -3}
+        - {x: -6, y: -6}
+        - {x: 10, y: -6}
+        - {x: 10, y: 13}
+        - {x: 7, y: 22}
+    - name: tool_prepare_hoe_right_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 28}
+        - {x: -22, y: 22}
+        - {x: -22, y: 6}
+        - {x: -9, y: -6}
+        - {x: 10, y: -6}
+        - {x: 10, y: 20}
+        - {x: 1, y: 28}
+    - name: tool_prepare_hoe_right_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 29}
+        - {x: -11, y: 29}
+        - {x: -22, y: 21}
+        - {x: -22, y: 5}
+        - {x: -19, y: -5}
+        - {x: -10, y: -6}
+        - {x: 9, y: -6}
+        - {x: 10, y: -3}
+        - {x: 10, y: 8}
+        - {x: 8, y: 17}
+    - name: tool_prepare_hoe_left_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 33}
+        - {x: -10, y: 25}
+        - {x: -10, y: -4}
+        - {x: -8, y: -6}
+        - {x: 18, y: -6}
+        - {x: 20, y: 3}
+        - {x: 20, y: 33}
+    - name: tool_prepare_hoe_left_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 28}
+        - {x: -8, y: 24}
+        - {x: -10, y: 17}
+        - {x: -10, y: -5}
+        - {x: -6, y: -6}
+        - {x: 9, y: -6}
+        - {x: 21, y: 7}
+        - {x: 21, y: 24}
+    - name: tool_prepare_hoe_left_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 18}
+        - {x: 17, y: 22}
+        - {x: -10, y: 22}
+        - {x: -10, y: -5}
+        - {x: -9, y: -6}
+        - {x: 11, y: -6}
+        - {x: 22, y: 7}
+        - {x: 22, y: 16}
+    - name: tool_prepare_hoe_left_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 18}
+        - {x: 17, y: 22}
+        - {x: -10, y: 22}
+        - {x: -10, y: -5}
+        - {x: -9, y: -6}
+        - {x: 11, y: -6}
+        - {x: 22, y: 7}
+        - {x: 22, y: 16}
+    - name: tool_prepare_hoe_left_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 18}
+        - {x: 17, y: 22}
+        - {x: -10, y: 22}
+        - {x: -10, y: -5}
+        - {x: -9, y: -6}
+        - {x: 11, y: -6}
+        - {x: 22, y: 7}
+        - {x: 22, y: 16}
+    - name: tool_prepare_hoe_left_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 18}
+        - {x: 17, y: 22}
+        - {x: -10, y: 22}
+        - {x: -10, y: -5}
+        - {x: -9, y: -6}
+        - {x: 11, y: -6}
+        - {x: 22, y: 7}
+        - {x: 22, y: 16}
+    - name: tool_prepare_hoe_left_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 28}
+        - {x: -6, y: 23}
+        - {x: -10, y: 11}
+        - {x: -10, y: -4}
+        - {x: -6, y: -6}
+        - {x: 12, y: -6}
+        - {x: 22, y: 1}
+        - {x: 22, y: 23}
+        - {x: 19, y: 28}
+    - name: tool_prepare_hoe_left_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 18}
+        - {x: 17, y: 17}
+        - {x: 9, y: 29}
+        - {x: -1, y: 29}
+        - {x: -9, y: 15}
+        - {x: -10, y: 13}
+        - {x: -10, y: -5}
+        - {x: -6, y: -6}
+        - {x: 13, y: -6}
+        - {x: 18, y: -3}
+        - {x: 22, y: 8}
+        - {x: 22, y: 18}
+    - name: tool_prepare_hoe_down_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 25}
+        - {x: -15, y: 21}
+        - {x: -15, y: 6}
+        - {x: -14, y: 4}
+        - {x: -14, y: -3}
+        - {x: -7, y: -6}
+        - {x: 9, y: -6}
+        - {x: 11, y: -4}
+        - {x: 11, y: 23}
+        - {x: 1, y: 25}
+    - name: tool_prepare_hoe_down_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 23}
+        - {x: -14, y: 16}
+        - {x: -14, y: 2}
+        - {x: -6, y: -6}
+        - {x: 9, y: -6}
+        - {x: 11, y: -1}
+        - {x: 11, y: 18}
+        - {x: 6, y: 23}
+    - name: tool_prepare_hoe_down_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 24}
+        - {x: -14, y: 18}
+        - {x: -14, y: -3}
+        - {x: -11, y: -4}
+        - {x: -7, y: -6}
+        - {x: 11, y: -6}
+        - {x: 11, y: 16}
+        - {x: 7, y: 24}
+    - name: tool_prepare_hoe_down_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 24}
+        - {x: -14, y: 18}
+        - {x: -14, y: -3}
+        - {x: -11, y: -4}
+        - {x: -7, y: -6}
+        - {x: 11, y: -6}
+        - {x: 11, y: 16}
+        - {x: 7, y: 24}
+    - name: tool_prepare_hoe_down_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 24}
+        - {x: -14, y: 18}
+        - {x: -14, y: -3}
+        - {x: -11, y: -4}
+        - {x: -7, y: -6}
+        - {x: 11, y: -6}
+        - {x: 11, y: 16}
+        - {x: 7, y: 24}
+    - name: tool_prepare_hoe_down_6
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 24}
+        - {x: -15, y: 16}
+        - {x: -15, y: -6}
+        - {x: 10, y: -6}
+        - {x: 10, y: 17}
+        - {x: 6, y: 24}
+    - name: tool_prepare_hoe_down_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 27}
+        - {x: -9, y: 27}
+        - {x: -14, y: 23}
+        - {x: -14, y: -3}
+        - {x: -7, y: -6}
+        - {x: 10, y: -6}
+        - {x: 11, y: -3}
+        - {x: 11, y: 12}
+        - {x: 6, y: 25}
+    - name: tool_prepare_hoe_down_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -5}
+        - {x: -12, y: -6}
+        - {x: 11, y: -6}
+        - {x: 11, y: 12}
+        - {x: 7, y: 26}
+        - {x: 2, y: 30}
+        - {x: -6, y: 30}
+        - {x: -14, y: 24}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
