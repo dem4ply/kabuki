@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114198657831588030}
   - component: {fileID: 114402987289146038}
   - component: {fileID: 114998507360809488}
-  - component: {fileID: 114695530931249270}
+  - component: {fileID: 114056381332615242}
   m_Layer: 0
   m_Name: player_isometric
   m_TagString: Untagged
@@ -382,6 +382,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114056381332615242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325846104526370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b646c874bf37ddb4e9516258cc0ed622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  total_of_points: 1
+  current_points: 1
+  damage_mask:
+    serializedVersion: 2
+    m_Bits: 256
+  receives_damage: {fileID: 1069729496396300}
+  motor: {fileID: 0}
 --- !u!114 &114198657831588030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,21 +425,6 @@ MonoBehaviour:
   move_speed: 10
   runner_multiply: 2
   acceleration_time_in_ground: 0.1
---- !u!114 &114695530931249270
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325846104526370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4feb54fdba863e4e9bf8ceb90f070cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage_mask:
-    serializedVersion: 2
-    m_Bits: 768
-  receives_damage: {fileID: 1069729496396300}
 --- !u!114 &114920801234879132
 MonoBehaviour:
   m_ObjectHideFlags: 1
