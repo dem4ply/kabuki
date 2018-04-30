@@ -74,6 +74,12 @@ namespace controller {
 				get {
 					return !is_dead; }
 			}
+
+			public Vector2 velocity_vector {
+				get {
+					return _rigidbody.velocity;
+				}
+			}
 			#endregion
 
 			protected void FixedUpdate() {

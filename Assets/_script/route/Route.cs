@@ -5,117 +5,155 @@ using UnityEngine;
 
 namespace route
 {
-	public class Route : chibi_base.Chibi_behaviour, IList<GameObject>
+	public class Route : chibi_base.Chibi_behaviour, IList<Segment>
 	{
 
-		public List<GameObject> points;
+		public List<Transform> points;
 		public float width = 0.5f;
-
-		public GameObject find_near_point( Vector3 position )
-		{
-			float min_distance = ( this[ 0 ].transform.position - position ).magnitude;
-			int min_index = 0;
-			for ( int i = 1; i < Count; ++i )
-			{
-				float current_distant = ( this[ i ].transform.position - position ).magnitude;
-				if ( current_distant < min_distance )
-				{
-					min_distance = current_distant;
-					min_index = i;
-				}
-			}
-			return this[ min_index ];
-		}
-
-		protected void OnDrawGizmos()
-		{
-			for ( int i = 0; i < Count - 1; ++i )
-			{
-				Vector3 position = this[ i ].transform.position;
-				Vector3 direction = this[ i + 1 ].transform.position - position;
-				Vector3 d2 = Quaternion.Euler( 0, 0, 90 ) * direction;
-				Vector3 d3 = Quaternion.Euler( 0, 0, -90 ) * direction;
-				d2 = position + ( d2.normalized * width );
-				d3 = position + ( d3.normalized * width );
-				helper.draw.arrow.gizmo( position, direction, Color.green );
-				helper.draw.arrow.gizmo( d2, direction, Color.red );
-				helper.draw.arrow.gizmo( d3, direction, Color.red );
-			}
-		}
-
-		public GameObject this[ int index ]
-		{
-			get {
-				return ( ( IList<GameObject> )points )[ index ];
-			}
-
-			set {
-				( ( IList<GameObject> )points )[ index ] = value;
-			}
-		}
+		public GameObject asdf;
 
 		public int Count
 		{
 			get {
-				return ( ( IList<GameObject> )points ).Count;
+				return points.Count - 1;
 			}
 		}
 
 		public bool IsReadOnly
 		{
 			get {
-				return ( ( IList<GameObject> )points ).IsReadOnly;
+				throw new System.NotImplementedException();
 			}
 		}
 
-		public void Add( GameObject item )
+		public Segment this[ int index ]
 		{
-			( ( IList<GameObject> )points ).Add( item );
+			get {
+				return new Segment( points[ index ], points[ index + 1 ], width, index );
+			}
+
+			set {
+				throw new System.NotImplementedException();
+			}
 		}
 
-		public void Clear()
+		public Segment give_the_next_segment( Segment segment )
 		{
-			( ( IList<GameObject> )points ).Clear();
+			try
+			{
+				return this[ segment.index + 1 ];
+			}
+			catch ( System.ArgumentOutOfRangeException e) {
+				if ( segment.index > Count )
+					return this[ Count ];
+				return this[ segment.index ];
+			}
 		}
 
-		public bool Contains( GameObject item )
+		public Transform find_near_point( Vector3 position )
 		{
-			return ( ( IList<GameObject> )points ).Contains( item );
+			float min_distance = ( points[ 0 ].position - position ).magnitude;
+			int min_index = 0;
+			for ( int i = 1; i < points.Count; ++i )
+			{
+				float current_distant = ( points[ i ].position - position ).magnitude;
+				if ( current_distant < min_distance )
+				{
+					min_distance = current_distant;
+					min_index = i;
+				}
+			}
+			return points[ min_index ];
 		}
 
-		public void CopyTo( GameObject[] array, int arrayIndex )
+		public Segment find_nearest_segment( Vector3 position )
 		{
-			( ( IList<GameObject> )points ).CopyTo( array, arrayIndex );
+			IEnumerator< Segment > segments = get_segments().GetEnumerator();
+			segments.MoveNext();
+			float min_distance = segments.Current.distance_of( position );
+			Segment nearest_segment = segments.Current;
+
+			while ( segments.MoveNext() )
+			{
+				float current_distance = segments.Current.distance_of( position );
+				if ( current_distance < min_distance )
+				{
+					min_distance = current_distance;
+					nearest_segment = segments.Current;
+				}
+			}
+
+			return nearest_segment;
 		}
 
-		public IEnumerator<GameObject> GetEnumerator()
+		protected void OnDrawGizmos()
 		{
-			return ( ( IList<GameObject> )points ).GetEnumerator();
+			for ( int i = 0; i < Count - 1; ++i )
+			{
+				foreach ( Segment segment in get_segments() )
+				{
+					segment.draw_gizmo();
+				}
+			}
 		}
 
-		public int IndexOf( GameObject item )
+		public IEnumerable<Segment> get_segments()
 		{
-			return ( ( IList<GameObject> )points ).IndexOf( item );
+			for ( int i = 0; i < Count; ++i )
+			{
+				yield return new Segment(
+					points[ i ], points[ i + 1 ], width, i );
+			}
 		}
 
-		public void Insert( int index, GameObject item )
+		public int IndexOf( Segment item )
 		{
-			( ( IList<GameObject> )points ).Insert( index, item );
+			throw new System.NotImplementedException();
 		}
 
-		public bool Remove( GameObject item )
+		public void Insert( int index, Segment item )
 		{
-			return ( ( IList<GameObject> )points ).Remove( item );
+			throw new System.NotImplementedException();
 		}
 
 		public void RemoveAt( int index )
 		{
-			( ( IList<GameObject> )points ).RemoveAt( index );
+			throw new System.NotImplementedException();
+		}
+
+		public void Add( Segment item )
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public void Clear()
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public bool Contains( Segment item )
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public void CopyTo( Segment[] array, int arrayIndex )
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public bool Remove( Segment item )
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public IEnumerator<Segment> GetEnumerator()
+		{
+			throw new System.NotImplementedException();
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return ( ( IList<GameObject> )points ).GetEnumerator();
+			throw new System.NotImplementedException();
 		}
 	}
 }

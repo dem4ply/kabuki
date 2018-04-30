@@ -32,17 +32,38 @@ public class Test_Route
 	public IEnumerator find_the_neardest_point()
 	{
 		route.Route route  = road.GetComponent<route.Route>();
-		GameObject point = route.find_near_point( point_1.transform.position );
-		Assert.AreEqual( point.name, "GameObject" );
+		Transform point = route.find_near_point( point_1.transform.position );
+		Assert.AreEqual( point.name, "p1" );
 		point = route.find_near_point( point_2.transform.position );
-		Assert.AreEqual( point.name, "GameObject" );
+		Assert.AreEqual( point.name, "p1" );
 		point = route.find_near_point( point_3.transform.position );
-		Assert.AreEqual( point.name, "GameObject (1)" );
+		Assert.AreEqual( point.name, "p2" );
 		point = route.find_near_point( point_4.transform.position );
-		Assert.AreEqual( point.name, "GameObject (1)" );
+		Assert.AreEqual( point.name, "p2" );
 		point = route.find_near_point( point_5.transform.position );
-		Assert.AreEqual( point.name, "GameObject (2)" );
+		Assert.AreEqual( point.name, "p3" );
 		yield return null;
 	}
 
+	[UnityTest]
+	public IEnumerator find_nearest_segment()
+	{
+		route.Route route_component  = road.GetComponent<route.Route>();
+		route.Segment segment = route_component.find_nearest_segment(
+			point_1.transform.position );
+		Assert.AreEqual( segment.start.name, "p1" );
+		segment = route_component.find_nearest_segment(
+			point_2.transform.position );
+		Assert.AreEqual( segment.start.name, "p1" );
+		segment = route_component.find_nearest_segment(
+			point_3.transform.position );
+		Assert.AreEqual( segment.start.name, "p1" );
+		segment = route_component.find_nearest_segment(
+			point_4.transform.position );
+		Assert.AreEqual( segment.start.name, "p2" );
+		segment = route_component.find_nearest_segment(
+			point_5.transform.position );
+		Assert.AreEqual( segment.start.name, "p2" );
+		yield return null;
+	}
 }

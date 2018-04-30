@@ -28,6 +28,12 @@ namespace controller {
 					_motor.direction_vector = value;
 				}
 			}
+
+			public virtual Vector2 velocity_vector{
+				get {
+					return _motor.velocity_vector;
+				}
+			}
 			#endregion
 
 			#region funciones publicas

@@ -13,7 +13,7 @@ namespace controller
 				controller.direction_vector = desire_direction;
 			}
 
-			protected void OnDrawGizmos()
+			protected virtual void OnDrawGizmos()
 			{
 				helper.draw.arrow.gizmo(
 					transform.position, desire_direction, Color.magenta );
