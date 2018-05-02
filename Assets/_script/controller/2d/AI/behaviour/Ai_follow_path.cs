@@ -28,7 +28,7 @@ namespace controller
 					transform.position );
 				Debug.Log( segment.index );
 				float disntan_of_end_position = ( segment.end.position - transform.position ).magnitude;
-				if ( disntan_of_end_position < segment.width )
+				if ( disntan_of_end_position < segment.radius )
 					segment = route.give_the_next_segment( segment );
 
 				Vector3 prediction_position = ( Vector3 )controller.velocity_vector + transform.position;
@@ -36,16 +36,17 @@ namespace controller
 				Vector3 projection_point = segment.project( prediction_position );
 
 				float distance = Vector3.Distance( prediction_position, projection_point );
-				if ( distance > segment.width )
+				if ( distance > segment.radius )
 				{
 					Vector3 direction_to_move = segment.end.position - projection_point;
-					direction_to_move = direction_to_move.normalized * segment.width;
+					direction_to_move = direction_to_move.normalized * segment.radius;
 					helper.draw.arrow.debug( projection_point, direction_to_move, Color.black );
 					Vector3 position_to_move = direction_to_move + projection_point;
 					helper.draw.arrow.debug( transform.position,  position_to_move - transform.position, Color.blue );
 					seek( direction_to_move + projection_point );
 				}
 			}
+
 			protected override void Update()
 			{
 				follow( target );
