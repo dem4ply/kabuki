@@ -29,11 +29,6 @@ namespace route
 
 		public Vector3 project( Vector3 vector )
 		{
-			return start.position + Vector3.Project( vector - start.position, direction );
-		}
-
-		public float distance_of( Vector3 vector )
-		{
 			Vector3 line = direction;
 			float lenght = line.magnitude;
 			line.Normalize();
@@ -44,6 +39,12 @@ namespace route
 
 			line = start.position + ( line * d );
 
+			return line;
+		}
+
+		public float distance_of( Vector3 vector )
+		{
+			Vector3 line = project( vector );
 			float distance = Vector3.Distance( vector, line );
 			return distance;
 		}

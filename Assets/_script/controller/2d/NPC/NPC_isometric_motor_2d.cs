@@ -43,7 +43,9 @@ namespace controller
 				{
 					_proccess_ground_velocity_when_attack( ref velocity_vector );
 				}
+				debug.draw.arrow( direction_vector, Color.magenta );
 				_rigidbody.velocity = velocity_vector;
+				debug.draw.arrow( velocity_vector, Color.yellow );
 			}
 
 			protected virtual void _proccess_ground_velocity(

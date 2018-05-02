@@ -73,27 +73,33 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 		return follow_path( route );
 	}
 
+	/// <summary>
+	/// suigue una el camino generado por un objeto tipo Route
+	/// </summary>
+	/// <param name="route"></param>
+	/// <returns>direcion para moverse hacia la ruta si regresa
+	/// Vector3.zero no es nesesario cambiar el vector de direcion</returns>
 	public Vector3 follow_path( Route route )
 	{
 		Segment segment = get_segmen_to_use( route );
 
 		Vector3 velocity_vector = controller.velocity_vector;
-		debug.draw.arrow( velocity_vector );
+		Vector3 prediction_position = current_position + velocity_vector.normalized;
 
-		Vector3 prediction_position = velocity_vector + current_position;
-
-		prediction_position = current_position + prediction_position.normalized;
-		debug.draw.arrow_to( prediction_position );
+		debug.draw.arrow_to( prediction_position, Color.green );
 		Vector3 projection_point = segment.project( prediction_position );
 
-		debug.draw.line( prediction_position, projection_point );
+		debug.draw.line( prediction_position, projection_point, Color.blue );
 
-		float distance = Vector3.Distance( prediction_position, projection_point );
+		float distance = Vector3.Distance(
+			prediction_position, projection_point );
+
 		if ( distance > segment.radius )
 		{
 			Vector3 direction_to_move = segment.end.position - projection_point;
 			direction_to_move = direction_to_move.normalized * segment.radius;
 			Vector3 position_to_move = direction_to_move + projection_point;
+			debug.draw.arrow_to( position_to_move, Color.black );
 			return position_to_move;
 		}
 		return Vector3.zero;
@@ -104,6 +110,11 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 	/// </summary>
 	/// <param name="target">objetivo al que se quiiere seguir</param>
 	public void do_seek( GameObject target )
+	{
+		controller.direction_vector = seek( target );
+	}
+
+	public void do_seek( Vector3 target )
 	{
 		controller.direction_vector = seek( target );
 	}
@@ -119,6 +130,8 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 
 	public void do_follow_path( GameObject target )
 	{
-		controller.direction_vector = follow_path( target );
+		Vector3 desire_position = follow_path( target );
+		if ( desire_position != Vector3.zero )
+			do_seek( desire_position );
 	}
 }
