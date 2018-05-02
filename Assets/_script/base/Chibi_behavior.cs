@@ -8,7 +8,16 @@ namespace chibi_base {
 
 		protected bool _is_instanciate;
 
+		public bool debug_mode = false;
+		protected helper.debug.Debug debug;
+
+		protected virtual void Awake()
+		{
+			debug = new helper.debug.Debug( this );
+		}
+
 		protected virtual void Start() {
+			debug = new helper.debug.Debug( this );
 			_init_cache();
 		}
 

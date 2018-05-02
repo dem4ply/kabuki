@@ -158,7 +158,7 @@ namespace controller {
 			/// dibuga el debug
 			/// </summary>
 			protected virtual void _draw_debug() {
-				helper.draw.arrow.debug( transform.position, axis_esdf );
+				debug.draw.arrow( axis_esdf );
 			}
 			#endregion
 		}
