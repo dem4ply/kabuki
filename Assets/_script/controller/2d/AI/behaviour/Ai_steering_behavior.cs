@@ -111,12 +111,16 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 	/// <param name="target">objetivo al que se quiiere seguir</param>
 	public void do_seek( GameObject target )
 	{
-		controller.direction_vector = seek( target );
+		Vector3 desire_direction = seek( target );
+		debug.draw.arrow( desire_direction, Color.magenta );
+		controller.direction_vector = desire_direction;
 	}
 
 	public void do_seek( Vector3 target )
 	{
-		controller.direction_vector = seek( target );
+		Vector3 desire_direction = seek( target );
+		debug.draw.arrow( desire_direction, Color.magenta );
+		controller.direction_vector = desire_direction;
 	}
 
 	/// <summary>
@@ -125,7 +129,9 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 	/// <param name="target">objetivo del que se quiere huir</param>
 	public void do_flee( GameObject target )
 	{
-		controller.direction_vector = flee( target );
+		Vector3 desire_direction = flee( target );
+		debug.draw.arrow( desire_direction, Color.magenta );
+		controller.direction_vector = desire_direction;
 	}
 
 	public void do_follow_path( GameObject target )
