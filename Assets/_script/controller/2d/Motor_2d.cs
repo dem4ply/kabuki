@@ -9,7 +9,7 @@ namespace controller {
 	namespace motor {
 		public class Motor_2d : Chibi_behaviour {
 			#region variables publicas
-			public float move_speed = 10f;
+			public float max_speed = 10f;
 			public float runner_multiply = 2.0f;
 			#endregion
 
@@ -78,6 +78,14 @@ namespace controller {
 			public Vector2 velocity_vector {
 				get {
 					return _rigidbody.velocity;
+				}
+			}
+
+			public float current_max_speed {
+				get {
+					if ( is_running )
+						return max_speed * runner_multiply;
+					return max_speed;
 				}
 			}
 			#endregion

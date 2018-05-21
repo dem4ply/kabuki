@@ -54,9 +54,9 @@ namespace controller
 				Vector2 desire_speed_vector;
 				// si es true se esta moviendo a toda velocidad en diagonal
 				if ( direction_vector.magnitude > 1 )
-					desire_speed_vector = direction_vector.normalized * move_speed;
+					desire_speed_vector = direction_vector.normalized * max_speed;
 				else
-					desire_speed_vector = direction_vector * move_speed;
+					desire_speed_vector = direction_vector * max_speed;
 
 				if ( is_running )
 					desire_speed_vector *= runner_multiply;

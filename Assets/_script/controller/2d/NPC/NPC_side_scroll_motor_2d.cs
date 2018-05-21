@@ -133,7 +133,7 @@ namespace controller {
 			protected virtual void _proccess_ground_horizontal_velocity(
 				ref Vector2 velocity_vector )
 			{
-				float desire_horizontal_velocity = direction_vector.x * move_speed;
+				float desire_horizontal_velocity = direction_vector.x * max_speed;
 				if ( is_running )
 					desire_horizontal_velocity *= runner_multiply;
 
@@ -160,7 +160,7 @@ namespace controller {
 				if ( desire_direction == 0 )
 					return;
 
-				float desire_horizontal_velocity = direction_vector.x * move_speed;
+				float desire_horizontal_velocity = direction_vector.x * max_speed;
 				if ( is_running )
 					desire_horizontal_velocity *= runner_multiply;
 

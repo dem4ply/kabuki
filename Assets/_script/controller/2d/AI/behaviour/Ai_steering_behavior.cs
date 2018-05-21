@@ -51,6 +51,53 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 		return controller.transform.position - target;
 	}
 
+	public Vector3 pursuit( GameObject target )
+	{
+		Rigidbody2D rid_2d = target.GetComponent<Rigidbody2D>();
+		if ( rid_2d != null )
+			return pursuit( target.transform.position, rid_2d.velocity );
+
+		Rigidbody rid = target.GetComponent<Rigidbody>();
+		if ( rid != null )
+			return pursuit( target.transform.position, rid.velocity );
+		return seek( target );
+	}
+
+	public Vector3 evade( GameObject target )
+	{
+		Rigidbody2D rid_2d = target.GetComponent<Rigidbody2D>();
+		if ( rid_2d != null )
+			return evade( target.transform.position, rid_2d.velocity );
+
+		Rigidbody rid = target.GetComponent<Rigidbody>();
+		if ( rid != null )
+			return evade( target.transform.position, rid.velocity );
+		return seek( target );
+	}
+
+	public Vector3 pursuit( Vector3 target, Vector3 velocity )
+	{
+		float distance_to_target = Vector3.Distance( target, current_position );
+		float time_to_reach_target = distance_to_target / controller.max_speed;
+		debug.draw.arrow( target, velocity.normalized * time_to_reach_target, Color.yellow );
+		Vector3 predicted_speed = velocity.normalized * time_to_reach_target;
+		Vector3 predicted_position = target + predicted_speed;
+		debug.draw.arrow_to( target, predicted_position, Color.black );
+		return seek( predicted_position );
+	}
+
+
+	public Vector3 evade( Vector3 target, Vector3 velocity )
+	{
+		float distance_to_target = Vector3.Distance( target, current_position );
+		float time_to_reach_target = distance_to_target / controller.max_speed;
+		debug.draw.arrow( target, velocity.normalized * time_to_reach_target, Color.yellow );
+		Vector3 predicted_speed = velocity.normalized * time_to_reach_target;
+		Vector3 predicted_position = target - predicted_speed;
+		debug.draw.arrow_to( target, predicted_position, Color.black );
+		return flee( predicted_position );
+	}
+
 	protected Segment get_segmen_to_use( Route route )
 	{
 		Segment segment = route.find_nearest_segment( current_position );
@@ -130,6 +177,20 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 	public void do_flee( GameObject target )
 	{
 		Vector3 desire_direction = flee( target );
+		debug.draw.arrow( desire_direction, Color.magenta );
+		controller.direction_vector = desire_direction;
+	}
+	
+	public void do_pursuit( GameObject target )
+	{
+		Vector3 desire_direction = pursuit( target );
+		debug.draw.arrow( desire_direction, Color.magenta );
+		controller.direction_vector = desire_direction;
+	}
+
+	public void do_evade( GameObject target )
+	{
+		Vector3 desire_direction = evade( target );
 		debug.draw.arrow( desire_direction, Color.magenta );
 		controller.direction_vector = desire_direction;
 	}

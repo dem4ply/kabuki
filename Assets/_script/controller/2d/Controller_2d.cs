@@ -34,6 +34,12 @@ namespace controller {
 					return _motor.velocity_vector;
 				}
 			}
+
+			public virtual float max_speed{
+				get {
+					return _motor.current_max_speed;
+				}
+			}
 			#endregion
 
 			#region funciones publicas
