@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 using radar;
 
-namespace test_radar
+namespace radar
 {
 	namespace radar_2d
 	{

@@ -5,36 +5,44 @@ using System.Collections;
 using controller.ai;
 using controller.controllers;
 
-public class Test_ai_follow_path
+namespace ai
 {
-	GameObject player, scene;
-
-	[SetUp]
-	public void Instanciate_scenary()
+	namespace behavior
 	{
-		scene =
-			Resources.Load( "_prefab/tests/basic_chamber_for_path_follow" ) as GameObject;
-		scene = helper.instantiate._( scene );
-		player = scene.transform.Find( "ai_follow_path" ).gameObject;
-	}
+		public class Test_ai_follow_path
+		{
+			GameObject player, scene;
 
-	[TearDown]
-	public void clean_scenary()
-	{
-		MonoBehaviour.DestroyImmediate( scene );
-	}
+			[SetUp]
+			public void Instanciate_scenary()
+			{
+				scene =
+					Resources.Load(
+						"_prefab/tests/"
+						+ "basic_chamber_for_path_follow" ) as GameObject;
+				scene = helper.instantiate._( scene );
+				player = scene.transform.Find( "ai_follow_path" ).gameObject;
+			}
 
-	[UnityTest]
-	public IEnumerator agent_follow_path_and_die_in_the_end()
-	{
-		var hp = player.GetComponent< damage.motor.HP_motor >();
+			[TearDown]
+			public void clean_scenary()
+			{
+				MonoBehaviour.DestroyImmediate( scene );
+			}
 
-		Assert.AreEqual(
-			hp.current_points, hp.total_of_points,
-			"los puntos de vida del agente no estan llenos" );
+			[UnityTest]
+			public IEnumerator agent_follow_path_and_die_in_the_end()
+			{
+				var hp = player.GetComponent<damage.motor.HP_motor>();
 
-		yield return new WaitForSeconds( 6.5f );
+				Assert.AreEqual(
+					hp.current_points, hp.total_of_points,
+					"los puntos de vida del agente no estan llenos" );
 
-		Assert.IsTrue( hp.is_dead );
+				yield return new WaitForSeconds( 6.5f );
+
+				Assert.IsTrue( hp.is_dead );
+			}
+		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using manager;
 
-namespace test_snippet
+namespace snippet
 {
 	namespace manager
 	{
