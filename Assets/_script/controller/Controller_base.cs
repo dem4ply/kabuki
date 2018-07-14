@@ -1,0 +1,56 @@
+﻿using UnityEngine;
+using System.Collections;
+using controller;
+using controller.animator;
+using chibi_base;
+
+namespace controller {
+	namespace controllers {
+		public abstract class Controller_base : Chibi_behaviour {
+
+			#region variables protected
+			[System.NonSerialized]
+			public controller.motor.Motor_base _motor;
+			#endregion
+
+			#region propiedades publicas
+			public abstract bool is_running {
+				set;
+			}
+
+			/// <summary>
+			/// modifca el vector de moviento del personaje
+			/// </summary>
+			public abstract Vector2 direction_vector{
+				set;
+			}
+
+			public abstract Vector2 velocity_vector{
+				get;
+			}
+
+			public abstract float max_speed{
+				get;
+			}
+			#endregion
+
+			#region funciones publicas
+			public abstract void jump();
+
+			public abstract void stop_jump();
+
+			public abstract void attack();
+			#endregion
+
+			#region funciones protegidas
+			protected override void _init_cache() {
+				_init_cache_motor();
+			}
+
+			protected virtual void _init_cache_motor() {
+				_motor = GetComponent<motor.Motor_base>();
+			}
+			#endregion
+		}
+	}
+}
