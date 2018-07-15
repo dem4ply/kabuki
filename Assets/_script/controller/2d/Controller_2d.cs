@@ -6,15 +6,13 @@ using chibi_base;
 
 namespace controller {
 	namespace controllers {
-		public class Controller_2d : Chibi_behaviour {
+		public class Controller_2d : Controller_base {
 
 			#region variables protected
-			[System.NonSerialized]
-			public controller.motor.Motor_2d _motor;
 			#endregion
 
 			#region propiedades publicas
-			public virtual bool is_running {
+			public override bool is_running {
 				set {
 					_motor.is_running = value;
 				}
@@ -23,19 +21,19 @@ namespace controller {
 			/// <summary>
 			/// modifca el vector de moviento del personaje
 			/// </summary>
-			public virtual Vector2 direction_vector{
+			public override Vector3 direction_vector{
 				set {
 					_motor.direction_vector = value;
 				}
 			}
 
-			public virtual Vector2 velocity_vector{
+			public override Vector3 velocity_vector{
 				get {
 					return _motor.velocity_vector;
 				}
 			}
 
-			public virtual float max_speed{
+			public override float max_speed{
 				get {
 					return _motor.current_max_speed;
 				}
@@ -43,32 +41,24 @@ namespace controller {
 			#endregion
 
 			#region funciones publicas
-			public virtual void jump()
+			public override void jump()
 			{
 				_motor.jump();
 			}
 
-			public virtual void stop_jump()
+			public override void stop_jump()
 			{
 				_motor.stop_jump();
 			}
 
-			public virtual void attack()
+			public override void attack()
 			{
-				Debug.Log( "atacando" );
 				_motor.attack();
 			}
 
 			#endregion
 
 			#region funciones protegidas
-			protected override void _init_cache() {
-				_init_cache_motor();
-			}
-
-			protected virtual void _init_cache_motor() {
-				_motor = GetComponent<motor.Motor_2d>();
-			}
 			#endregion
 		}
 	}

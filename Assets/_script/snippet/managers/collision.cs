@@ -1,15 +1,8 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
-using controller;
-using chibi_base;
-using System;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace manager {
+namespace manager
+{
 	public class Collision {
 		public Dictionary<GameObject, Dictionary<string, bool>> collisions;
 		public Dictionary<string, bool> general_collisons;

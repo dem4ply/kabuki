@@ -33,7 +33,16 @@ namespace controller
 			{
 				base._init_cache();
 				if ( model == null )
-					model = _transform.Find( "model" ).gameObject;
+				{
+					model = transform.Find( "model" ).gameObject;
+					if ( model == null )
+					{
+						string msg = String.Format(
+							"no se encontro el modelo en el gameobject {0}",
+							this.gameObject.name );
+						throw new NullReferenceException( msg );
+					}
+				}
 			}
 		}
 	}

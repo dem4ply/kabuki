@@ -43,7 +43,7 @@ namespace route
 			{
 				return this[ segment.index + 1 ];
 			}
-			catch ( System.ArgumentOutOfRangeException e) {
+			catch ( System.ArgumentOutOfRangeException ) {
 				if ( segment.index > Count )
 					return this[ Count ];
 				return this[ segment.index ];

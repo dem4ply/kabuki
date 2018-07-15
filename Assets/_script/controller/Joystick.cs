@@ -11,7 +11,7 @@ namespace controller {
 
 			#region public vars
 			public string key_map = "player 1";
-			public controller.controllers.Controller_2d controller;
+			public controller.controllers.Controller_base controller;
 
 			public Vector2 axis_mouse = Vector2.zero;
 			public Vector2 axis_esdf = Vector2.zero;
@@ -151,7 +151,7 @@ namespace controller {
 			/// </summary>
 			protected virtual void _init_cache_controller() {
 				if ( controller == null )
-					controller = GetComponent<Controller_2d>();
+					controller = GetComponent<Controller_base>();
 			}
 
 			/// <summary>

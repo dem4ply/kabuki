@@ -36,9 +36,6 @@ namespace ai
 			[UnityTest]
 			public IEnumerator agent_should_be_more_far_of_the_target()
 			{
-				var ai = player.GetComponent<controller.ai.Ai_evade>();
-				var motor = player.GetComponent<controller.motor.Motor_2d>();
-
 				var old_distance =
 					player.transform.position - damage.transform.position;
 				yield return new WaitForSeconds( 1 );

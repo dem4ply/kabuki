@@ -15,8 +15,8 @@ namespace controller {
 
 			#region variables protegidas
 			protected Transform _transform;
-			protected Vector2 _move_vector;
-			protected Vector2 _direction_vector = Vector2.zero;
+			protected Vector3 _move_vector;
+			protected Vector3 _direction_vector = Vector3.zero;
 			protected bool _is_dead = false;
 
 			protected manager.Collision manager_collisions;
@@ -29,41 +29,57 @@ namespace controller {
 			/// <summary>
 			/// Vector de movimiento que se usara en la proxima actualizacion
 			/// </summary>
-			public abstract Vector2 move_vector
+			public virtual Vector3 move_vector
 			{
-				get; set;
+				get {
+					return _move_vector;
+				}
+				set {
+					_move_vector = value;
+				}
 			}
 
-			public abstract Vector2 direction_vector
-			{
-				protected get; set;
+			public virtual Vector3 direction_vector {
+				set {
+					_direction_vector = value;
+				}
+				protected get {
+					return _direction_vector;
+				}
 			}
 
 			public abstract void jump();
 			public abstract void stop_jump();
 
-			public abstract bool is_running
-			{
+			public virtual bool is_running {
 				get; set;
 			}
 
-			public abstract bool is_dead
+			public virtual bool is_dead
 			{
-				get; protected set;
+				get {
+					return _is_dead;
+				}
+				protected set {
+					_is_dead = value;
+				}
 			}
-			public abstract bool is_not_dead
+			public virtual bool is_not_dead {
+				get {
+					return !is_dead; }
+			}
+
+			public abstract Vector3 velocity_vector
 			{
 				get;
 			}
 
-			public abstract Vector2 velocity_vector
-			{
-				get;
-			}
-
-			public abstract float current_max_speed
-			{
-				get;
+			public virtual float current_max_speed {
+				get {
+					if ( is_running )
+						return max_speed * runner_multiply;
+					return max_speed;
+				}
 			}
 			#endregion
 

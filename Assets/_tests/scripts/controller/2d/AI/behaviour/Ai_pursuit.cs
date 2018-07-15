@@ -34,7 +34,6 @@ namespace ai
 			[UnityTest]
 			public IEnumerator agent_chase_the_damage_and_die()
 			{
-				var ai = player.GetComponent<controller.ai.Ai_walk>();
 				var motor = player.GetComponent<controller.motor.Motor_2d>();
 				var hp = player.GetComponent<damage.motor.HP_motor>();
 

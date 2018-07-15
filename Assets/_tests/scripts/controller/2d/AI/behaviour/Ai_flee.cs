@@ -36,9 +36,6 @@ namespace ai
 			[UnityTest]
 			public IEnumerator agent_should_be_more_far_of_the_target()
 			{
-				var ai = player.GetComponent<controller.ai.Ai_flee>();
-				var motor = player.GetComponent<controller.motor.Motor_2d>();
-
 				var old_distance =
 					player.transform.position - damage.transform.position;
 				yield return new WaitForSeconds( 1 );
@@ -53,7 +50,6 @@ namespace ai
 			public IEnumerator should_no_change_direction_when_target_no_move()
 			{
 				var ai = player.GetComponent<controller.ai.Ai_flee>();
-				var motor = player.GetComponent<controller.motor.Motor_2d>();
 
 				yield return new WaitForSeconds( 1 );
 				var old_flee_vector = ai.flee( damage );

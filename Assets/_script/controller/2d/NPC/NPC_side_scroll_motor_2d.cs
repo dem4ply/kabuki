@@ -154,7 +154,7 @@ namespace controller {
 			protected virtual void _proccess_air_horizontal_velocity(
 				ref Vector2 velocity_vector )
 			{
-				int current_direction = Math.Sign( velocity_vector.x );
+				// int current_direction = Math.Sign( velocity_vector.x );
 				int desire_direction = Math.Sign( direction_vector.x );
 				// no hace nada porque no hay actualizacion en la direcion
 				if ( desire_direction == 0 )

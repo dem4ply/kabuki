@@ -21,11 +21,11 @@ namespace controller {
 			/// <summary>
 			/// modifca el vector de moviento del personaje
 			/// </summary>
-			public abstract Vector2 direction_vector{
+			public abstract Vector3 direction_vector{
 				set;
 			}
 
-			public abstract Vector2 velocity_vector{
+			public abstract Vector3 velocity_vector{
 				get;
 			}
 
