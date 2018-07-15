@@ -14,8 +14,8 @@ namespace geometry{
 					Sprite_grid component = ( Sprite_grid )target;
 
 
-					float width = EditorGUILayout.FloatField( "width", component.width );
-					float height = EditorGUILayout.FloatField( "height", component.height );
+					EditorGUILayout.FloatField( "width", component.width );
+					EditorGUILayout.FloatField( "height", component.height );
 
 					component.columns = EditorGUILayout.IntField( "columns", component.columns );
 					component.rows = EditorGUILayout.IntField( "rows", component.rows );

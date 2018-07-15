@@ -54,7 +54,6 @@ namespace controller
 					NPC_side_scroll_motor_2d motor =
 						player.GetComponent<NPC_side_scroll_motor_2d>();
 					Assert.IsTrue( motor.is_grounded );
-					float y_position_in_the_floor = motor.transform.position.y;
 					motor.jump();
 					yield return new WaitForSeconds( 0.1f );
 					Assert.IsFalse( motor.is_grounded );
