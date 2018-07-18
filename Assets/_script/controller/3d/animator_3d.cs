@@ -6,14 +6,14 @@ namespace controller {
 	namespace animator {
 		public class animator_3d : animator.Animator_base
 		{
-			protected Vector3 _move_vector = Vector2.zero;
+			protected Vector3 _move_vector = Vector3.zero;
 			protected float _speed = 0f;
 
 			public const string VERTICAL = "vertical";
 			public const string HORIZONTAL = "horizontal";
 			public const string SPEED = "speed";
 
-			public virtual Vector2 direction_vector {
+			public virtual Vector3 direction_vector {
 				set {
 					if ( value.magnitude > 0 )
 					{

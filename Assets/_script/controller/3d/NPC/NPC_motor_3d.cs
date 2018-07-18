@@ -77,6 +77,7 @@ namespace controller
 			{
 				var animator = _animator as NPC_animator_3d;
 				animator.direction_vector = velocity_vector.normalized;
+				animator.speed = velocity_vector.magnitude / current_max_speed;
 			}
 			#endregion
 		}
