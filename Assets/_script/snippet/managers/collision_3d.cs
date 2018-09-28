@@ -25,28 +25,23 @@ namespace manager
 			throw new NotImplementedException();
 		}
 
-		public Dictionary<string, List< Collision_info>> this[ GameObject obj ]
+		public Dictionary<string, Collision_info> this[ GameObject obj ]
 		{
 			get{
-				Dictionary<string, List< Collision_info>> result;
-				if ( collisions.TryGetValue( obj, out result ) )
-					return result;
-				else
-					return null;
+				Dictionary<string, Collision_info> result;
+				collisions.TryGetValue( obj, out result );
+				return result;
 			}
 		}
 
-		public Collision_info this[ GameObject obj, string name ]
+		public bool this[ GameObject obj, string name ]
 		{
 			get{
 				var inner_dict = this[ obj ];
+				Collision_info result;
 				if ( inner_dict != null )
-				{
-					Collision_info result;
-					if ( inner_dict.TryGetValue( obj, out result ) )
-						return result;
-				}
-				return null;
+					return inner_dict.TryGetValue( obj, out result );
+				return false;
 			}
 		}
 
@@ -54,21 +49,8 @@ namespace manager
 		{
 			get{
 				List<Collision_info> result;
-				if ( collisions_by_name.TryGetValue( name, out result ) )
-					return result;
-				else
-					return null;
+				return collisions_by_name.TryGetValue( name, out result );
 			}
-		}
-
-		public List<Collision_info> get( GameObject obj )
-		{
-			return this[ obj ];
-		}
-
-		public List<Collision_info> get( string name )
-		{
-			return this[ name ];
 		}
 	}
 }
