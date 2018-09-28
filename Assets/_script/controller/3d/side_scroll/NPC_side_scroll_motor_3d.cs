@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 
 namespace controller
@@ -8,6 +9,16 @@ namespace controller
 	{
 		public class NPC_side_scroll_motor_3d : NPC_motor_3d
 		{
+			public float max_jump_heigh = 4f;
+			public float min_jump_heigh = 1f;
+			public float jump_time = 0.4f;
+
+			public float max_jump_velocity;
+			public float min_jump_velocity;
+			public float gravity = -9.8f;
+
+			public bool try_to_jump_next_update = false;
+
 			protected override void _proccess_ground_velocity(
 				ref Vector3 velocity_vector )
 			{
@@ -27,6 +38,26 @@ namespace controller
 					ref horizontal_velocity_smooth, acceleration_time_in_ground );
 
 				velocity_vector.x = final_horizontal_velocity;
+			}
+
+			public override void jump()
+			{
+				try_to_jump_next_update = true;
+			}
+
+			public override void stop_jump()
+			{
+				try_to_jump_next_update = false;
+			}
+
+			protected override void Start()
+			{
+				base.Start();
+				gravity = - ( 2 * max_jump_heigh ) / ( jump_time * jump_time );
+				max_jump_velocity = Math.Abs( gravity ) * jump_time;
+				min_jump_velocity = ( float )Math.Sqrt(
+					2.0 * Math.Abs( gravity ) * min_jump_heigh );
+
 			}
 		}
 	}
