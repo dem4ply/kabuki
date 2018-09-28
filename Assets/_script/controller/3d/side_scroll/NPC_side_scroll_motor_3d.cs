@@ -19,6 +19,35 @@ namespace controller
 
 			public bool try_to_jump_next_update = false;
 
+			#region propiedades publicas
+			public virtual bool is_grounded
+			{
+				get {
+					return manager_collisions.get( "is_grounded" );
+				}
+			}
+
+			public virtual bool is_not_grounded
+			{
+				get {
+					return !is_grounded;
+				}
+			}
+
+			#endregion
+
+			#region funciones de movimiento
+			public override void update_motion() {
+				Vector3 velocity_vector = new Vector3(
+					_rigidbody.velocity.x, _rigidbody.velocity.y,
+					_rigidbody.velocity.z );
+				_proccess_ground_velocity( ref velocity_vector );
+
+				debug.draw.arrow( direction_vector, Color.magenta );
+				debug.draw.arrow( velocity_vector, Color.yellow );
+				_rigidbody.velocity = velocity_vector;
+			}
+
 			protected override void _proccess_ground_velocity(
 				ref Vector3 velocity_vector )
 			{
@@ -39,6 +68,7 @@ namespace controller
 
 				velocity_vector.x = final_horizontal_velocity;
 			}
+			#endregion
 
 			public override void jump()
 			{

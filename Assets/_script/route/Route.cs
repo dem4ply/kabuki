@@ -29,7 +29,8 @@ namespace route
 		public Segment this[ int index ]
 		{
 			get {
-				return new Segment( points[ index ], points[ index + 1 ], width, index );
+				return new Segment(
+					points[ index ], points[ index + 1 ], width, index );
 			}
 
 			set {
@@ -56,7 +57,8 @@ namespace route
 			int min_index = 0;
 			for ( int i = 1; i < points.Count; ++i )
 			{
-				float current_distant = ( points[ i ].position - position ).magnitude;
+				float current_distant = (
+					points[ i ].position - position ).magnitude;
 				if ( current_distant < min_distance )
 				{
 					min_distance = current_distant;
