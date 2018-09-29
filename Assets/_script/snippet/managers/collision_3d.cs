@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace manager
 {
-	public class Collision {
+	public class Collision_3d {
 		public Dictionary<
 			GameObject, Dictionary<string, Collision_info>> collisions;
 		public Dictionary<
 			string, Dictionary<GameObject, Collision_info>> collisions_by_name;
 
-		public Collision()
+		public Collision_3d()
 		{
 			collisions = new Dictionary<
 				GameObject, Dictionary<string, Collision_info>>();
@@ -38,7 +38,7 @@ namespace manager
 			{
 				inner_dict_by_name = new Dictionary<GameObject, Collision_info>();
 				inner_dict_by_name.Add( game_object, collision_info );
-				collisions_by_name.Add( inner_dict_by_name );
+				collisions_by_name.Add( name, inner_dict_by_name );
 			}
 		}
 
@@ -69,15 +69,15 @@ namespace manager
 				var inner_dict = this[ obj ];
 				Collision_info result;
 				if ( inner_dict != null )
-					return inner_dict.TryGetValue( obj, out result );
+					return inner_dict.TryGetValue( name, out result );
 				return false;
 			}
 		}
 
-		public List<Collision_info>this[ string name ]
+		public bool this[ string name ]
 		{
 			get{
-				List<Collision_info> result;
+				Dictionary<GameObject, Collision_info> result;
 				return collisions_by_name.TryGetValue( name, out result );
 			}
 		}
