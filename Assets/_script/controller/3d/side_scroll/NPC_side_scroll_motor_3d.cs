@@ -131,6 +131,7 @@ namespace controller
 
 			protected virtual void OnCollisionEnter( Collision collision )
 			{
+				_proccess_collsion( collision );
 			}
 
 			protected virtual void OnCollisionExit( Collision collision )
