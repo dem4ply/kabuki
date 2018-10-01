@@ -10,7 +10,7 @@ namespace snippet
 			[Test]
 			public void when_add_a_new_game_object_should_work()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 				UnityEngine.Collision collision = new UnityEngine.Collision();
 				Collision_info info = new Collision_info( "test", collision, player );
@@ -22,7 +22,7 @@ namespace snippet
 			[Test]
 			public void when_add_two_obj_shold_work()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 				UnityEngine.GameObject enamy = new UnityEngine.GameObject();
 				UnityEngine.Collision collision = new UnityEngine.Collision();
@@ -40,7 +40,7 @@ namespace snippet
 			[Test]
 			public void get_a_object_is_not_in_the_manager_should_return_null()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
 
@@ -62,7 +62,7 @@ namespace snippet
 			[Test]
 			public void get_a_event_when_no_exists_should_return_false()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 
 				Assert.IsFalse( manager[ player, "test" ] );
@@ -78,7 +78,7 @@ namespace snippet
 			[Test]
 			public void get_status_should_work()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 
 				Assert.IsFalse( manager[ "test" ] );
@@ -94,7 +94,7 @@ namespace snippet
 			[Test]
 			public void remove_status_should_work()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 
 				Assert.IsFalse( manager[ "test" ] );
@@ -111,7 +111,7 @@ namespace snippet
 			[Test]
 			public void after_remove_should_return_null_with_gameobject()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 
 				Assert.IsFalse( manager[ "test" ] );
@@ -128,7 +128,7 @@ namespace snippet
 			[Test]
 			public void remove_twice_should_be_fine()
 			{
-				Collision_3d manager = new Collision_3d();
+				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 
 				Assert.IsFalse( manager[ "test" ] );
