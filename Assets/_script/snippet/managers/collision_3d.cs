@@ -51,7 +51,11 @@ namespace manager
 			Dictionary<GameObject, Collision_info> dict_by_name;
 			foreach ( string key in inner_dict.Keys )
 				if ( collisions_by_name.TryGetValue( key, out dict_by_name ) )
+				{
 					dict_by_name.Remove( game_object );
+					if ( dict_by_name.Count == 0 )
+						collisions_by_name.Remove( key );
+				}
 		}
 
 		public Dictionary<string, Collision_info> this[ GameObject obj ]

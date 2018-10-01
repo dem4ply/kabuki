@@ -8,11 +8,16 @@ namespace manager
 		public GameObject game_object;
 		public UnityEngine.Collision collision;
 
-		public Collision_info( string name, UnityEngine.Collision collision )
+		public Collision_info( string name, Collision collision )
+			: this( name, collision, collision.gameObject )
+		{}
+
+		public Collision_info(
+			string name, Collision collision, GameObject game_object )
 		{
 			this.name = name;
 			this.collision = collision;
-			game_object = collision.gameObject;
+			this.game_object = game_object;
 		}
 	}
 }
