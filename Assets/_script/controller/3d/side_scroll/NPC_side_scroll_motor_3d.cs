@@ -53,6 +53,7 @@ namespace controller
 					_rigidbody.velocity.z );
 				_proccess_ground_velocity( ref velocity_vector );
 				_proccess_gravity( ref velocity_vector );
+				_proccess_jump( ref velocity_vector );
 
 				debug.draw.arrow( direction_vector, Color.magenta );
 				debug.draw.arrow( velocity_vector, Color.yellow );
@@ -78,6 +79,17 @@ namespace controller
 					ref horizontal_velocity_smooth, acceleration_time_in_ground );
 
 				velocity_vector.x = final_horizontal_velocity;
+			}
+
+			protected virtual void _proccess_jump( ref Vector3 velocity )
+			{
+				if ( try_to_jump_next_update )
+				{
+					if ( is_grounded )
+					{
+						velocity.y = max_jump_velocity;
+					}
+				}
 			}
 
 			/// <summary>

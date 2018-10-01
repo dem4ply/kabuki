@@ -32,6 +32,11 @@ namespace tests_tool
 			Assert.Fail( msg );
 		}
 
+		public void assert_collision_enter( MonoBehaviour obj )
+		{
+			assert_collision_enter( obj.gameObject );
+		}
+
 		public void assert_not_collision_enter()
 		{
 			if ( collisions_enters.Count > 0 )
@@ -47,6 +52,11 @@ namespace tests_tool
 						"el gameobject {0} entro en el collider", obj );
 					Assert.Fail( msg );
 				}
+		}
+
+		public void assert_not_collision_enter( MonoBehaviour obj )
+		{
+			assert_not_collision_enter( obj.gameObject );
 		}
 
 		private void OnCollisionEnter( Collision collision )
