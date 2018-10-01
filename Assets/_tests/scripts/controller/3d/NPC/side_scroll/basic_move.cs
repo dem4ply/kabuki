@@ -22,7 +22,8 @@ namespace controller
 					{
 						scene =
 							Resources.Load(
-								"_test/scene/controller/3d/side_scroll/basic_move" ) as GameObject;
+								"_test/scene/controller/3d/" +
+								"side_scroll/basic_move" ) as GameObject;
 						scene = helper.instantiate._( scene );
 						player = scene.transform.Find( "player" ).gameObject;
 						left = scene.transform.Find( "assert_collision_left" )

@@ -245,7 +245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4177716472330316, guid: f4564e0d32d303c43b56d637c5758f71, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.6604794
+      value: 3.46
       objectReference: {fileID: 0}
     - target: {fileID: 4177716472330316, guid: f4564e0d32d303c43b56d637c5758f71, type: 2}
       propertyPath: m_LocalPosition.z
@@ -425,6 +425,19 @@ MonoBehaviour:
   max_speed: 10
   runner_multiply: 2
   acceleration_time_in_ground: 0.1
+  max_jump_heigh: 4
+  min_jump_heigh: 1
+  jump_time: 0.4
+  max_jump_velocity: 0
+  min_jump_velocity: 0
+  gravity: -9.8
+  try_to_jump_next_update: 0
+  angle_vector_for_floor: {x: -1, y: 0, z: 0}
+  min_angle_for_floor: 20
+  max_angle_for_floor: 160
+  angle_vector_for_wall: {x: 0, y: 1, z: 0}
+  min_angle_for_wall: 70
+  max_angle_for_wall: 110
 --- !u!114 &1071131276
 MonoBehaviour:
   m_ObjectHideFlags: 0

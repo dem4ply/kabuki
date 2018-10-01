@@ -8,211 +8,140 @@ namespace snippet
 		class Test_collision
 		{
 			[Test]
-			public void when_add_a_new_game_object_should_work ()
+			public void when_add_a_new_game_object_should_work()
 			{
 				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				manager.add( info );
+				Assert.IsNotNull( manager[ player ] );
+				Assert.IsTrue( manager[ player, "test" ] );
 			}
 
 			[Test]
-			public void add_two_obj_should_work()
+			public void when_add_two_obj_shold_work()
+			{
+				Collision manager = new Collision();
+				UnityEngine.GameObject player = new UnityEngine.GameObject();
+				UnityEngine.GameObject enamy = new UnityEngine.GameObject();
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				Collision_info info_enemy = new Collision_info( "test", collision, enamy );
+				manager.add( info );
+				manager.add( info_enemy );
+
+				Assert.IsNotNull( manager[ player ] );
+				Assert.IsTrue( manager[ player, "test" ] );
+				Assert.IsNotNull( manager[ enamy ] );
+				Assert.IsTrue( manager[ enamy, "test" ] );
+			}
+
+			[Test]
+			public void get_a_object_is_not_in_the_manager_should_return_null()
 			{
 				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
 				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
-				manager.add( enemy, "status", false );
-			}
 
+				Assert.IsNull( manager[ enemy ] );
+				Assert.IsNull( manager[ player ] );
+				Assert.IsFalse( manager[ enemy, "test" ] );
+				Assert.IsFalse( manager[ player, "test" ] );
 
-			[Test]
-			public void when_add_by_second_time_should_work()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
-				manager.add( player, "status", true );
-			}
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				manager.add( info );
 
-			[Test]
-			public void get_a_obj_that_is_not_in_the_manager_should_return_null()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				var result = manager.get( player );
-				Assert.IsNull( result );
+				Assert.IsNull( manager[ enemy ] );
+				Assert.IsNotNull( manager[ player ] );
+				Assert.IsFalse( manager[ enemy, "test" ] );
+				Assert.IsTrue( manager[ player, "test" ] );
 			}
 
 			[Test]
-			public void get_a_obj_that_is_in_the_manger_should_return_a_dict()
+			public void get_a_event_when_no_exists_should_return_false()
 			{
 				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
-				var result = manager.get( player );
-				Assert.IsNotNull( result );
+
+				Assert.IsFalse( manager[ player, "test" ] );
+
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				manager.add( info );
+
+				Assert.IsTrue( manager[ player, "test" ] );
+				Assert.IsFalse( manager[ player, "asdf" ] );
 			}
 
 			[Test]
-			public void get_a_obj_and_status_is_not_in_the_manager_should_be_false()
+			public void get_status_should_work()
 			{
 				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				bool result = manager.get( player, "status" );
-				Assert.IsFalse( result );
+
+				Assert.IsFalse( manager[ "test" ] );
+
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				manager.add( info );
+
+				Assert.IsTrue( manager[ "test" ] );
+				Assert.IsFalse( manager[ "asdf" ] );
 			}
 
 			[Test]
-			public void get_a_obj_and_status_should_return_the_bool_expected()
+			public void remove_status_should_work()
 			{
 				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
-				bool result = manager.get( player, "status" );
-				Assert.IsFalse( result );
 
-				manager.add( player, "status", true );
-				result = manager.get( player, "status" );
-				Assert.IsTrue( result );
-			}
+				Assert.IsFalse( manager[ "test" ] );
 
-			[Test]
-			public void get_obj_and_status_in_multiple_obj_should_work()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
-				manager.add( enemy, "status", true );
-				bool result = manager.get( player, "status" );
-				Assert.IsFalse( result );
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				manager.add( info );
 
-				result = manager.get( enemy, "status" );
-				Assert.IsTrue( result );
-
-				manager.add( player, "status", true );
-				result = manager.get( player, "status" );
-				Assert.IsTrue( result );
-
-				result = manager.get( enemy, "status" );
-				Assert.IsTrue( result );
-			}
-
-
-			[Test]
-			public void get_status_in_multiple_obj_case_1_should_be_false()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
-				manager.add( enemy, "status", false );
-				bool result = manager.get( "status" );
-				Assert.IsFalse( result );
-			}
-
-			[Test]
-			public void get_status_in_multiple_obj_case_2_should_be_true()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", false );
-				manager.add( enemy, "status", true );
-				bool result = manager.get( "status" );
-				Assert.IsTrue( result );
-			}
-
-			[Test]
-			public void get_status_in_multiple_obj_case_3_should_be_true()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", true );
-				manager.add( enemy, "status", false );
-				bool result = manager.get( "status" );
-				Assert.IsTrue( result );
-			}
-
-			[Test]
-			public void get_status_in_multiple_obj_case_4_should_be_true()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", true );
-				manager.add( enemy, "status", true );
-				bool result = manager.get( "status" );
-				Assert.IsTrue( result );
-			}
-
-			[Test]
-			public void get_status_in_muliples_obj_and_losing_the_contacts_should_work()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", true );
-				bool result = manager.get( "status" );
-				Assert.IsTrue( result );
-
-				manager.add( enemy, "status", true );
-				result = manager.get( "status" );
-				Assert.IsTrue( result );
-
-				manager.add( player, "status", false );
-				result = manager.get( "status" );
-				Assert.IsTrue( result );
-
-				manager.add( enemy, "status", false );
-				result = manager.get( "status" );
-				Assert.IsFalse( result );
-			}
-
-			[Test]
-			public void when_is_remove_a_obj_the_get_should_be_false()
-			{
-				Collision manager = new Collision();
-				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				manager.add( player, "status", true );
-				bool result = manager.get( "status" );
-				Assert.IsTrue( result );
-
+				Assert.IsTrue( manager[ "test" ] );
 				manager.remove( player );
-				result = manager.get( "status" );
-				Assert.IsFalse( result );
+				Assert.IsFalse( manager[ "test" ] );
 			}
 
 			[Test]
-			public void remove_with_multiple_objects_should_work()
+			public void after_remove_should_return_null_with_gameobject()
 			{
 				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				UnityEngine.GameObject enemy = new UnityEngine.GameObject();
-				manager.add( player, "status", true );
-				manager.add( enemy, "status", true );
-				bool result = manager.get( "status" );
-				Assert.IsTrue( result );
 
-				manager.remove( enemy );
-				result = manager.get( "status" );
-				Assert.IsTrue( result );
+				Assert.IsFalse( manager[ "test" ] );
 
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				manager.add( info );
+
+				Assert.IsTrue( manager[ "test" ] );
 				manager.remove( player );
-				result = manager.get( "status" );
-				Assert.IsFalse( result );
+				Assert.IsNull( manager[ player ] );
 			}
 
 			[Test]
-			public void remove_twice_the_same_should_be_fine()
+			public void remove_twice_should_be_fine()
 			{
 				Collision manager = new Collision();
 				UnityEngine.GameObject player = new UnityEngine.GameObject();
-				manager.add( player, "status", true );
+
+				Assert.IsFalse( manager[ "test" ] );
+
+				UnityEngine.Collision collision = new UnityEngine.Collision();
+				Collision_info info = new Collision_info( "test", collision, player );
+				manager.add( info );
+
+				Assert.IsTrue( manager[ "test" ] );
 				manager.remove( player );
+				Assert.IsNull( manager[ player ] );
 				manager.remove( player );
+				Assert.IsNull( manager[ player ] );
 			}
 		}
 	}

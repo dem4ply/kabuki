@@ -14,6 +14,7 @@ namespace controller {
 
 			#region variables protegidas
 			protected Rigidbody2D _rigidbody;
+			protected manager.Collision_2d manager_collisions;
 
 			public override Vector3 velocity_vector
 			{
@@ -61,7 +62,7 @@ namespace controller {
 			protected override void _init_cache() {
 				base._init_cache();
 				_rigidbody = GetComponent<Rigidbody2D>();
-				manager_collisions = new manager.Collision();
+				manager_collisions = new manager.Collision_2d();
 				_rigidbody.gravityScale = 0f;
 			}
 		}

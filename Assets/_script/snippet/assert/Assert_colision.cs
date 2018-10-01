@@ -10,8 +10,9 @@ namespace tests_tool
 		List<obj.Assert_collision_event> collisions_enters;
 		List<obj.Assert_collision_event> collisions_exits;
 
-		void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
 			collisions_enters = new List<obj.Assert_collision_event>();
 			collisions_exits = new List<obj.Assert_collision_event>();
 		}
@@ -31,6 +32,11 @@ namespace tests_tool
 			Assert.Fail( msg );
 		}
 
+		public void assert_collision_enter( MonoBehaviour obj )
+		{
+			assert_collision_enter( obj.gameObject );
+		}
+
 		public void assert_not_collision_enter()
 		{
 			if ( collisions_enters.Count > 0 )
@@ -48,6 +54,11 @@ namespace tests_tool
 				}
 		}
 
+		public void assert_not_collision_enter( MonoBehaviour obj )
+		{
+			assert_not_collision_enter( obj.gameObject );
+		}
+
 		private void OnCollisionEnter( Collision collision )
 		{
 			collisions_enters.Add( new obj.Assert_collision_event( collision ) );
@@ -60,12 +71,12 @@ namespace tests_tool
 
 		private void OnCollisionExit( Collision collision )
 		{
-			collisions_enters.Add( new obj.Assert_collision_event( collision ) );
+			collisions_exits.Add( new obj.Assert_collision_event( collision ) );
 		}
 
 		private void OnTriggerExit( Collider other )
 		{
-			collisions_enters.Add( new obj.Assert_collision_event( other ) );
+			collisions_exits.Add( new obj.Assert_collision_event( other ) );
 		}
 	}
 }

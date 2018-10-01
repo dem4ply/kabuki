@@ -19,7 +19,6 @@ namespace controller {
 			protected Vector3 _direction_vector = Vector3.zero;
 			protected bool _is_dead = false;
 
-			protected manager.Collision manager_collisions;
 
 			[System.NonSerialized]
 			protected animator.Animator_base _animator;
@@ -92,7 +91,6 @@ namespace controller {
 			/// </summary>
 			protected override void _init_cache() {
 				_init_cache_animator();
-				manager_collisions = new manager.Collision();
 			}
 
 			protected virtual void _init_cache_animator() {
