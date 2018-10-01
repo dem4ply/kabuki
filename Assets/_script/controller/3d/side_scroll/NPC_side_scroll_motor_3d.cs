@@ -52,6 +52,7 @@ namespace controller
 					_rigidbody.velocity.x, _rigidbody.velocity.y,
 					_rigidbody.velocity.z );
 				_proccess_ground_velocity( ref velocity_vector );
+				_proccess_gravity( ref velocity_vector );
 
 				debug.draw.arrow( direction_vector, Color.magenta );
 				debug.draw.arrow( velocity_vector, Color.yellow );
@@ -147,7 +148,7 @@ namespace controller
 				max_jump_velocity = Math.Abs( gravity ) * jump_time;
 				min_jump_velocity = ( float )Math.Sqrt(
 					2.0 * Math.Abs( gravity ) * min_jump_heigh );
-
+				_rigidbody.useGravity = false;
 			}
 
 			#region debug functions
