@@ -14,6 +14,7 @@ namespace controller {
 
 			#region variables protegidas
 			protected Rigidbody2D _rigidbody;
+			protected manager.Collision_2d manager_collisions;
 
 			public override Vector3 velocity_vector
 			{

@@ -10,8 +10,9 @@ namespace tests_tool
 		List<obj.Assert_collision_event> collisions_enters;
 		List<obj.Assert_collision_event> collisions_exits;
 
-		void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
 			collisions_enters = new List<obj.Assert_collision_event>();
 			collisions_exits = new List<obj.Assert_collision_event>();
 		}
@@ -60,12 +61,12 @@ namespace tests_tool
 
 		private void OnCollisionExit( Collision collision )
 		{
-			collisions_enters.Add( new obj.Assert_collision_event( collision ) );
+			collisions_exits.Add( new obj.Assert_collision_event( collision ) );
 		}
 
 		private void OnTriggerExit( Collider other )
 		{
-			collisions_enters.Add( new obj.Assert_collision_event( other ) );
+			collisions_exits.Add( new obj.Assert_collision_event( other ) );
 		}
 	}
 }

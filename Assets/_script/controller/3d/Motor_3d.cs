@@ -13,6 +13,7 @@ namespace controller {
 
 			#region variables protegidas
 			protected Rigidbody _rigidbody;
+			protected manager.Collision manager_collisions;
 			#endregion
 
 			#region propiedades publicas
@@ -71,6 +72,7 @@ namespace controller {
 			protected override void _init_cache() {
 				base._init_cache();
 				_rigidbody = GetComponent<Rigidbody>();
+				manager_collisions = new manager.Collision();
 			}
 		}
 	}
