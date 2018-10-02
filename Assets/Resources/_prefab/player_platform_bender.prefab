@@ -505,6 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4676680620479742}
+  - component: {fileID: 114704293618415712}
   m_Layer: 0
   m_Name: platform_left
   m_TagString: Untagged
@@ -1814,6 +1815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4020066212765076}
+  - component: {fileID: 114396607089181504}
   m_Layer: 0
   m_Name: platform_right
   m_TagString: Untagged
@@ -1895,7 +1897,7 @@ GameObject:
   - component: {fileID: 136998440571535318}
   - component: {fileID: 114137610394877080}
   - component: {fileID: 114975859382559942}
-  - component: {fileID: 114575478256766976}
+  - component: {fileID: 114440135074762234}
   m_Layer: 0
   m_Name: player_platform_bender
   m_TagString: Untagged
@@ -5374,7 +5376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_mode: 0
   key_map: player 1
-  controller: {fileID: 114575478256766976}
+  controller: {fileID: 114440135074762234}
   axis_mouse: {x: 0, y: 0}
   axis_esdf: {x: 0, y: 0}
   mouse_position: {x: 0, y: 0}
@@ -5385,7 +5387,20 @@ MonoBehaviour:
   dead_zone_esdf_axis: 0.01
   dead_zone_mouse_axis: 0.01
   dead_zone_mouse_wheel: 0.01
---- !u!114 &114575478256766976
+--- !u!114 &114396607089181504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700687310550390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7045364b37f140528ef7b4a47ccbf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 0
+  platform: {fileID: 1231183606215870}
+--- !u!114 &114440135074762234
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5393,10 +5408,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1749795804026492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79763bd9203d29e4ca31a3473163dd3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d1f77168328f496c92d146adb15c6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debug_mode: 0
+  platform_left: {fileID: 114704293618415712}
+  platform_right: {fileID: 114396607089181504}
+--- !u!114 &114704293618415712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165371495012624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7045364b37f140528ef7b4a47ccbf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 0
+  platform: {fileID: 1157428935065158}
 --- !u!114 &114975859382559942
 MonoBehaviour:
   m_ObjectHideFlags: 1
