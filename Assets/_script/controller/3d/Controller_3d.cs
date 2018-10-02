@@ -3,6 +3,7 @@ using System.Collections;
 using controller;
 using controller.animator;
 using chibi_base;
+using System;
 
 namespace controller {
 	namespace controllers {
@@ -55,6 +56,16 @@ namespace controller {
 			public override void attack()
 			{
 				_motor.attack();
+			}
+
+			public override void left_bumper()
+			{
+				throw new NotImplementedException();
+			}
+
+			public override void right_bumper()
+			{
+				throw new NotImplementedException();
 			}
 
 			#endregion

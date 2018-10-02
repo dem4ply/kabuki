@@ -40,6 +40,9 @@ namespace controller {
 			public abstract void stop_jump();
 
 			public abstract void attack();
+
+			public abstract void left_bumper();
+			public abstract void right_bumper();
 			#endregion
 
 			#region funciones protegidas
