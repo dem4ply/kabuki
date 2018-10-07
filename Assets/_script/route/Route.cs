@@ -10,7 +10,6 @@ namespace route
 
 		public List<Transform> points;
 		public float width = 0.5f;
-		public GameObject asdf;
 
 		public int Count
 		{

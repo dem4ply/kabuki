@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace controller {
 	namespace motor {
+		[ RequireComponent( typeof( Rigidbody ) ) ]
 		public class Motor_3d : Motor_base {
 			#region variables publicas
 			#endregion

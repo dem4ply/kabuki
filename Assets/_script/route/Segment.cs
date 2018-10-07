@@ -69,6 +69,14 @@ namespace route
 			helper.draw.arrow.gizmo( start.position, direction, Color.green );
 			helper.draw.arrow.gizmo( d2, direction, Color.red );
 			helper.draw.arrow.gizmo( d3, direction, Color.red );
+
+			d2 = Quaternion.Euler( 0, 90, 0 ) * direction;
+			d3 = Quaternion.Euler( 0, -90, 0 ) * direction;
+			d2 = start.position + ( d2.normalized * radius );
+			d3 = start.position + ( d3.normalized * radius );
+
+			helper.draw.arrow.gizmo( d2, direction, Color.blue );
+			helper.draw.arrow.gizmo( d3, direction, Color.blue );
 		}
 	}
 }
