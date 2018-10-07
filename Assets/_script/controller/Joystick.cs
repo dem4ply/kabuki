@@ -22,8 +22,6 @@ namespace controller {
 			public bool jump_key = false;
 			public bool jump_key_release = false;
 
-			public bool fire_1_down = false;
-
 			public float dead_zone_esdf_axis = 0.01f;
 			public float dead_zone_mouse_axis = 0.01f;
 			public float dead_zone_mouse_wheel = 0.01f;
@@ -55,7 +53,6 @@ namespace controller {
 				_get_keys_running();
 				_get_keys_jump();
 				_get_key_jump_is_release();
-				_fire_key_down( 1 );
 			}
 			#endregion
 
@@ -78,6 +75,12 @@ namespace controller {
 				if ( _fire_key_down( 1 ) )
 					controller.attack();
 
+				if ( _left_bumper_key_down() )
+					controller.left_bumper();
+
+				if ( _right_bumper_key_down() )
+					controller.right_bumper();
+
 				_draw_debug();
 			}
 
@@ -86,7 +89,8 @@ namespace controller {
 			/// </summary>
 			protected void _get_axis_esdf() {
 				axis_esdf = helper.joystick.axis_left;
-				is_pass_deadzone_esdf_axis = helper.joystick.pass_dead_zone( axis_esdf.magnitude, dead_zone_esdf_axis );
+				is_pass_deadzone_esdf_axis = helper.joystick.pass_dead_zone(
+					axis_esdf.magnitude, dead_zone_esdf_axis );
 			}
 
 			/// <summary>
@@ -119,6 +123,16 @@ namespace controller {
 			{
 				string fire_key = string.Format( "fire_{0}", fire_number );
 				return Input.GetButtonDown( fire_key );
+			}
+
+			protected bool _left_bumper_key_down()
+			{
+				return Input.GetButtonDown( "left_bumper" );
+			}
+
+			protected bool _right_bumper_key_down()
+			{
+				return Input.GetButtonDown( "right_bumper" );
 			}
 
 			/// <summary>
