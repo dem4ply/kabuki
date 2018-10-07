@@ -11,7 +11,7 @@ namespace weapon
 		public class Weapon_base : Chibi_behaviour
 		{
 			public GameObject prefab_bullet;
-			public Vector3 bullet_spawn;
+			public Transform bullet_spawn;
 			public float rate_fire = 1;
 
 			public Vector3 direction_shot
@@ -32,7 +32,7 @@ namespace weapon
 			protected GameObject instanciate_bullet()
 			{
 				GameObject bullet = helper.instantiate.position(
-					prefab_bullet, bullet_spawn );
+					prefab_bullet, bullet_spawn.position );
 				return bullet;
 			}
 		}

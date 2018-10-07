@@ -12,6 +12,7 @@ namespace weapon
 		public class Test_waepon
 		{
 			GameObject bullet, scene, weapon;
+			tests_tool.Assert_colision assert_1;
 
 			[SetUp]
 			public void Instanciate_scenary()
@@ -22,6 +23,8 @@ namespace weapon
 				scene = helper.instantiate._( scene );
 				bullet = scene.transform.Find( "bullet_base" ).gameObject;
 				weapon = scene.transform.Find( "weapon_base" ).gameObject;
+				assert_1 = scene.transform.Find( "assert_collision" )
+					.GetComponent<tests_tool.Assert_colision>();
 			}
 
 			[TearDown]
@@ -42,6 +45,7 @@ namespace weapon
 					bullet_clone.name );
 
 				Assert.IsNotNull( bullet_finded_in_scenary );
+				MonoBehaviour.DestroyImmediate( bullet_clone );
 			}
 
 			[UnityTest]
@@ -59,6 +63,8 @@ namespace weapon
 				Assert.AreEqual(
 					weapon.transform.forward.normalized,
 					bullet_rigidbody.velocity.normalized );
+
+				MonoBehaviour.DestroyImmediate( bullet_clone );
 			}
 		}
 	}
