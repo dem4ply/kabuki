@@ -44,6 +44,20 @@ namespace controller
 				}
 			}
 
+			public virtual bool is_walled
+			{
+				get {
+					return manager_collisions[ "is_walled" ];
+				}
+			}
+
+			public virtual bool is_not_walled
+			{
+				get {
+					return !is_walled;
+				}
+			}
+
 			#endregion
 
 			#region funciones de movimiento
@@ -118,8 +132,7 @@ namespace controller
 				if ( collision.gameObject.tag == helper.consts.tags.scenary )
 				{
 					_check_is_collision_is_a_floor( collision );
-					//_check_is_contact_a_wall( contact, collision.gameObject );
-					//_check_is_contact_is_slope( contact, collision.gameObject );
+					_check_is_collision_is_a_wall( collision );
 				}
 			}
 
@@ -141,6 +154,21 @@ namespace controller
 				}
 			}
 
+			protected virtual void _check_is_collision_is_a_wall(
+				Collision collision )
+			{
+				__validate_normal_points( collision );
+				foreach( ContactPoint contact in collision.contacts )
+				{
+					float angle = Vector2.Angle( angle_vector_for_wall, contact.normal );
+					if ( helper.math.between(
+							angle, min_angle_for_wall, max_angle_for_wall ) )
+					{
+						manager_collisions.add(
+							new manager.Collision_info( "is_walled", collision ) );
+					}
+				}
+			}
 
 			protected virtual void OnCollisionEnter( Collision collision )
 			{
