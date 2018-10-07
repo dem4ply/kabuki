@@ -16,6 +16,7 @@ namespace controller
 				{
 					GameObject new_platform = helper.instantiate.position(
 						platform, transform.position );
+					new_platform.transform.rotation = platform.transform.rotation;
 					new_platform.SetActive( true );
 					return new_platform;
 				}
