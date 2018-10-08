@@ -4,7 +4,9 @@ using route;
 
 public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 {
-	public controller.controllers.Controller_2d controller;
+	public controller.controllers.Controller_base controller;
+
+	protected int last_waypoint = 0;
 
 	public Vector3 current_position
 	{
@@ -28,6 +30,7 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 	/// <returns>direcion para seguir al target</returns>
 	public Vector3 seek( Vector3 target )
 	{
+		debug.draw.arrow_to( target, Color.green );
 		return target - controller.transform.position;
 	}
 
@@ -120,6 +123,17 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 		return follow_path( route );
 	}
 
+	public Vector3 follow_waypoints( GameObject target )
+	{
+		Route route = target.GetComponent<Route>();
+		if ( route == null )
+		{
+			Debug.LogWarning( "el objetivo no tiene Route" );
+			return seek( target );
+		}
+		return follow_waypoints( route );
+	}
+
 	/// <summary>
 	/// suigue una el camino generado por un objeto tipo Route
 	/// </summary>
@@ -152,6 +166,30 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 		return Vector3.zero;
 	}
 
+	public Vector3 follow_waypoints( Route route )
+	{
+		Transform current_waypoint;
+		try
+		{
+			current_waypoint = route.points[ last_waypoint ];
+		}
+		catch ( System.ArgumentOutOfRangeException )
+		{
+			last_waypoint = 0;
+			return follow_waypoints( route );
+		}
+
+		float distance = Vector3.Distance(
+			current_position, current_waypoint.position );
+		if ( distance < route.width )
+		{
+			++last_waypoint;
+			return follow_waypoints( route );
+		}
+		debug.draw.arrow_to( current_waypoint.position, Color.black );
+		return current_waypoint.position;
+	}
+
 	/// <summary>
 	/// asigna la direcion del control como seek
 	/// </summary>
@@ -160,14 +198,14 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 	{
 		Vector3 desire_direction = seek( target );
 		debug.draw.arrow( desire_direction, Color.magenta );
-		controller.direction_vector = desire_direction;
+		controller.desire_direction = desire_direction;
 	}
 
 	public void do_seek( Vector3 target )
 	{
 		Vector3 desire_direction = seek( target );
 		debug.draw.arrow( desire_direction, Color.magenta );
-		controller.direction_vector = desire_direction;
+		controller.desire_direction = desire_direction;
 	}
 
 	/// <summary>
@@ -178,21 +216,21 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 	{
 		Vector3 desire_direction = flee( target );
 		debug.draw.arrow( desire_direction, Color.magenta );
-		controller.direction_vector = desire_direction;
+		controller.desire_direction = desire_direction;
 	}
 	
 	public void do_pursuit( GameObject target )
 	{
 		Vector3 desire_direction = pursuit( target );
 		debug.draw.arrow( desire_direction, Color.magenta );
-		controller.direction_vector = desire_direction;
+		controller.desire_direction = desire_direction;
 	}
 
 	public void do_evade( GameObject target )
 	{
 		Vector3 desire_direction = evade( target );
 		debug.draw.arrow( desire_direction, Color.magenta );
-		controller.direction_vector = desire_direction;
+		controller.desire_direction = desire_direction;
 	}
 
 	public void do_follow_path( GameObject target )
@@ -200,5 +238,11 @@ public class Ai_steering_behavior : chibi_base.Chibi_behaviour
 		Vector3 desire_position = follow_path( target );
 		if ( desire_position != Vector3.zero )
 			do_seek( desire_position );
+	}
+
+	public void do_follow_waypoints( GameObject target )
+	{
+		Vector3 desire_position = follow_waypoints( target );
+		do_seek( desire_position );
 	}
 }

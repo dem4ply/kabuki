@@ -33,6 +33,15 @@ namespace helper
 				}
 				return null;
 			}
+
+			public static T _<T>( GameObject obj, string name )
+				where T : MonoBehaviour
+			{
+				GameObject result = _( obj, name );
+				if ( result != null )
+					return result.GetComponent<T>();
+				return null;
+			}
 		}
 	}
 }

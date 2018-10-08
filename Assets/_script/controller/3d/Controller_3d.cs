@@ -29,6 +29,13 @@ namespace controller {
 				}
 			}
 
+			public override Vector3 desire_direction
+			{
+				set {
+						_motor.direction_vector = value;
+					}
+			}
+
 			public override Vector3 velocity_vector{
 				get {
 					return _motor.velocity_vector;

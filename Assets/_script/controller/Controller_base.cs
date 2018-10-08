@@ -25,6 +25,10 @@ namespace controller {
 				set;
 			}
 
+			public abstract Vector3 desire_direction{
+				set;
+			}
+
 			public abstract Vector3 velocity_vector{
 				get;
 			}
