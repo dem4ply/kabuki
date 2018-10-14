@@ -16,6 +16,10 @@ namespace helper {
 		public static GameObject parent(GameObject original, GameObject parent_target){
 			return parent(original, parent_target.transform);
 		}
+
+		public static GameObject parent(GameObject original, MonoBehaviour parent_target ){
+			return parent(original, parent_target.transform);
+		}
 		
 		public static GameObject parent(GameObject original, Transform parent_target, bool reset_pos){
 			GameObject result = parent(original, parent_target);

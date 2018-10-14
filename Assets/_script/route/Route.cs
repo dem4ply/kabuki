@@ -7,9 +7,22 @@ namespace route
 {
 	public class Route : chibi_base.Chibi_behaviour, IList<Segment>
 	{
-
 		public List<Transform> points;
 		public float width = 0.5f;
+
+		public GameObject proto_point;
+
+		[HideInInspector]
+		public string style;
+		[HideInInspector]
+		public float radius, step_size;
+		[HideInInspector]
+		public int current_style;
+		[HideInInspector]
+		public int nodes;
+
+		public static readonly string[] STYLE_SHAPES = {
+				"line", "circle", "sin * y", "cos * y", "tan * y" };
 
 		public int Count
 		{
@@ -69,7 +82,7 @@ namespace route
 
 		public Segment find_nearest_segment( Vector3 position )
 		{
-			IEnumerator< Segment > segments = get_segments().GetEnumerator();
+			IEnumerator<Segment> segments = get_segments().GetEnumerator();
 			segments.MoveNext();
 			float min_distance = segments.Current.distance_of( position );
 			Segment nearest_segment = segments.Current;
@@ -155,6 +168,52 @@ namespace route
 		IEnumerator IEnumerable.GetEnumerator()
 		{
 			throw new System.NotImplementedException();
+		}
+
+		public void draw_circle()
+		{
+			clean_points();
+			for ( int i = 0; i < nodes; ++i )
+			{
+				float angle = i * Mathf.PI * 2f / nodes;
+				float x = Mathf.Cos( angle ) * radius;
+				float y = Mathf.Sin( angle ) * radius;
+
+				Transform p = helper.instantiate.parent(
+					proto_point, this ).transform;
+				p.localPosition = new Vector3( x, y );
+				p.name = string.Format( "{0}_{1}", proto_point.name, i );
+				points.Add( p );
+			}
+		}
+
+		public static int get_style_index( string style )
+		{
+			for ( int i = 0; i < STYLE_SHAPES.Length; ++i )
+				if ( style == STYLE_SHAPES[ i ] )
+					return i;
+			return -1;
+		}
+
+		public void clean_points()
+		{
+			foreach ( Transform point in points )
+				DestroyImmediate( point.gameObject );
+			foreach ( Transform child in transform )
+				DestroyImmediate( child.gameObject );
+			points = new List<Transform>( nodes );
+		}
+
+		protected override void Awake()
+		{
+			base.Awake();
+			Debug.Log( "awake" );
+		}
+
+		protected override void Start()
+		{
+			base.Start();
+			Debug.Log( "start" );
 		}
 	}
 }
