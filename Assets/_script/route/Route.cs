@@ -173,14 +173,17 @@ namespace route
 		public void draw_circle()
 		{
 			clean_points();
+			var generator_points = get_points().GetEnumerator();
 			for ( int i = 0; i < nodes; ++i )
 			{
+				generator_points.MoveNext();
 				float angle = i * Mathf.PI * 2f / nodes;
 				float x = Mathf.Cos( angle ) * radius;
 				float y = Mathf.Sin( angle ) * radius;
 
+				GameObject point = generator_points.Current;
 				Transform p = helper.instantiate.parent(
-					proto_point, this ).transform;
+					point, this ).transform;
 				p.localPosition = new Vector3( x, y );
 				p.name = string.Format( "{0}_{1}", proto_point.name, i );
 				points.Add( p );
@@ -203,17 +206,13 @@ namespace route
 				DestroyImmediate( child.gameObject );
 			points = new List<Transform>( nodes );
 		}
-
-		protected override void Awake()
+		
+		protected virtual IEnumerable<GameObject> get_points()
 		{
-			base.Awake();
-			Debug.Log( "awake" );
-		}
-
-		protected override void Start()
-		{
-			base.Start();
-			Debug.Log( "start" );
+			for ( int i = 0; i < nodes; ++i )
+			{
+				yield return proto_point;
+			}
 		}
 	}
 }
