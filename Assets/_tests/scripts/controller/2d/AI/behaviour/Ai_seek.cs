@@ -46,6 +46,19 @@ namespace ai
 				Assert.LessOrEqual( hp.current_points, 0 );
 				Assert.IsTrue( motor.is_dead );
 			}
+
+			[UnityTest]
+			public IEnumerator if_the_target_is_null_should_no_move()
+			{
+				yield return new WaitForSeconds( 0.1f );
+				var ai = player.GetComponent<controller.ai.Ai_steering_behavior>();
+				ai.target = null;
+				yield return new WaitForSeconds( 1f );
+				var old_pos = player.transform.position;
+				yield return new WaitForSeconds( 0.2f );
+				var new_pos = player.transform.position;
+				Assert.AreEqual( old_pos, new_pos );
+			}
 		}
 	}
 }

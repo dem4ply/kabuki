@@ -6,8 +6,6 @@ namespace controller
 	{
 		public class Ai_evade : Ai_steering_behavior
 		{
-			public GameObject target;
-
 			protected virtual void Update()
 			{
 				do_evade( target );

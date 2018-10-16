@@ -6,9 +6,6 @@ namespace controller
 	{
 		public class Ai_flee : Ai_steering_behavior
 		{
-			public GameObject target;
-
-
 			protected virtual void Update()
 			{
 				do_flee( target );

@@ -10,7 +10,7 @@ namespace spawner
 		public float rate_spawn = 1f;
 		public int current = 0;
 
-		public GameObject spawn()
+		public virtual GameObject spawn()
 		{
 			var result = _instance( objects[ current++ ] );
 			if ( current >= objects.Count )
@@ -20,7 +20,7 @@ namespace spawner
 
 		protected virtual GameObject _instance( GameObject obj )
 		{
-			return helper.instantiate._( obj );
+			return helper.instantiate._( obj, transform.position );
 		}
 	}
 }

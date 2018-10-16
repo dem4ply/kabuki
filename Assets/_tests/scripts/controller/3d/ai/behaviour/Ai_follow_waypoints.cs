@@ -64,6 +64,19 @@ namespace ai
 					p7.assert_collision_enter( collider );
 					p8.assert_collision_enter( collider );
 				}
+
+				[UnityTest]
+				public IEnumerator if_the_target_is_null_should_no_move()
+				{
+					yield return new WaitForSeconds( 0.1f );
+					var ai = player.GetComponent<Ai_steering_behavior>();
+					ai.target = null;
+					yield return new WaitForSeconds( 1f );
+					var old_pos = player.transform.position;
+					yield return new WaitForSeconds( 0.2f );
+					var new_pos = player.transform.position;
+					tests_tool.assert.Vector.equal( old_pos, new_pos, 0.1f );
+				}
 			}
 		}
 	}
