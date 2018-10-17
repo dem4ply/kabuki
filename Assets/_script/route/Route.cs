@@ -181,12 +181,8 @@ namespace route
 				float x = Mathf.Cos( angle ) * radius;
 				float y = Mathf.Sin( angle ) * radius;
 
-				GameObject point = generator_points.Current;
-				Transform p = helper.instantiate.parent(
-					point, this ).transform;
+				Transform p = generator_points.Current.transform;
 				p.localPosition = new Vector3( x, y );
-				p.name = string.Format( "{0}_{1}", proto_point.name, i );
-				points.Add( p );
 			}
 		}
 
@@ -211,8 +207,18 @@ namespace route
 		{
 			for ( int i = 0; i < nodes; ++i )
 			{
-				yield return proto_point;
+				var point = _instantiate_point( proto_point, i );
+				yield return point;
 			}
+		}
+
+		protected virtual GameObject _instantiate_point(
+			GameObject proto_point, int index )
+		{
+			GameObject point = helper.instantiate.parent( proto_point, this );
+			point.name = string.Format( "{0}_{1}", proto_point.name, index );
+			points.Add( point.transform );
+			return point;
 		}
 	}
 }
