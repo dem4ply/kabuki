@@ -203,7 +203,7 @@ namespace route
 			points = new List<Transform>( nodes );
 		}
 		
-		protected virtual IEnumerable<GameObject> get_points()
+		public virtual IEnumerable<GameObject> get_points()
 		{
 			for ( int i = 0; i < nodes; ++i )
 			{
