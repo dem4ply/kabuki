@@ -67,7 +67,8 @@ namespace controller
 
 				Rigidbody rid = target.GetComponent<Rigidbody>();
 				if ( rid != null )
-					return pursuit( target.transform.position, rid.velocity );
+					return behavior.tree_d.steering.pursuit(
+						target, controller.gameObject, controller.max_speed );
 				return seek( target );
 			}
 
@@ -80,31 +81,9 @@ namespace controller
 
 				Rigidbody rid = target.GetComponent<Rigidbody>();
 				if ( rid != null )
-					return evade( target.transform.position, rid.velocity );
+					return behavior.tree_d.steering.evade(
+						target, controller.gameObject, controller.max_speed );
 				return flee( target );
-			}
-
-			public Vector3 pursuit( Vector3 target, Vector3 velocity )
-			{
-				float distance_to_target = Vector3.Distance( target, current_position );
-				float time_to_reach_target = distance_to_target / controller.max_speed;
-				debug.draw.arrow( target, velocity.normalized * time_to_reach_target, Color.yellow );
-				Vector3 predicted_speed = velocity.normalized * time_to_reach_target;
-				Vector3 predicted_position = target + predicted_speed;
-				debug.draw.arrow_to( target, predicted_position, Color.black );
-				return seek( predicted_position );
-			}
-
-
-			public Vector3 evade( Vector3 target, Vector3 velocity )
-			{
-				float distance_to_target = Vector3.Distance( target, current_position );
-				float time_to_reach_target = distance_to_target / controller.max_speed;
-				debug.draw.arrow( target, velocity.normalized * time_to_reach_target, Color.yellow );
-				Vector3 predicted_speed = velocity.normalized * time_to_reach_target;
-				Vector3 predicted_position = target - predicted_speed;
-				debug.draw.arrow_to( target, predicted_position, Color.black );
-				return flee( predicted_position );
 			}
 
 			protected Segment get_segmen_to_use( Route route )
