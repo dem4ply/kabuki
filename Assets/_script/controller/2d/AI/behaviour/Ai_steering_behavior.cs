@@ -99,80 +99,14 @@ namespace controller
 
 			public Vector3 follow_path( GameObject target )
 			{
-				Route route = target.GetComponent<Route>();
-				if ( route == null )
-				{
-					Debug.LogWarning( "el objetivo no tiene Route" );
-					return seek( target );
-				}
-				return follow_path( route );
+				return behavior.two_d.steering.follow_path(
+					target, controller.gameObject, controller.velocity_vector );
 			}
 
 			public Vector3 follow_waypoints( GameObject target )
 			{
-				Route route = target.GetComponent<Route>();
-				if ( route == null )
-				{
-					Debug.LogWarning( "el objetivo no tiene Route" );
-					return seek( target );
-				}
-				return follow_waypoints( route );
-			}
-
-			/// <summary>
-			/// suigue una el camino generado por un objeto tipo Route
-			/// </summary>
-			/// <param name="route"></param>
-			/// <returns>direcion para moverse hacia la ruta si regresa
-			/// Vector3.zero no es nesesario cambiar el vector de direcion</returns>
-			public Vector3 follow_path( Route route )
-			{
-				Segment segment = get_segmen_to_use( route );
-
-				Vector3 velocity_vector = controller.velocity_vector;
-				Vector3 prediction_position = current_position + velocity_vector.normalized;
-
-				debug.draw.arrow_to( prediction_position, Color.green );
-				Vector3 projection_point = segment.project( prediction_position );
-
-				debug.draw.line( prediction_position, projection_point, Color.blue );
-
-				float distance = Vector3.Distance(
-					prediction_position, projection_point );
-
-				if ( distance > segment.radius )
-				{
-					Vector3 direction_to_move = segment.end.position - projection_point;
-					direction_to_move = direction_to_move.normalized * segment.radius;
-					Vector3 position_to_move = direction_to_move + projection_point;
-					debug.draw.arrow_to( position_to_move, Color.black );
-					return position_to_move;
-				}
-				return Vector3.zero;
-			}
-
-			public Vector3 follow_waypoints( Route route )
-			{
-				Transform current_waypoint;
-				try
-				{
-					current_waypoint = route.points[ last_waypoint ];
-				}
-				catch ( System.ArgumentOutOfRangeException )
-				{
-					last_waypoint = 0;
-					return follow_waypoints( route );
-				}
-
-				float distance = Vector3.Distance(
-					current_position, current_waypoint.position );
-				if ( distance < route.width )
-				{
-					++last_waypoint;
-					return follow_waypoints( route );
-				}
-				debug.draw.arrow_to( current_waypoint.position, Color.black );
-				return current_waypoint.position;
+				return behavior.two_d.steering.follow_waypoints(
+					target, controller.gameObject, ref last_waypoint );
 			}
 
 			/// <summary>

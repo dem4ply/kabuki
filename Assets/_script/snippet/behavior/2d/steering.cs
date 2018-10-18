@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using route;
 
 namespace behavior
 {
@@ -104,6 +104,100 @@ namespace behavior
 				Vector3 predicted_speed = velocity.normalized * time_to_reach_target;
 				Vector3 predicted_position = target - predicted_speed;
 				return flee( predicted_position, current_position );
+			}
+
+			public static Segment get_segmen_to_use(
+				Route route, Vector3 current_position )
+			{
+				Segment segment = route.find_nearest_segment( current_position );
+
+				Vector3 direction_to_end = segment.direction_to_end(
+					current_position );
+				float distance_to_end = direction_to_end.magnitude;
+				if ( distance_to_end < segment.radius )
+					segment = route.give_the_next_segment( segment );
+				return segment;
+			}
+
+			public static Vector3 follow_path(
+				GameObject target, GameObject controller, Vector3 velocity )
+			{
+				Route route = target.GetComponent<Route>();
+				if ( route == null )
+				{
+					Debug.LogWarning( "el objetivo no tiene Route" );
+					return seek( target, controller );
+				}
+				return follow_path(
+					route, controller.transform.position, velocity );
+			}
+
+			/// <summary>
+			/// suigue una el camino generado por un objeto tipo Route
+			/// </summary>
+			/// <param name="route"></param>
+			/// <returns>direcion para moverse hacia la ruta si regresa
+			/// Vector3.zero no es nesesario cambiar el vector de direcion</returns>
+			public static Vector3 follow_path(
+				Route route, Vector3 current_position, Vector3 velocity_vector )
+			{
+				Segment segment = get_segmen_to_use( route, current_position );
+
+				Vector3 prediction_position =
+					current_position + velocity_vector.normalized;
+				Vector3 projection_point = segment.project( prediction_position );
+
+				float distance = Vector3.Distance(
+					prediction_position, projection_point );
+
+				if ( distance > segment.radius )
+				{
+					Vector3 direction_to_move = segment.end.position - projection_point;
+					direction_to_move = direction_to_move.normalized * segment.radius;
+					Vector3 position_to_move = direction_to_move + projection_point;
+					return position_to_move;
+				}
+				return Vector3.zero;
+			}
+
+			public static Vector3 follow_waypoints(
+				GameObject target, GameObject controller,
+				ref int current_waypoint )
+			{
+				Route route = target.GetComponent<Route>();
+				if ( route == null )
+				{
+					Debug.LogWarning( "el objetivo no tiene Route" );
+					return seek( target, controller );
+				}
+				return follow_waypoints(
+					route, controller.transform.position, ref current_waypoint );
+			}
+
+			public static Vector3 follow_waypoints(
+				Route route, Vector3 current_position, ref int current_waypoint )
+			{
+				Transform waypoint;
+				try
+				{
+					waypoint = route.points[ current_waypoint ];
+				}
+				catch ( System.ArgumentOutOfRangeException )
+				{
+					current_waypoint = 0;
+					return follow_waypoints(
+						route, current_position, ref current_waypoint );
+				}
+
+				float distance = Vector3.Distance(
+					current_position, waypoint.position );
+				if ( distance < route.width )
+				{
+					++current_waypoint;
+					return follow_waypoints(
+						route, current_position, ref current_waypoint );
+				}
+				return waypoint.position;
 			}
 		}
 	}

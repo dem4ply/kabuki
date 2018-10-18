@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using route;
 
 namespace behavior
 {
@@ -61,6 +61,21 @@ namespace behavior
 						target.transform.position, rid.velocity,
 						controller.transform.position, max_speed );
 				return flee( target, controller );
+			}
+
+			public static Vector3 follow_path(
+				GameObject target, GameObject controller, Vector3 velocity )
+			{
+				return two_d.steering.follow_path(
+					target, controller, velocity );
+			}
+
+			public static Vector3 follow_waypoints(
+				GameObject target, GameObject controller,
+				ref int current_waypoint )
+			{
+				return two_d.steering.follow_waypoints(
+					target, controller, ref current_waypoint );
 			}
 		}
 	}
