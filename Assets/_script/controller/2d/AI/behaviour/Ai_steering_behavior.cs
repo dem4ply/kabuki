@@ -35,8 +35,7 @@ namespace controller
 			/// <returns>direcion para seguir al target</returns>
 			public Vector3 seek( Vector3 target )
 			{
-				debug.draw.arrow_to( target, Color.green );
-				return target - controller.transform.position;
+				return behavior.two_d.steering.seek( target, current_position );
 			}
 
 			/// <summary>
@@ -56,14 +55,15 @@ namespace controller
 			/// <returns>direcion para huir del target</returns>
 			public Vector3 flee( Vector3 target )
 			{
-				return controller.transform.position - target;
+				return behavior.two_d.steering.flee( target, current_position );
 			}
 
 			public Vector3 pursuit( GameObject target )
 			{
 				Rigidbody2D rid_2d = target.GetComponent<Rigidbody2D>();
 				if ( rid_2d != null )
-					return pursuit( target.transform.position, rid_2d.velocity );
+					return behavior.two_d.steering.pursuit(
+						target, controller.gameObject, controller.max_speed );
 
 				Rigidbody rid = target.GetComponent<Rigidbody>();
 				if ( rid != null )
@@ -75,12 +75,13 @@ namespace controller
 			{
 				Rigidbody2D rid_2d = target.GetComponent<Rigidbody2D>();
 				if ( rid_2d != null )
-					return evade( target.transform.position, rid_2d.velocity );
+					return behavior.two_d.steering.evade(
+						target, controller.gameObject, controller.max_speed );
 
 				Rigidbody rid = target.GetComponent<Rigidbody>();
 				if ( rid != null )
 					return evade( target.transform.position, rid.velocity );
-				return seek( target );
+				return flee( target );
 			}
 
 			public Vector3 pursuit( Vector3 target, Vector3 velocity )
