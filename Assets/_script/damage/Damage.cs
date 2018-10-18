@@ -18,9 +18,9 @@ namespace damage
 		public int amount = 1;
 		public List< Damage > side_effect;
 
-        public virtual void taken()
-        {
-            Debug.Log( "dano tomado" );
-        }
+		public virtual void taken()
+		{
+			Debug.Log( "dano tomado" );
+		}
     }
 }

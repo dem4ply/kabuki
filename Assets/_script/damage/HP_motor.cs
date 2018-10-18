@@ -13,7 +13,7 @@ namespace damage
 
 			public LayerMask damage_mask;
 			public GameObject receives_damage;
-			public controller.motor.Motor_2d motor;
+			public controller.motor.Motor_base motor;
 
 			public virtual bool is_dead
 			{
@@ -57,7 +57,7 @@ namespace damage
 				base._init_cache();
 				if ( motor == null )
 				{
-					motor = GetComponent< controller.motor.Motor_2d >();
+					motor = GetComponent< controller.motor.Motor_base >();
 					if ( motor == null )
 						Debug.LogError( "no se encontro el motor" );
 				}
