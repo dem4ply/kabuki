@@ -6,6 +6,7 @@ namespace damage
 {
 	namespace damage
 	{
+		[ CreateAssetMenu( menuName="weapons/damage/damage" ) ]
 		public class Damage : ScriptableObject
 		{
 			public float amount = 1;
