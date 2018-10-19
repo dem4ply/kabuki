@@ -10,7 +10,7 @@ namespace weapon
 	{
 		public class Test_bullet
 		{
-			GameObject bullet, scene, weapon;
+			GameObject bullet, scene;
 
 			[SetUp]
 			public void Instanciate_scenary()
@@ -21,7 +21,6 @@ namespace weapon
 				scene = helper.instantiate._( scene );
 				Debug.Log( scene );
 				bullet = scene.transform.Find( "bullet_base" ).gameObject;
-				weapon = scene.transform.Find( "weapon_base" ).gameObject;
 			}
 
 			[TearDown]

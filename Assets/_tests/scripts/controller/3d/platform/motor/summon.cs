@@ -48,6 +48,7 @@ namespace controller
 						Rigidbody rigidbody = player.GetComponent<Rigidbody>();
 						yield return new WaitForSeconds( 1.5f );
 						Assert.GreaterOrEqual( rigidbody.velocity.y, -0.1f );
+						MonoBehaviour.DestroyImmediate( new_platform );
 					}
 
 					[UnityTest]
@@ -59,6 +60,7 @@ namespace controller
 						Assert.AreEqual(
 							new_platform.transform.position,
 							motor.transform.position );
+						MonoBehaviour.DestroyImmediate( new_platform );
 					}
 				}
 			}

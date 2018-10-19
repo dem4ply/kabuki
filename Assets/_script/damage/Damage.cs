@@ -5,14 +5,6 @@ using UnityEngine;
 
 namespace damage
 {
-
-	public enum Type
-	{
-		blunt,
-		slash,
-		piercing,
-	}
-
 	public class Damage : chibi_base.Chibi_behaviour {
 		public damage.Damage damage;
 		[HideInInspector] public float amount = 1;

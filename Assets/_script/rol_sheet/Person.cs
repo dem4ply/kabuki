@@ -6,7 +6,7 @@ namespace rol_sheet
 	[ CreateAssetMenu( menuName="rol sheet/person" ) ]
 	public class Person : ScriptableObject
 	{
-		public string name;
+		public string full_name;
 	}
 }
 

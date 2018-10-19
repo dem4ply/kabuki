@@ -12,7 +12,7 @@ namespace ai
 
 		public class Test_ai_pursuit
 		{
-			GameObject player, scene, damage;
+			GameObject player, scene;
 
 			[SetUp]
 			public void Instanciate_scenary()
@@ -22,7 +22,6 @@ namespace ai
 						"_prefab/tests/ai_behavior/ai_pursuit" ) as GameObject;
 				scene = helper.instantiate._( scene );
 				player = scene.transform.Find( "player" ).gameObject;
-				damage = scene.transform.Find( "moving_damage" ).gameObject;
 			}
 
 			[TearDown]

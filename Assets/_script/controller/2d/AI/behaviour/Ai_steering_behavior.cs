@@ -127,14 +127,9 @@ namespace controller
 
 			public void do_seek( Vector3 target )
 			{
-				if ( target == null )
-					do_stop();
-				else
-				{
-					Vector3 desire_direction = seek( target );
-					debug.draw.arrow( desire_direction, Color.magenta );
-					controller.desire_direction = desire_direction;
-				}
+				Vector3 desire_direction = seek( target );
+				debug.draw.arrow( desire_direction, Color.magenta );
+				controller.desire_direction = desire_direction;
 			}
 
 			/// <summary>

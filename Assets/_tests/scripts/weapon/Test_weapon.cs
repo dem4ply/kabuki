@@ -11,8 +11,7 @@ namespace weapon
 	{
 		public class Test_waepon
 		{
-			GameObject bullet, scene, weapon;
-			tests_tool.Assert_colision assert_1;
+			GameObject scene, weapon;
 
 			[SetUp]
 			public void Instanciate_scenary()
@@ -21,10 +20,7 @@ namespace weapon
 					Resources.Load(
 						"_prefab/tests/weapon/basic_weapon_chamber" ) as GameObject;
 				scene = helper.instantiate._( scene );
-				bullet = scene.transform.Find( "bullet_base" ).gameObject;
 				weapon = scene.transform.Find( "weapon_base" ).gameObject;
-				assert_1 = scene.transform.Find( "assert_collision" )
-					.GetComponent<tests_tool.Assert_colision>();
 			}
 
 			[TearDown]

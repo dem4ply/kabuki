@@ -14,7 +14,7 @@ namespace controller
 			{
 			public class Test_summon
 			{
-					GameObject player, scene, platform_1, platform_2;
+					GameObject player, scene;
 					tests_tool.Assert_colision left, right;
 
 					[SetUp]
@@ -26,8 +26,6 @@ namespace controller
 								"platform/basic_platform_bender" ) as GameObject;
 						scene = helper.instantiate._( scene );
 						player = scene.transform.Find( "player" ).gameObject;
-						platform_2 = player.transform.Find( "platform_right" ).Find( "platform_2" ).gameObject;
-						platform_1 = player.transform.Find( "platform_left" ).Find( "platform_1" ).gameObject;
 					}
 
 					[TearDown]
