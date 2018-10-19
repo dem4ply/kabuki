@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114639388604385776}
   - component: {fileID: 54180059974647906}
   - component: {fileID: 114982320108924750}
+  - component: {fileID: 114734029099502572}
   m_Layer: 0
   m_Name: player fly
   m_TagString: Untagged
@@ -114,6 +115,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug_mode: 0
+--- !u!114 &114734029099502572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868540362725902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8585d4d3ac3f2b2438dd3f9c5b052888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 0
+  faction: {fileID: 0}
+  person: {fileID: 11400000, guid: 36c967161178e2a4c8c4632110bc5844, type: 2}
 --- !u!114 &114982320108924750
 MonoBehaviour:
   m_ObjectHideFlags: 1

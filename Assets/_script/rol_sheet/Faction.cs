@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 
 namespace rol_sheet
 {
+	[ CreateAssetMenu( menuName="rol sheet/faction" ) ]
 	public class Faction: ScriptableObject
 	{
 		public string name;
