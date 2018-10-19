@@ -31,7 +31,7 @@ namespace damage
 		{
 			player.GetComponent<controller.ai.Ai_walk>();
 			var hp = player.GetComponent<HP_motor>();
-			int start_hp = hp.current_points;
+			float start_hp = hp.current_points;
 			yield return new WaitForSeconds( 1 );
 			Assert.Less( hp.current_points, start_hp );
 		}
@@ -43,7 +43,7 @@ namespace damage
 			var motor = player.GetComponent<Motor_2d>();
 			var hp = player.GetComponent<HP_motor>();
 
-			int start_hp = hp.current_points;
+			float start_hp = hp.current_points;
 			Assert.Greater( start_hp, 0 );
 			Assert.IsTrue( motor.is_not_dead );
 			yield return new WaitForSeconds( 1 );

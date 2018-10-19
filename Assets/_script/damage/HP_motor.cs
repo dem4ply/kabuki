@@ -7,7 +7,7 @@ namespace damage
 		public class HP_motor : chibi_base.Chibi_behaviour
 		{
 			public int total_of_points = 1;
-			public int current_points = 1;
+			public float current_points = 1;
 
 			public LayerMask damage_mask;
 			public GameObject receives_damage;

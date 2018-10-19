@@ -39,7 +39,7 @@ namespace ai
 				var motor = player.GetComponent<controller.motor.Motor_2d>();
 				var hp = player.GetComponent<damage.motor.HP_motor>();
 
-				int start_hp = hp.current_points;
+				float start_hp = hp.current_points;
 				Assert.Greater( start_hp, 0 );
 				Assert.IsTrue( motor.is_not_dead );
 				yield return new WaitForSeconds( 1 );
