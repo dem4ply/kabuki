@@ -14,7 +14,7 @@ namespace damage
 	}
 
 	public class Damage : chibi_base.Chibi_behaviour {
-		public Type type;
+		public type.Damage type;
 		public int amount = 1;
 		public List< Damage > side_effect;
 
