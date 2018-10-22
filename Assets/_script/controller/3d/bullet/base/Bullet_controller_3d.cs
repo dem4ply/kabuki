@@ -10,6 +10,10 @@ namespace controller
 	{
 		public class Bullet_controller_3d : Controller_3d
 		{
+			public void shot( Vector3 direction_shot )
+			{
+				desire_direction = direction_shot;
+			}
 		}
 
 	}

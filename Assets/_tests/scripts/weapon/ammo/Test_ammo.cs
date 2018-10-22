@@ -1,5 +1,6 @@
-﻿using NUnit.Framework;
-using manager;
+﻿using UnityEngine;
+using NUnit.Framework;
+using controller.motor;
 
 namespace weapon
 {
@@ -29,9 +30,9 @@ namespace weapon
 			[Test]
 			public void the_instance_should_containt_a_bullet_motor()
 			{
-				var bullet = ammo.instanciate();
-				Assert.Fail();
-				//bullet.GetComponent<controller.motor.bull>
+				var bullet = ammo.instanciate( Vector3.zero );
+				var motor = bullet.GetComponent<Bullet_motor_3d>();
+				Assert.IsNotNull( motor );
 			}
 		}
 	}

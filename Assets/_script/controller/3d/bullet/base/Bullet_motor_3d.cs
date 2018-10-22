@@ -29,7 +29,7 @@ namespace controller
 				Vector3 smooth_vector;
 				Vector3 desire_speed_vector;
 				desire_speed_vector = helper.vector3.normalize_speed(
-					velocity, max_speed );
+					direction_vector, max_speed );
 
 				if ( acceleration_time == 0 )
 					smooth_vector = helper.vector3.smooth_damp(
@@ -43,17 +43,14 @@ namespace controller
 			}
 			#endregion
 
-			#region funciones de animacion
 			public override void update_animator()
 			{
 			}
-			#endregion
 
-			public override void jump()
+			protected override void _init_cache()
 			{
-			}
-			public override void stop_jump()
-			{
+				base._init_cache();
+				_rigidbody.useGravity = false;
 			}
 		}
 

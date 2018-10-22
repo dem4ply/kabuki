@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-
+using controller.controllers;
+using System;
 
 namespace weapon
 {
@@ -9,16 +9,17 @@ namespace weapon
 		[ CreateAssetMenu( menuName="weapon/ammo/base") ]
 		public class Ammo : chibi_base.Chibi_object
 		{
-			public GameObject prefab_bullet;
+			public Bullet_controller_3d prefab_bullet;
 
 			public override string path_of_the_default
 			{
 				get { return "object/weapon/ammo/default"; }
 			}
 
-			public virtual GameObject instanciate()
+			public virtual Bullet_controller_3d instanciate( Vector3 position )
 			{
-				GameObject obj = helper.instantiate._( prefab_bullet );
+				Bullet_controller_3d obj = helper.instantiate._(
+					prefab_bullet, position );
 				return obj;
 			}
 		}

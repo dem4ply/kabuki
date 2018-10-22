@@ -37,6 +37,30 @@ namespace tests_tool
 			assert_collision_enter( obj.gameObject );
 		}
 
+		public void assert_collision_enter( int amount )
+		{
+			if ( collisions_enters.Count != amount )
+				Assert.Fail( string.Format(
+					"el numero de collisiones fueron {0} se esperaban {1}",
+					collisions_enters.Count, amount ) );
+		}
+
+		public void assert_collision_enter_less_that( int amount )
+		{
+			if ( collisions_enters.Count >= amount )
+				Assert.Fail( string.Format(
+					"el numero de collisiones fueron {0} se esperaban menos de {1}",
+					collisions_enters.Count, amount ) );
+		}
+
+		public void assert_collision_enter_less_or_equal_that( int amount )
+		{
+			if ( collisions_enters.Count >= amount )
+				Assert.Fail( string.Format(
+					"el numero de collisiones fueron {0} se esperaban menos de {1}",
+					collisions_enters.Count, amount ) );
+		}
+
 		public void assert_not_collision_enter()
 		{
 			if ( collisions_enters.Count > 0 )

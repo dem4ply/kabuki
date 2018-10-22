@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a2d4f7f1bb66245be40fab318afc17, type: 3}
   m_Name: default
   m_EditorClassIdentifier: 
-  prefab_bullet: {fileID: 0}
+  prefab_bullet: {fileID: 114799464972075210, guid: c9404f7c28be33d40bba010ef0213694,
+    type: 2}

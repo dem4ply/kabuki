@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using weapon.stat;
 using weapon.ammo;
+using controller.controllers;
 
 
 namespace weapon
@@ -16,6 +17,8 @@ namespace weapon
 			{
 				shot();
 			}
+
+			public abstract Bullet_controller_3d shot();
 
 			protected override void _init_cache()
 			{
@@ -41,7 +44,6 @@ namespace weapon
 					.find_default<Gun_stat>();
 			}
 
-			public abstract GameObject shot();
 		}
 	}
 }
