@@ -12,13 +12,14 @@ namespace controller
 		{
 			namespace tree_d
 			{
-				public class AI_controller_3d : Controller_3d
+				public class AI_controller_3d : AI_base_3d
 				{
-					state.State current_state;
+					public state.State current_state;
+					public GameObject target;
 
-					protected virtual void Update()
+					protected override void Update()
 					{
-						current_state.update( this );
+						current_state.update( controller );
 					}
 				}
 			}

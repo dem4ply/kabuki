@@ -45,7 +45,7 @@ namespace tests_tool
 
 		public void assert_not_collision_enter( GameObject obj )
 		{
-			foreach ( var e in this.collisions_enters )
+			foreach ( var e in collisions_enters )
 				if ( e.game_object == obj )
 				{
 					string msg = string.Format(
@@ -53,6 +53,18 @@ namespace tests_tool
 					Assert.Fail( msg );
 				}
 		}
+
+		public void assert_not_collision_exit( GameObject obj )
+		{
+			foreach ( var e in collisions_exits )
+				if ( e.game_object == obj )
+				{
+					string msg = string.Format(
+						"el gameobject {0} nunca salio del collider", obj );
+					Assert.Fail( msg );
+				}
+		}
+
 
 		public void assert_not_collision_enter( MonoBehaviour obj )
 		{
