@@ -8,7 +8,7 @@ namespace weapon
 {
 	namespace weapon
 	{
-		public class Weapon_base : Chibi_behaviour
+		public class Weapon : Chibi_behaviour
 		{
 			public GameObject prefab_bullet;
 			public Transform bullet_spawn;

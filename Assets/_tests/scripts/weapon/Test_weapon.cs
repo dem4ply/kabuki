@@ -32,7 +32,7 @@ namespace weapon
 			[UnityTest]
 			public IEnumerator shot_should_create_a_bullet()
 			{
-				Weapon_base weapon_instance = weapon.GetComponent<Weapon_base>();
+				Weapon weapon_instance = weapon.GetComponent<Weapon>();
 
 				yield return new WaitForSeconds( 0.1f );
 				GameObject bullet_clone = weapon_instance.shot();
@@ -47,7 +47,7 @@ namespace weapon
 			[UnityTest]
 			public IEnumerator shot_should_move_the_bullet()
 			{
-				Weapon_base weapon_instance = weapon.GetComponent<Weapon_base>();
+				Weapon weapon_instance = weapon.GetComponent<Weapon>();
 				GameObject bullet_clone = weapon_instance.shot();
 
 				yield return new WaitForSeconds( 1f );
