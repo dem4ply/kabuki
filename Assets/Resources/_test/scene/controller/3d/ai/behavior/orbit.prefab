@@ -957,7 +957,7 @@ MonoBehaviour:
   debug_mode: 1
   controller: {fileID: 0}
   behavior: {fileID: 11400000, guid: 50b8ff11d3ff8f445bd02de0067adf2b, type: 2}
-  stat: {fileID: 11400000, guid: 434fa5e32acdb564c86d8c11aa98192f, type: 2}
+  stat: {fileID: 11400000, guid: 1b0fb8d25ce54954dbc7420b3551d9de, type: 2}
   target: {fileID: 1215454573309136}
 --- !u!135 &135533726715370338
 SphereCollider:
