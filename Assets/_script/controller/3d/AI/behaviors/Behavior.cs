@@ -14,7 +14,7 @@ namespace controller
 					[CreateAssetMenu( menuName = "controller/ai/behavior/base" )]
 					public abstract class Behavior : chibi_base.Chibi_object
 					{
-						public abstract void act( Controller_3d controller );
+						public abstract Vector3 act( AI_controller_3d controller );
 					}
 				}
 			}

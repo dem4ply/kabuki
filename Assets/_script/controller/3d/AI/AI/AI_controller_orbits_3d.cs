@@ -8,8 +8,14 @@ namespace controller
 {
 	namespace controllers
 	{
-		public class NPC_isometric_controller_3d : Controller_3d
+		namespace ai
 		{
+			namespace tree_d
+			{
+				public class AI_controller_orbits_3d : AI_controller_3d
+				{
+				}
+			}
 		}
 	}
 }

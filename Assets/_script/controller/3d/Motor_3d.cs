@@ -18,15 +18,6 @@ namespace controller {
 			#endregion
 
 			#region propiedades publicas
-			public override Vector3 direction_vector
-			{
-				set {
-					_direction_vector = value;
-				}
-				protected get {
-					return _direction_vector;
-				}
-			}
 
 			public override Vector3 velocity_vector {
 				get {

@@ -14,6 +14,17 @@ namespace controller
 			protected float horizontal_velocity_smooth, vertical_velocity_smooth;
 			protected Vector3 atack_direciont = Vector3.zero;
 
+			public override Vector3 direction_vector
+			{
+				protected get {
+					return base.direction_vector;
+				}
+
+				set {
+					base.direction_vector = value;
+				}
+			}
+
 			public virtual bool is_atacking
 			{
 				get;
@@ -30,12 +41,12 @@ namespace controller
 
 			#region funciones de movimiento
 			public override void update_motion() {
+				debug.draw.arrow( direction_vector, Color.magenta );
 				Vector3 velocity_vector = new Vector3(
 					_rigidbody.velocity.x, _rigidbody.velocity.y,
 					_rigidbody.velocity.z );
 
 				_proccess_ground_velocity( ref velocity_vector );
-				debug.draw.arrow( direction_vector, Color.magenta );
 				debug.draw.arrow( velocity_vector, Color.yellow );
 				_rigidbody.velocity = velocity_vector;
 			}

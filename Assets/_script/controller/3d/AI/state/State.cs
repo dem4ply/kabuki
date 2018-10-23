@@ -24,8 +24,10 @@ namespace controller
 
 						public virtual void do_actions( Controller_3d controller )
 						{
+							/*
 							foreach ( behavior.Behavior behavior in behaviors )
 								behavior.act( controller );
+								*/
 						}
 					}
 				}

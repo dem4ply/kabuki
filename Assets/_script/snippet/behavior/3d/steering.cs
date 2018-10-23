@@ -17,6 +17,11 @@ namespace behavior
 				return two_d.steering.seek( target, controller );
 			}
 
+			public static Vector3 seek( Vector3 target, Vector3 controller )
+			{
+				return two_d.steering.seek( target, controller );
+			}
+
 			/// <summary>
 			/// genera el vector para huir del target
 			/// </summary>

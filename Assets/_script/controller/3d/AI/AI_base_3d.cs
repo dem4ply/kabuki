@@ -12,7 +12,7 @@ namespace controller
 		{
 			namespace tree_d
 			{
-				public abstract class AI_base_3d :chibi_base.Chibi_behaviour 
+				public abstract class AI_base_3d : chibi_base.Chibi_behaviour 
 				{
 					public Controller_3d controller;
 
