@@ -12,22 +12,20 @@ namespace controller
 			{
 				namespace state
 				{
-					[CreateAssetMenu( menuName = "controller/ai/state/base" )]
-					public abstract class State : chibi_base.Chibi_object
+					[CreateAssetMenu( menuName = "controller/3d/ai/state/base" )]
+					public class State : chibi_base.Chibi_object
 					{
 						public List<behavior.Behavior> behaviors;
 
-						public void update( Controller_3d controller )
+						public void update( AI_controller_3d controller )
 						{
 							do_actions( controller );
 						}
 
-						public virtual void do_actions( Controller_3d controller )
+						public virtual void do_actions( AI_controller_3d controller )
 						{
-							/*
 							foreach ( behavior.Behavior behavior in behaviors )
 								behavior.act( controller );
-								*/
 						}
 					}
 				}

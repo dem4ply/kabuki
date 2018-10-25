@@ -31,7 +31,7 @@ namespace weapon
 			public void the_instance_should_containt_a_bullet_motor()
 			{
 				var bullet = ammo.instanciate( Vector3.zero );
-				var motor = bullet.GetComponent<Bullet_motor_3d>();
+				var motor = bullet.GetComponent<Weapon_motor_3d>();
 				Assert.IsNotNull( motor );
 			}
 		}

@@ -8,9 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee3a69441c3ab9844bae570cc143d46e, type: 3}
-  m_Name: test__orbit_default
-  m_EditorClassIdentifier: 
-  x_radius: 4
-  z_radius: 4
-  speed: 2
+  m_Script: {fileID: 0}
+  m_Name: look_at
+  m_EditorClassIdentifier: Assembly-CSharp:controller.controllers.ai.tree_d.behavior:Look_at

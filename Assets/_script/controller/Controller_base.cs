@@ -47,6 +47,15 @@ namespace controller {
 
 			public abstract void left_bumper();
 			public abstract void right_bumper();
+
+			public virtual void look_at( Transform target )
+			{
+				_motor.look_at( target );
+			}
+			public virtual void look_at( Vector3 target )
+			{
+				_motor.look_at( target );
+			}
 			#endregion
 
 			#region funciones protegidas

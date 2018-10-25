@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using behavior.tree_d;
 
 namespace controller
 {
@@ -11,7 +11,7 @@ namespace controller
 			{
 				namespace behavior
 				{
-					[CreateAssetMenu( menuName = "controller/ai/behavior/orbit" )]
+					[CreateAssetMenu( menuName = "controller/3d/ai/behavior/orbit" )]
 					public class Orbit : Behavior
 					{
 						public override Vector3 act( AI_controller_3d controller )
@@ -33,7 +33,11 @@ namespace controller
 								* Mathf.Sin( Time.time * stat.speed )
 								+ target_position.z;
 
-							return new Vector3( x, target_position.y, z );
+							Vector3 result = new Vector3( x, target_position.y, z );
+							controller.controller.desire_direction =
+								steering.seek(
+									result, controller.controller.transform.position );
+							return result;
 						}
 					}
 				}

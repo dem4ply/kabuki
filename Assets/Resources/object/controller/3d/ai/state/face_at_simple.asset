@@ -8,9 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee3a69441c3ab9844bae570cc143d46e, type: 3}
-  m_Name: test__orbit_default
+  m_Script: {fileID: 11500000, guid: 2dcfaf27505bbcd47bf5a8c41ed57c8a, type: 3}
+  m_Name: face_at_simple
   m_EditorClassIdentifier: 
-  x_radius: 4
-  z_radius: 4
-  speed: 2
+  behaviors:
+  - {fileID: 11400000, guid: cb8de623557f39b4ab83b2d4f0de6c4d, type: 2}

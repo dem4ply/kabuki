@@ -16,24 +16,12 @@ namespace controller
 		{
 			namespace tree_d
 			{
-				public class AI_controller_3d : AI_base_3d
+				public class AI_controller_gun_3d : AI_controller_3d
 				{
-					public State state;
-					public Behavior behavior;
-					public Stat stat;
-					public GameObject target;
+					public State weapon_state;
 
-					protected override void Update()
+					protected virtual void find_guns()
 					{
-						if ( target != null && state != null )
-						{
-							state.update( this );
-						}
-					}
-
-					protected override void _init_cache()
-					{
-						base._init_cache();
 					}
 				}
 			}

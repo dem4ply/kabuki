@@ -111,6 +111,17 @@ namespace controller {
 
 			public abstract void stop_attack();
 
+			public virtual void look_at( Transform target )
+			{
+				look_at( target.position );
+			}
+			public virtual void look_at( Vector3 target )
+			{
+				Vector3 direction = target - transform.position;
+				Quaternion rotation = Quaternion.LookRotation( direction );
+				transform.rotation = rotation;
+			}
+
 			public virtual void died()
 			{
 				is_dead = true;
