@@ -23,6 +23,17 @@ namespace controller
 					public Stat stat;
 					public GameObject target;
 
+					public data.Properties _properties;
+
+					public data.Properties properties
+					{
+						get {
+							if ( _properties == null )
+								_properties = new data.Properties();
+							return _properties;
+						}
+					}
+
 					protected override void Update()
 					{
 						if ( target != null && state != null )
@@ -31,9 +42,15 @@ namespace controller
 						}
 					}
 
+					protected virtual void prepare()
+					{
+						state.prepare( this );
+					}
+
 					protected override void _init_cache()
 					{
 						base._init_cache();
+						prepare();
 					}
 				}
 			}

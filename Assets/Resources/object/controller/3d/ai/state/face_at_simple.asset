@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: face_at_simple
   m_EditorClassIdentifier: 
   behaviors:
-  - {fileID: 11400000, guid: cb8de623557f39b4ab83b2d4f0de6c4d, type: 2}
+  - {fileID: 11400000, guid: 8b5c4fa1705e0c349a24ece46fbbd819, type: 2}

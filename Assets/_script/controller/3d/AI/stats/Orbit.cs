@@ -17,7 +17,36 @@ namespace controller
 					{
 						public float x_radius = 1;
 						public float z_radius = 1;
-						public float speed = 1;
+						public float _orbit_period = 1;
+
+						protected float _orbit_delta;
+
+						public float orbit_delta
+						{
+							get {
+								return _orbit_delta;
+							}
+						}
+
+						public float orbit_period
+						{
+							get {
+								return _orbit_period;
+							}
+
+							set {
+								if ( value < 0.1f )
+									value = 0.1f;
+								_orbit_period = value;
+								_orbit_delta = 1f / _orbit_period;
+							}
+						}
+
+						private void OnEnable()
+						{
+							// TODO: camiar esto en un custom editor
+							orbit_period = orbit_period;
+						}
 					}
 				}
 			}

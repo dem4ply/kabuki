@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x_radius: 4
   z_radius: 4
-  speed: 2
+  _orbit_period: 2.5

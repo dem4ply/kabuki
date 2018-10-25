@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.TestTools;
 using NUnit.Framework;
+using System.Collections;
 using controller.motor;
 
 namespace weapon
@@ -27,11 +29,12 @@ namespace weapon
 				Assert.IsNotNull( ammo.prefab_bullet );
 			}
 
-			[Test]
-			public void the_instance_should_containt_a_bullet_motor()
+			[UnityTest]
+			public IEnumerator the_instance_should_containt_a_bullet_motor()
 			{
 				var bullet = ammo.instanciate( Vector3.zero );
-				var motor = bullet.GetComponent<Weapon_motor_3d>();
+				yield return new WaitForFixedUpdate();
+				var motor = bullet.GetComponent<Bullet_motor_3d>();
 				Assert.IsNotNull( motor );
 			}
 		}

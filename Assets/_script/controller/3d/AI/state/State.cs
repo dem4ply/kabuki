@@ -22,6 +22,12 @@ namespace controller
 							do_actions( controller );
 						}
 
+						public void prepare( AI_controller_3d controller )
+						{
+							foreach ( behavior.Behavior behavior in behaviors )
+								behavior.prepare( controller );
+						}
+
 						public virtual void do_actions( AI_controller_3d controller )
 						{
 							foreach ( behavior.Behavior behavior in behaviors )

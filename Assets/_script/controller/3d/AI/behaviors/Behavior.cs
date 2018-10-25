@@ -15,6 +15,10 @@ namespace controller
 					public abstract class Behavior : chibi_base.Chibi_object
 					{
 						public abstract Vector3 act( AI_controller_3d controller );
+
+						public virtual void prepare( AI_controller_3d controller )
+						{
+						}
 					}
 				}
 			}

@@ -105,9 +105,10 @@ namespace helper
 
 			public static void debug(
 				Vector3 position, Vector3 direction, Color color,
-				float arrow_head_length = 0.25f, float arrow_head_angle = 20.0f )
+				float arrow_head_length = 0.25f, float arrow_head_angle = 20.0f,
+				float duration = 0f )
 			{
-				Debug.DrawRay( position, direction, color );
+				Debug.DrawRay( position, direction, color, duration );
 
 				Vector3 right =
 					Quaternion.LookRotation( direction )
@@ -127,13 +128,16 @@ namespace helper
 					* new Vector3( 0, 0, 1 );
 
 				Debug.DrawRay(
-					position + direction, right * arrow_head_length, color );
+					position + direction, right * arrow_head_length, color,
+					duration );
 				Debug.DrawRay(
-					position + direction, left * arrow_head_length, color );
+					position + direction, left * arrow_head_length, color,
+					duration );
 				Debug.DrawRay(
-					position + direction, up * arrow_head_length, color );
+					position + direction, up * arrow_head_length, color, duration );
 				Debug.DrawRay(
-					position + direction, down * arrow_head_length, color );
+					position + direction, down * arrow_head_length, color,
+					duration );
 			}
 		}
 	}

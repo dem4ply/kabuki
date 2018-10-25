@@ -26,18 +26,35 @@ namespace controller
 							}
 							Vector3 target_position =
 								controller.target.transform.position;
-							float x = stat.x_radius
-								* Mathf.Cos( Time.time * stat.speed )
-								+ target_position.x;
-							float z = stat.z_radius
-								* Mathf.Sin( Time.time * stat.speed )
-								+ target_position.z;
+							float angle = controller.properties.angle_x;
+							angle += ( Time.deltaTime * stat.orbit_delta ) % 1f;
+							controller.properties.angle_x = angle;
 
-							Vector3 result = new Vector3( x, target_position.y, z );
+							Vector3 desire = helper.shapes.Ellipse.evaluate(
+								stat.x_radius, stat.z_radius, angle );
+
+							Vector3 result = new Vector3(
+								desire.x + target_position.x,
+								target_position.y, desire.z + target_position.z );
+
+							result = desire + target_position;
+
 							controller.controller.desire_direction =
 								steering.seek(
 									result, controller.controller.transform.position );
 							return result;
+						}
+
+						public override void prepare( AI_controller_3d controller )
+						{
+							Vector3 current_position =
+								controller.controller.transform.position;
+							Vector3 direction =
+								current_position
+								- controller.target.transform.position;
+							controller.properties.angle_x = helper.shapes.Ellipse
+								.get_progrest( direction );
+
 						}
 					}
 				}
