@@ -22,7 +22,6 @@ namespace helper
 				var angle =
 					Vector3.SignedAngle(
 						Vector3.forward, direction.normalized, Vector3.up );
-				Debug.Log( angle );
 				if ( angle < 0 )
 					angle += 360;
 				return angle / 360 ;

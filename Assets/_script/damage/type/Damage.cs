@@ -5,7 +5,7 @@ namespace damage
 {
 	namespace type
 	{
-		[ CreateAssetMenu( menuName="weapons/damage/type" ) ]
+		[ CreateAssetMenu( menuName="weapon/damage/type" ) ]
 		public class Damage: ScriptableObject
 		{
 		}

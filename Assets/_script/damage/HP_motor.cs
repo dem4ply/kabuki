@@ -24,25 +24,51 @@ namespace damage
 			{
 				current_points -= damage.amount;
 				if ( is_dead )
+				{
+					Debug.Log( string.Format( "murio: {0}", name ) );
 					send_died();
+				}
 			}
 
 			protected virtual void OnTriggerEnter2D( Collider2D other )
 			{
-				var damage_layer_in_bit = 1 << other.gameObject.layer;
-
-				if ( ( damage_mask.value & damage_layer_in_bit ) > 0 )
+				if ( helper.layer_mask.game_object_is_in_mask(
+					other.gameObject, damage_mask ) )
 				{
-					Debug.Log( "es un trigger de dano" );
 					Damage damage = other.GetComponent<Damage>();
-					if ( damage == null )
-					{
-						Debug.LogError( "no tiene el componente de dano" );
-						return;
-					}
-					take_damage( damage );
-					damage.taken();
+					proccess_damage( damage );
 				}
+			}
+
+			protected virtual void OnTriggerEnter( Collider other )
+			{
+				log_trigger( other );
+				if ( helper.layer_mask.game_object_is_in_mask(
+					other.gameObject, damage_mask ) )
+				{
+					Damage damage = other.GetComponent<Damage>();
+					proccess_damage( damage );
+				}
+			}
+
+			protected virtual void proccess_damage( Damage damage )
+			{
+				if ( damage == null )
+				{
+					Debug.LogError( "no tiene el componente de dano" );
+					return;
+				}
+				take_damage( damage );
+				damage.taken( this );
+			}
+
+			protected virtual void log_trigger( Collider other )
+			{
+				string msg = string.Format(
+					"el {0} toco un trigger de danno {1}",
+					this.name, other.name );
+
+				Debug.Log( msg );
 			}
 
 			protected virtual void send_died()
@@ -58,6 +84,11 @@ namespace damage
 					motor = GetComponent< controller.motor.Motor_base >();
 					if ( motor == null )
 						Debug.LogError( "no se encontro el motor" );
+					if ( damage_mask.value == 0 )
+						damage_mask = helper.consts.layers.receives_damage;
+					if ( receives_damage == null )
+						receives_damage =
+							transform.Find( "receives_damage" ).gameObject;
 				}
 			}
 		}
