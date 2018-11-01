@@ -25,7 +25,8 @@ GameObject:
   - component: {fileID: 54224238851317704}
   - component: {fileID: 114058854926866794}
   - component: {fileID: 114799464972075210}
-  m_Layer: 0
+  - component: {fileID: 114569180427718016}
+  m_Layer: 8
   m_Name: bullet_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +118,21 @@ MonoBehaviour:
   max_speed: 10
   runner_multiply: 2
   acceleration_time: 0
+--- !u!114 &114569180427718016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318335916420476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3798b99c99262ac4192453d517b45012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 0
+  damage: {fileID: 11400000, guid: 7170b1e0c79a5b649acdf5b5c78b6a76, type: 2}
+  behavior: {fileID: 11400000, guid: 60eafd41b1b2c5540b9ebcf2789bff95, type: 2}
+  amount: 1
 --- !u!114 &114799464972075210
 MonoBehaviour:
   m_ObjectHideFlags: 1

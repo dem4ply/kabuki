@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23361015326746464}
   - component: {fileID: 65922526277738038}
   - component: {fileID: 114423635815773608}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: assert_collision_center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23150757039708622}
   - component: {fileID: 65158641243793382}
   - component: {fileID: 114969722325866738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: assert_collision_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 23829821246234260}
   - component: {fileID: 65073515776891676}
   - component: {fileID: 114799002806922748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: assert_collision_up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 23511392031309440}
   - component: {fileID: 65941644926663208}
   - component: {fileID: 114579456135542978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: assert_collision_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 23071157558493730}
   - component: {fileID: 65328854387503166}
   - component: {fileID: 114605485595962400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: assert_collision_down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,6 +1077,9 @@ MonoBehaviour:
   behavior: {fileID: 0}
   stat: {fileID: 0}
   target: {fileID: 1941729078949494}
+  _properties:
+    angle_x: 0
+    angle_z: 0
 --- !u!114 &114696090082888446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1159,6 +1162,9 @@ MonoBehaviour:
   behavior: {fileID: 11400000, guid: 50b8ff11d3ff8f445bd02de0067adf2b, type: 2}
   stat: {fileID: 11400000, guid: 1b0fb8d25ce54954dbc7420b3551d9de, type: 2}
   target: {fileID: 1941729078949494}
+  _properties:
+    angle_x: 0
+    angle_z: 0
 --- !u!114 &114969722325866738
 MonoBehaviour:
   m_ObjectHideFlags: 1

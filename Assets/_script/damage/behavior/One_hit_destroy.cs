@@ -14,7 +14,11 @@ namespace damage
 			{
 				Debug.Log(
 					string.Format( "One hit destroy en {0}", damage.gameObject ) );
-				MonoBehaviour.Destroy( damage.gameObject );
+				var motor = get_motor( damage );
+				if ( motor == null )
+					MonoBehaviour.Destroy( damage.gameObject );
+				else
+					motor.died();
 			}
 		}
 	}

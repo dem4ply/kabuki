@@ -151,7 +151,7 @@ MonoBehaviour:
   damage_mask:
     serializedVersion: 2
     m_Bits: 256
-  receives_damage: {fileID: 0}
+  receives_damage: {fileID: 1395089137705634}
   motor: {fileID: 0}
 --- !u!114 &114639388604385776
 MonoBehaviour:
