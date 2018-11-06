@@ -11,6 +11,8 @@ namespace controller {
 			#region variables publicas
 			public float max_speed = 10f;
 			public float runner_multiply = 2.0f;
+
+			public dead.behavior.Beavior dead_behavior;
 			#endregion
 
 			#region variables protegidas
@@ -125,6 +127,12 @@ namespace controller {
 			public virtual void died()
 			{
 				is_dead = true;
+				if ( dead_behavior != null )
+					dead_behavior.do_dead( this );
+				else
+					Debug.LogWarning(
+						string.Format(
+							"el motor {0} no tiene un dead.Behavior", name ) );
 			}
 
 			public virtual void after_update_motor() {
