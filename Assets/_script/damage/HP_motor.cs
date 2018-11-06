@@ -6,8 +6,9 @@ namespace damage
 	{
 		public class HP_motor : chibi_base.Chibi_behaviour
 		{
-			public int total_of_points = 1;
-			public float current_points = 1;
+			public stat.Hp_stat stat;
+			[HideInInspector] public float total_of_points = 1;
+			[HideInInspector] public float current_points = 1;
 
 			public LayerMask damage_mask;
 			public GameObject receives_damage;
@@ -89,6 +90,11 @@ namespace damage
 					if ( receives_damage == null )
 						receives_damage =
 							transform.Find( "receives_damage" ).gameObject;
+					if ( stat != null )
+					{
+						total_of_points = stat.total;
+						current_points = stat.current;
+					}
 				}
 			}
 		}

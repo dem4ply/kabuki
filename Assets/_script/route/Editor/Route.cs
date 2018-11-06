@@ -15,9 +15,6 @@ namespace route
 			protected float radius, nodes, x, y;
 			protected int style_selected;
 
-			public string[] STYLE_SHAPES = {
-				"line", "circle", "sin(x) * y", "cos(x) * y", "tan(x) * y" };
-
 			public override void OnInspectorGUI()
 			{
 				DrawDefaultInspector();
@@ -25,7 +22,7 @@ namespace route
 
 				EditorGUILayout.BeginHorizontal();
 				component.current_style = EditorGUILayout.Popup(
-					"style", component.current_style, STYLE_SHAPES );
+					"style", component.current_style, Route.STYLE_SHAPES );
 				component.style = Route.STYLE_SHAPES[ component.current_style ];
 				bool reshape = GUILayout.Button( "reshape" );
 				EditorGUILayout.EndHorizontal();
@@ -50,6 +47,9 @@ namespace route
 					case 4:
 						inspect_trigonometric();
 						break;
+					case 5:
+						inspect_zig_zag_sqr();
+						break;
 				}
 			}
 
@@ -67,6 +67,9 @@ namespace route
 					case 3:
 					case 4:
 						throw new System.NotImplementedException();
+					case 5:
+						c.draw_zig_zag_sqr();
+						break;
 				}
 			}
 
@@ -83,6 +86,14 @@ namespace route
 				c.nodes = EditorGUILayout.IntField("nodes", c.nodes );
 				x = EditorGUILayout.FloatField( "x", 1 );
 				y = EditorGUILayout.FloatField( "y", 1 );
+			}
+
+			public virtual void inspect_zig_zag_sqr()
+			{
+				Route c = ( Route )target;
+				c.nodes = EditorGUILayout.IntField("nodes", c.nodes );
+				c.radius = EditorGUILayout.FloatField( "width", c.radius );
+				c.step_size = EditorGUILayout.FloatField( "height", c.step_size );
 			}
 		}
 	}

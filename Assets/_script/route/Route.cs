@@ -22,7 +22,7 @@ namespace route
 		public int nodes;
 
 		public static readonly string[] STYLE_SHAPES = {
-				"line", "circle", "sin * y", "cos * y", "tan * y" };
+				"line", "circle", "sin * y", "cos * y", "tan * y", "zig zag sqr" };
 
 		public int Count
 		{
@@ -183,6 +183,41 @@ namespace route
 
 				Transform p = generator_points.Current.transform;
 				p.localPosition = new Vector3( x, y );
+			}
+		}
+
+		public void draw_zig_zag_sqr()
+		{
+			clean_points();
+			var generator_points = get_points().GetEnumerator();
+
+			float width = radius;
+			float height = step_size;
+
+			float x = 0f;
+			float y = 0f;
+
+			var left_nodes = nodes;
+			bool is_x_positive = true;
+			for ( int i = 0; i < nodes; ++i )
+			{
+				generator_points.MoveNext();
+				Transform p = generator_points.Current.transform;
+				p.localPosition = new Vector3( x, 0, y );
+				if ( i == 0 )
+					continue;
+				else if ( i % 2 == 0 )
+					y -= height;
+				else if ( is_x_positive )
+				{
+					x += width;
+					is_x_positive = false;
+				}
+				else
+				{
+					x -= width;
+					is_x_positive = true;
+				}
 			}
 		}
 
