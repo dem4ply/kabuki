@@ -94,6 +94,15 @@ namespace route
 				c.nodes = EditorGUILayout.IntField("nodes", c.nodes );
 				c.radius = EditorGUILayout.FloatField( "width", c.radius );
 				c.step_size = EditorGUILayout.FloatField( "height", c.step_size );
+				bool get_values_from_points = GUILayout.Button(
+					"get values from points" );
+				if ( get_values_from_points )
+				{
+					c.radius = (
+						c.points[0].position - c.points[1].position ).magnitude;
+					c.step_size = (
+						c.points[1].position - c.points[2].position ).magnitude;
+				}
 			}
 		}
 	}

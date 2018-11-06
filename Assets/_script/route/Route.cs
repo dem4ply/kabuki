@@ -205,19 +205,14 @@ namespace route
 				Transform p = generator_points.Current.transform;
 				p.localPosition = new Vector3( x, 0, y );
 				if ( i == 0 )
-					continue;
-				else if ( i % 2 == 0 )
-					y -= height;
-				else if ( is_x_positive )
-				{
 					x += width;
-					is_x_positive = false;
-				}
+				else if ( i % 2 == 0 )
+					if ( ( i / 2 ) % 2 == 0 )
+						x += width;
+					else
+						x -= width;
 				else
-				{
-					x -= width;
-					is_x_positive = true;
-				}
+					y -= height;
 			}
 		}
 
