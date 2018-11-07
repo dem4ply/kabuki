@@ -21,7 +21,7 @@ namespace controller
 					public State state;
 					public Behavior behavior;
 					public Stat stat;
-					public GameObject target;
+					public Transform target;
 
 					public data.Properties _properties;
 

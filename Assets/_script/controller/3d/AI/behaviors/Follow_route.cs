@@ -11,8 +11,8 @@ namespace controller
 			{
 				namespace behavior
 				{
-					[CreateAssetMenu( menuName="controller/3d/ai/behavior/orbit" )]
-					public class Orbit : Behavior
+					[CreateAssetMenu( menuName="controller/3d/ai/behavior/follow_route" )]
+					public class Follow_route : Behavior
 					{
 						public override Vector3 act( AI_controller_3d controller )
 						{
@@ -26,23 +26,7 @@ namespace controller
 							}
 							Vector3 target_position =
 								controller.target.transform.position;
-							float angle = controller.properties.angle_x;
-							angle += ( Time.deltaTime * stat.orbit_delta ) % 1f;
-							controller.properties.angle_x = angle;
-
-							Vector3 desire = helper.shapes.Ellipse.evaluate(
-								stat.x_radius, stat.z_radius, angle );
-
-							Vector3 result = new Vector3(
-								desire.x + target_position.x,
-								target_position.y, desire.z + target_position.z );
-
-							result = desire + target_position;
-
-							controller.controller.desire_direction =
-								steering.seek(
-									result, controller.controller.transform.position );
-							return result;
+							return Vector3.up;
 						}
 
 						public override void prepare( AI_controller_3d controller )
