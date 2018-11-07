@@ -27,19 +27,6 @@ namespace controller {
 			#endregion
 
 			#region propiedades publicas
-			/// <summary>
-			/// Vector de movimiento que se usara en la proxima actualizacion
-			/// </summary>
-			public virtual Vector3 move_vector
-			{
-				get {
-					return _move_vector;
-				}
-				set {
-					_move_vector = value;
-				}
-			}
-
 			public virtual Vector3 direction_vector {
 				set {
 					_direction_vector = value;
