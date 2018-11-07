@@ -11,7 +11,6 @@ namespace damage
 			[HideInInspector] public float current_points = 1;
 
 			public LayerMask damage_mask;
-			public GameObject receives_damage;
 			public controller.motor.Motor_base motor;
 
 			public virtual bool is_dead
@@ -43,7 +42,6 @@ namespace damage
 
 			protected virtual void OnTriggerEnter( Collider other )
 			{
-				log_trigger( other );
 				if ( helper.layer_mask.game_object_is_in_mask(
 					other.gameObject, damage_mask ) )
 				{
@@ -96,9 +94,6 @@ namespace damage
 						Debug.LogError( "no se encontro el motor" );
 					if ( damage_mask.value == 0 )
 						damage_mask = helper.consts.layers.receives_damage;
-					if ( receives_damage == null )
-						receives_damage =
-							transform.Find( "receives_damage" ).gameObject;
 					if ( stat != null )
 					{
 						total_of_points = stat.total;
