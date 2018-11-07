@@ -14,9 +14,12 @@ namespace controller
 
 				public override void attack()
 				{
-					base.attack();
 					foreach ( var gun in guns )
 						gun.shot( my_rol );
+				}
+
+				public override void stop_attack()
+				{
 				}
 
 				protected void _find_my_guns()

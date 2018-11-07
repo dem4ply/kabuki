@@ -8,17 +8,6 @@ namespace weapon
 	{
 		public class Linear_gun : Gun_base
 		{
-			protected bool _continue_shotting = false;
-			public bool continue_shotting
-			{
-				get { return _continue_shotting; }
-				set {
-					_continue_shotting = value;
-					if ( value )
-						start_shoting();
-				}
-			}
-
 			public Vector3 direction_shot
 			{
 				get { return transform.forward.normalized; }
@@ -36,17 +25,6 @@ namespace weapon
 				var bullet = ammo.instanciate( transform.position, owner );
 				bullet.shot( direction_shot );
 				return bullet;
-			}
-
-			public virtual void start_shoting()
-			{
-				shot();
-				Invoke( "shot", 1 * stat.rate_fire );
-			}
-
-			public virtual void stop_shotting()
-			{
-				continue_shotting = false;
 			}
 
 

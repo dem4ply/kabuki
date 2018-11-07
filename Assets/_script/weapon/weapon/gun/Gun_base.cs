@@ -13,6 +13,19 @@ namespace weapon
 			public Gun_stat stat;
 			public Ammo ammo;
 
+			public rol_sheet.Rol_sheet owner;
+
+			protected bool _continue_shotting = false;
+			public bool continue_shotting
+			{
+				get { return _continue_shotting; }
+				set {
+					_continue_shotting = value;
+					if ( value )
+						start_shoting();
+				}
+			}
+
 			public override void attack()
 			{
 				shot();
@@ -33,6 +46,18 @@ namespace weapon
 				{
 					stat = load_default_stat() as Gun_stat;
 				}
+			}
+
+			public virtual void start_shoting()
+			{
+				shot( owner );
+				if ( continue_shotting )
+					Invoke( "start_shoting", 1 * stat.rate_fire );
+			}
+
+			public virtual void stop_shotting()
+			{
+				continue_shotting = false;
 			}
 
 			protected virtual chibi_base.Chibi_object load_default_ammo()
