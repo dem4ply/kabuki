@@ -13,6 +13,7 @@ namespace controller {
 			public float runner_multiply = 2.0f;
 
 			public dead.behavior.Beavior dead_behavior;
+			[HideInInspector] public rol_sheet.Rol_sheet my_rol;
 			#endregion
 
 			#region variables protegidas
@@ -80,6 +81,7 @@ namespace controller {
 			/// </summary>
 			protected override void _init_cache() {
 				_init_cache_animator();
+				my_rol = GetComponent<rol_sheet.Rol_sheet>();
 			}
 
 			protected virtual void _init_cache_animator() {

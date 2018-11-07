@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using controller.controllers;
-using System;
+using damage;
+using System.Collections.Generic;
 
 namespace weapon
 {
@@ -20,6 +21,17 @@ namespace weapon
 			{
 				Bullet_controller_3d obj = helper.instantiate._(
 					prefab_bullet, position );
+				return obj;
+			}
+
+			public virtual Bullet_controller_3d instanciate(
+				Vector3 position, rol_sheet.Rol_sheet owner )
+			{
+				Bullet_controller_3d obj = helper.instantiate._(
+					prefab_bullet, position );
+				Damage[] damages = obj.damages;
+				foreach ( Damage damage in damages )
+					damage.owner = owner;
 				return obj;
 			}
 		}

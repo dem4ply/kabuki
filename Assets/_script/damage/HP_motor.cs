@@ -59,6 +59,8 @@ namespace damage
 					Debug.LogError( "no tiene el componente de dano" );
 					return;
 				}
+				if ( is_my_damage( damage ) )
+					return;
 				take_damage( damage );
 				damage.taken( this );
 			}
@@ -70,6 +72,13 @@ namespace damage
 					this.name, other.name );
 
 				Debug.Log( msg );
+			}
+
+			protected virtual bool is_my_damage( Damage damage )
+			{
+				if ( damage.owner != null )
+					return damage.owner == motor.my_rol;
+				return false;
 			}
 
 			protected virtual void send_died()

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using controller.controllers;
+using rol_sheet;
 
 namespace weapon
 {
@@ -26,6 +27,13 @@ namespace weapon
 			public override Bullet_controller_3d shot()
 			{
 				var bullet = ammo.instanciate( transform.position );
+				bullet.shot( direction_shot );
+				return bullet;
+			}
+
+			public override Bullet_controller_3d shot( Rol_sheet owner )
+			{
+				var bullet = ammo.instanciate( transform.position, owner );
 				bullet.shot( direction_shot );
 				return bullet;
 			}

@@ -19,6 +19,8 @@ namespace weapon
 			}
 
 			public abstract Bullet_controller_3d shot();
+			public abstract Bullet_controller_3d shot(
+				rol_sheet.Rol_sheet owner );
 
 			protected override void _init_cache()
 			{
