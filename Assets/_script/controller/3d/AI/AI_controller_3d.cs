@@ -19,7 +19,6 @@ namespace controller
 				public class AI_controller_3d : AI_base_3d
 				{
 					public State state;
-					public Behavior behavior;
 					public Stat stat;
 					public Transform target;
 
@@ -40,11 +39,16 @@ namespace controller
 						{
 							state.update( this );
 						}
+						else
+							Debug.LogWarning(
+								string.Format(
+									"el {0} no tiene target o state", name ) );
 					}
 
 					protected virtual void prepare()
 					{
-						state.prepare( this );
+						if ( state != null )
+							state.prepare( this );
 					}
 
 					protected override void _init_cache()

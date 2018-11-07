@@ -10,9 +10,10 @@ namespace spawner
 		public override GameObject spawn()
 		{
 			var result = base.spawn();
-			var ai = result.GetComponent<controller.ai.Ai_steering_behavior>();
+			var ai = result.GetComponent<
+				controller.controllers.ai.tree_d.AI_controller_3d>();
 			if ( target != null && ai != null )
-				ai.target = target.gameObject;
+				ai.target = target.transform;
 			return result;
 		}
 	}

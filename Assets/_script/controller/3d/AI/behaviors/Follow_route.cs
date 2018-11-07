@@ -16,29 +16,15 @@ namespace controller
 					{
 						public override Vector3 act( AI_controller_3d controller )
 						{
-							stats.Orbit stat = controller.stat as stats.Orbit;
-							if ( stat == null )
-							{
-								Debug.LogError( string.Format(
-									"Los stat de {0} no son del tipo orbit",
-									controller.name ) );
-								return Vector3.zero;
-							}
-							Vector3 target_position =
-								controller.target.transform.position;
-							return Vector3.up;
-						}
-
-						public override void prepare( AI_controller_3d controller )
-						{
-							Vector3 current_position =
-								controller.controller.transform.position;
-							Vector3 direction =
-								current_position
-								- controller.target.transform.position;
-							controller.properties.angle_x = helper.shapes.Ellipse
-								.get_progrest( direction );
-
+							var desire_direction = steering.follow_waypoints(
+								controller.target.gameObject,
+								controller.gameObject,
+								ref controller.properties.index );
+							controller.controller.desire_direction =
+								steering.seek(
+									desire_direction, 
+									controller.controller.transform.position );
+							return desire_direction;
 						}
 					}
 				}

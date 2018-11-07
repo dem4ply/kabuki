@@ -22,6 +22,7 @@ namespace controller
 					public class Properties
 					{
 						public float angle_x, angle_z;
+						public int index;
 					}
 				}
 			}

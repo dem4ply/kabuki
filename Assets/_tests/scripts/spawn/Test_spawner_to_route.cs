@@ -58,8 +58,9 @@ namespace spawner
 			yield return new WaitForSeconds( 0.1f );
 			GameObject obj = spawn_point.spawn();
 			yield return new WaitForSeconds( 1.0f );
-			var ai = obj.GetComponent<controller.ai.Ai_follow_waypoints>();
-			Assert.AreEqual( ai.target, route );
+			var ai = obj.GetComponent<
+				controller.controllers.ai.tree_d.AI_controller_3d>();
+			Assert.AreEqual( ai.target.gameObject, route.gameObject );
 			MonoBehaviour.DestroyImmediate( obj );
 		}
 

@@ -9,7 +9,7 @@ namespace route
 {
 	namespace editor
 	{
-		[ CustomEditor( typeof( route.Route ) ) ]
+		[ CustomEditor( typeof( route.Route ), true ) ]
 		public class RouteInspector : Editor
 		{
 			protected float radius, nodes, x, y;
