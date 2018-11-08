@@ -15,16 +15,22 @@ namespace controller
 				public override void attack()
 				{
 					foreach ( var gun in guns )
-						gun.shot( my_rol );
+						gun.continue_shotting = true;
 				}
 
 				public override void stop_attack()
 				{
+					foreach ( var gun in guns )
+						gun.continue_shotting = false;
 				}
 
 				protected void _find_my_guns()
 				{
 					guns = GetComponentsInChildren<weapon.gun.Gun_base>();
+					foreach( weapon.gun.Gun_base gun in guns )
+					{
+						gun.owner = my_rol;
+					}
 				}
 
 				protected override void _init_cache()

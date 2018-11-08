@@ -45,24 +45,17 @@ namespace weapon
 			}
 
 			[UnityTest]
-			public IEnumerator when_start_to_shotting_should_make_continues_shot()
-			{
-				Linear_gun gun = weapon.GetComponent<Linear_gun>();
-				gun.start_shoting();
-				yield return new WaitForSeconds( 1 * gun.stat.rate_fire );
-				target.assert_collision_enter( (int)( 1 * gun.stat.rate_fire ) );
-			}
-
-			[UnityTest]
 			public IEnumerator when_stop_to_shotting_should_no_made_more_shots()
 			{
 				Linear_gun gun = weapon.GetComponent<Linear_gun>();
-				gun.start_shoting();
-				float shot_time = 3 * gun.stat.rate_fire;
-				yield return new WaitForSeconds( shot_time / 2 );
-				gun.stop_shotting();
-				yield return new WaitForSeconds( shot_time / 2 );
-				target.assert_collision_enter_less_that( (int)shot_time );
+				gun.continue_shotting = true;
+				float shot_time = 1 / gun.stat.rate_fire;
+				shot_time *= 3;
+				yield return new WaitForSeconds( shot_time );
+				gun.continue_shotting = false;
+				yield return new WaitForSeconds( 2f );
+				target.assert_collision_enter_less_that(
+					(int)gun.stat.rate_fire * 3 );
 			}
 		}
 	}

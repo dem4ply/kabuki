@@ -64,6 +64,11 @@ namespace controller {
 				_motor.attack();
 			}
 
+			public override void stop_attack()
+			{
+				_motor.stop_attack();
+			}
+
 			public override void left_bumper()
 			{
 				throw new NotImplementedException();

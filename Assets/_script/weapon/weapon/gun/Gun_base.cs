@@ -52,9 +52,10 @@ namespace weapon
 			{
 				shot( owner );
 				if ( continue_shotting )
-					Invoke( "start_shoting", 1 * stat.rate_fire );
+					Invoke( "start_shoting", 1 / stat.rate_fire );
 			}
 
+			// TODO: stop_shotting
 			public virtual void stop_shotting()
 			{
 				continue_shotting = false;

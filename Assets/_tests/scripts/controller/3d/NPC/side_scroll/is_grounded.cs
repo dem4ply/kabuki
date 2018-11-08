@@ -40,8 +40,8 @@ namespace controller
 					public IEnumerator when_is_in_air_should_be_no_grounded()
 					{
 						var motor = player.GetComponent<NPC_side_scroll_motor_3d>();
-						yield return new WaitForSeconds( 0.1f );
 						Assert.IsTrue( motor.is_not_grounded );
+						yield return new WaitForSeconds( 0.1f );
 					}
 
 					[UnityTest]

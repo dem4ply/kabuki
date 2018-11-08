@@ -74,6 +74,8 @@ namespace controller {
 
 				if ( _fire_key_down( 1 ) )
 					controller.attack();
+				if ( _fire_key_up( 1 ) )
+					controller.stop_attack();
 
 				if ( _left_bumper_key_down() )
 					controller.left_bumper();
@@ -123,6 +125,12 @@ namespace controller {
 			{
 				string fire_key = string.Format( "fire_{0}", fire_number );
 				return Input.GetButtonDown( fire_key );
+			}
+
+			protected bool _fire_key_up( int fire_number )
+			{
+				string fire_key = string.Format( "fire_{0}", fire_number );
+				return Input.GetButtonUp( fire_key );
 			}
 
 			protected bool _left_bumper_key_down()
