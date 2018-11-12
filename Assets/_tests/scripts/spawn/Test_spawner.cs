@@ -7,26 +7,23 @@ using weapon.weapon;
 
 namespace spawner
 {
-	public class Test_spawner
+	public class Test_spawner : helper.tests.Scene_test
 	{
-		GameObject scene;
 		Spawn_point spawn_point;
 
-		[SetUp]
-		public void Instanciate_scenary()
+		public override string scene_dir
 		{
-			scene =
-				Resources.Load(
-					"_prefab/tests/spawn/basic_spawn" ) as GameObject;
-			scene = helper.instantiate._( scene );
-			spawn_point = helper.game_object.Find._<Spawn_point>(
-				scene, "spawn_point" ) ;
+			get {
+				return "_prefab/tests/spawn/basic_spawn";
+			}
 		}
 
-		[TearDown]
-		public void clean_scenary()
+		[SetUp]
+		public override void Instanciate_scenary()
 		{
-			MonoBehaviour.DestroyImmediate( scene );
+			base.Instanciate_scenary();
+			spawn_point = helper.game_object.Find._<Spawn_point>(
+				scene, "spawn_point" ) ;
 		}
 
 		[UnityTest]

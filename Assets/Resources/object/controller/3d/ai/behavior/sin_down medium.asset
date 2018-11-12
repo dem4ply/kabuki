@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e123dcefd9314244b13b08d418f459d, type: 3}
+  m_Name: sin_down medium
+  m_EditorClassIdentifier: 
+  x_behavior: {fileID: 11400000, guid: dde01fd9bc1a8af4cae7657ff52378f1, type: 2}
+  y_behavior: {fileID: 0}
+  z_behavior: {fileID: 0}
+  direction_move: {x: 0, y: 0, z: -1}

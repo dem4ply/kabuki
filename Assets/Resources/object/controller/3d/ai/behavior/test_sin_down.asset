@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e123dcefd9314244b13b08d418f459d, type: 3}
-  m_Name: sin_down
+  m_Name: test_sin_down
   m_EditorClassIdentifier: 
   x_behavior: {fileID: 11400000, guid: 91afe5f4383563246bcd9d9c4a835da5, type: 2}
   y_behavior: {fileID: 0}
