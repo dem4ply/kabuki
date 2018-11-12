@@ -23,6 +23,13 @@ namespace events
 						prefab_event_scene, transform.position );
 				return obj;
 			}
+
+			protected virtual void OnDrawGizmos()
+			{
+				BoxCollider collider = GetComponent<BoxCollider>();
+				Gizmos.color = Color.red;
+				Gizmos.DrawCube( collider.transform.position, collider.size );
+			}
 		}
 	}
 }

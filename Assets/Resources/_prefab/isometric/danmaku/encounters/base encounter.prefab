@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 8835023580629798186}
   - component: {fileID: 8835023580629798187}
   m_Layer: 12
-  m_Name: base
+  m_Name: base encounter
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_mode: 0
   prefab_event_scene: {fileID: 0}
+  where_is_goin_open: {fileID: 0}
 --- !u!54 &8835023580629798188
 Rigidbody:
   m_ObjectHideFlags: 0

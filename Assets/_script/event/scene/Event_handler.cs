@@ -17,6 +17,14 @@ namespace events
 					if ( event_scene == null )
 						return;
 					event_scene.open();
+					Destroy( event_scene.gameObject );
+				}
+
+				protected virtual void OnDrawGizmos()
+				{
+					BoxCollider collider = GetComponent<BoxCollider>();
+					Gizmos.color = Color.red;
+					Gizmos.DrawWireCube( collider.transform.position, collider.size );
 				}
 			}
 
