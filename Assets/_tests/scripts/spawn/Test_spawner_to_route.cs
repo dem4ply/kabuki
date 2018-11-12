@@ -8,21 +8,25 @@ using tests_tool;
 
 namespace spawner
 {
-	public class Test_spawner_to_route
+	public class Test_spawner_to_route : helper.tests.Scene_test
 	{
-		GameObject scene, route;
+		GameObject route;
 		Spawn_point spawn_point;
 		Assert_colision p0, p1, p2, p3, p4, p5, p6, p7, p8, p9;
 
-		[SetUp]
-		public void Instanciate_scenary()
+		public override string scene_dir
 		{
-			scene =
-				Resources.Load(
-					"_prefab/tests/spawn/spawn_to_route" ) as GameObject;
-			scene = helper.instantiate._( scene );
+			get {
+				return "_prefab/tests/spawn/spawn_to_route";
+			}
+		}
+
+		[SetUp]
+		public override void Instanciate_scenary()
+		{
+			base.Instanciate_scenary();
 			spawn_point = helper.game_object.Find._<Spawn_point>(
-				scene, "spawn_point" ) ;
+				scene, "spawn_point" );
 			route = helper.game_object.Find._( scene, "route" );
 			p0 = helper.game_object.Find._<Assert_colision>(
 				scene, "point_assert_0" );
@@ -44,12 +48,6 @@ namespace spawner
 				scene, "point_assert_8" );
 			p9 = helper.game_object.Find._<Assert_colision>(
 				scene, "point_assert_9" );
-		}
-
-		[TearDown]
-		public void clean_scenary()
-		{
-			MonoBehaviour.DestroyImmediate( scene );
 		}
 
 		[UnityTest]

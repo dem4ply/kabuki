@@ -17,8 +17,9 @@ namespace controller
 					{
 						public override Vector3 act( AI_controller_3d controller )
 						{
-							controller.controller.look_at(
-								controller.target.transform );
+							if ( controller.target != null )
+								controller.controller.look_at(
+									controller.target.transform );
 							return Vector3.zero;
 						}
 					}

@@ -35,7 +35,7 @@ namespace controller
 
 					protected override void Update()
 					{
-						if ( target != null && state != null )
+						if ( target != null || state != null )
 						{
 							state.update( this );
 						}

@@ -28,7 +28,8 @@ namespace tests_tool
 			foreach ( var e in this.collisions_enters )
 				if ( e.game_object == obj )
 					return;
-			string msg = string.Format( "el gameobject {0} no entro en el collider", obj );
+			string msg = string.Format(
+				"el gameobject {0} no entro en el collider {1}", obj, name );
 			Assert.Fail( msg );
 		}
 
@@ -41,24 +42,26 @@ namespace tests_tool
 		{
 			if ( collisions_enters.Count != amount )
 				Assert.Fail( string.Format(
-					"el numero de collisiones fueron {0} se esperaban {1}",
-					collisions_enters.Count, amount ) );
+					"el numero de collisiones fueron {0} se esperaban {1} en {2}",
+					collisions_enters.Count, amount, name ) );
 		}
 
 		public void assert_collision_enter_less_that( int amount )
 		{
 			if ( collisions_enters.Count >= amount )
 				Assert.Fail( string.Format(
-					"el numero de collisiones fueron {0} se esperaban menos de {1}",
-					collisions_enters.Count, amount ) );
+					"el numero de collisiones fueron {0} se esperaban menos de {1}" +
+					" en {2}",
+					collisions_enters.Count, amount, name ) );
 		}
 
 		public void assert_collision_enter_less_or_equal_that( int amount )
 		{
 			if ( collisions_enters.Count >= amount )
 				Assert.Fail( string.Format(
-					"el numero de collisiones fueron {0} se esperaban menos de {1}",
-					collisions_enters.Count, amount ) );
+					"el numero de collisiones fueron {0} se esperaban menos de {1}" +
+					" en {2}",
+					collisions_enters.Count, amount, name ) );
 		}
 
 		public void assert_not_collision_enter()
