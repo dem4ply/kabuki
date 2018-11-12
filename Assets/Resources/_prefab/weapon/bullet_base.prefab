@@ -127,9 +127,10 @@ MonoBehaviour:
   debug_mode: 0
   max_speed: 10
   runner_multiply: 2
-  dead_behavior: {fileID: 11400000, guid: 641fa96e6d97cf54fad1b46a8c0010a1, type: 2}
+  dead_behavior: {fileID: 11400000, guid: 14d4dbff39994c04a9d51c55fb749a06, type: 2}
   my_rol: {fileID: 0}
   acceleration_time: 0
+  ammo: {fileID: 0}
 --- !u!114 &114799464972075210
 MonoBehaviour:
   m_ObjectHideFlags: 0

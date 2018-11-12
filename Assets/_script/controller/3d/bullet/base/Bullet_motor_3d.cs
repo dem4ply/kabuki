@@ -48,6 +48,22 @@ namespace controller
 			{
 			}
 
+			public override void died()
+			{
+				base.died();
+				if ( ammo != null )
+				{
+					var controller = GetComponent<
+						controllers.Bullet_controller_3d>();
+					if ( controller )
+						singleton.object_pool.Ammo_pool.instance.push( controller );
+					else
+						Destroy( gameObject );
+				}
+				else
+					Destroy( gameObject );
+			}
+
 			protected override void _init_cache()
 			{
 				base._init_cache();
