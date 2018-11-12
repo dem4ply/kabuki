@@ -6,7 +6,16 @@ namespace helper
 {
 	namespace tests
 	{
-		public class Scene_test
+		public class basic_test
+		{
+			[TearDown]
+			public virtual void clean_scenary()
+			{
+				game_object.clean.scene();
+			}
+		}
+
+		public class Scene_test : basic_test
 		{
 			protected GameObject scene;
 
@@ -20,13 +29,6 @@ namespace helper
 			{
 				scene = Resources.Load( scene_dir ) as GameObject;
 				scene = instantiate._( scene );
-			}
-
-			[TearDown]
-			public virtual void clean_scenary()
-			{
-				MonoBehaviour.DestroyImmediate( scene );
-				game_object.clean.scene();
 			}
 		}
 	}

@@ -37,6 +37,15 @@ namespace weapon
 				var motor = bullet.GetComponent<Bullet_motor_3d>();
 				Assert.IsNotNull( motor );
 			}
+
+			[UnityTest]
+			public IEnumerator the_instance_should_containt_the_ammo_ref()
+			{
+				var bullet = ammo.instanciate( Vector3.zero );
+				yield return new WaitForFixedUpdate();
+				var motor = bullet.GetComponent<Bullet_motor_3d>();
+				Assert.AreEqual( ammo, motor.ammo );
+			}
 		}
 	}
 }

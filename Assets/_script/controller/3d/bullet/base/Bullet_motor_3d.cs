@@ -13,6 +13,7 @@ namespace controller
 			protected float velocity_smooth_x, velocity_smooth_y;
 			protected float velocity_smooth_z;
 			public float acceleration_time = 0;
+			public weapon.ammo.Ammo ammo;
 
 			#region funciones de movimiento
 			public override void update_motion() {
