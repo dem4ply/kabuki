@@ -73,5 +73,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6350503596329707388, guid: 9320d60ba395d5146a54cfdf3dddd0db,
         type: 3}
+    - target: {fileID: 7671133342097806708, guid: 88ba88f7673a44e4a909ed7d0bd2fca9,
+        type: 3}
+      propertyPath: delta_time
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671133342097806708, guid: 88ba88f7673a44e4a909ed7d0bd2fca9,
+        type: 3}
+      propertyPath: amount_of_spawn
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ba88f7673a44e4a909ed7d0bd2fca9, type: 3}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c221eaeabe009704aa7e958272927aaf, type: 3}
   m_Name: sin medium
   m_EditorClassIdentifier: 
-  radius: 2
-  period: 3
+  radius: 0.5
+  period: 2
