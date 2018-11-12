@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 100747776327365500}
   - component: {fileID: 64119661759135402}
-  - component: {fileID: 63807168207600394}
   - component: {fileID: 66902572031104828}
   - component: {fileID: 123725285400990070}
   - component: {fileID: 64166590972039148}
+  - component: {fileID: 373057226493922853}
   m_Layer: 0
   m_Name: linear_gun
   m_TagString: Untagged
@@ -50,27 +50,7 @@ MonoBehaviour:
   debug_mode: 0
   stat: {fileID: 11400000, guid: 65216834868c871409de31d1c369f4e2, type: 2}
   ammo: {fileID: 11400000, guid: 6999af89cb88d38408174984d7215e80, type: 2}
---- !u!114 &63807168207600394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104085854607049206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f05f4f1b11015439e22aa87384095c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug_mode: 0
-  controller: {fileID: 0}
-  state: {fileID: 0}
-  stat: {fileID: 0}
-  target: {fileID: 0}
-  _properties:
-    angle_x: 0
-    angle_z: 0
-    index: 0
+  owner: {fileID: 0}
 --- !u!114 &66902572031104828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +96,26 @@ MonoBehaviour:
   max_speed: 10
   runner_multiply: 2
   dead_behavior: {fileID: 0}
+  my_rol: {fileID: 0}
+--- !u!114 &373057226493922853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104085854607049206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6933a89df5d0ac4fbaf08705db2bce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 0
+  controller: {fileID: 0}
+  state: {fileID: 11400000, guid: 949e5bf0a9fee904fae88dab6f3ced76, type: 2}
+  stat: {fileID: 0}
+  target: {fileID: 0}
+  aim_to_player: 1
+  _properties:
+    angle_x: 0
+    angle_z: 0
+    index: 0

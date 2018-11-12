@@ -22,6 +22,8 @@ namespace controller
 					public Stat stat;
 					public Transform target;
 
+					public bool aim_to_player = false;
+
 					public data.Properties _properties;
 
 					public data.Properties properties
@@ -40,9 +42,23 @@ namespace controller
 							state.update( this );
 						}
 						else
+						{
 							Debug.LogWarning(
 								string.Format(
 									"el {0} no tiene target o state", name ) );
+						}
+						if ( target == null && aim_to_player )
+						{
+							GameObject player = GameObject.FindGameObjectWithTag(
+								helper.consts.tags.player );
+							if ( player == null )
+							{
+								Debug.LogWarning(
+									"no se pudo encontrar el player" );
+							}
+							else
+								target = player.transform;
+						}
 					}
 
 					protected virtual void prepare()

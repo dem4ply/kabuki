@@ -16,6 +16,13 @@ namespace helper
 					return "asdf";
 				}
 			}
+
+			public static string player
+			{
+				get {
+					return "Player";
+				}
+			}
 		}
 	}
 }
