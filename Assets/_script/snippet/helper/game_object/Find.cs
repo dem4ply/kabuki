@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 namespace helper
 {
@@ -41,6 +42,12 @@ namespace helper
 				if ( result != null )
 					return result.GetComponent<T>();
 				return null;
+			}
+
+			public static GameObject[] all( string name )
+			{
+				GameObject[] result = GameObject.FindObjectsOfType<GameObject>();
+				return result.Where( obj => obj.name == name ).ToArray();
 			}
 		}
 	}
