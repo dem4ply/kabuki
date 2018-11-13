@@ -9,8 +9,6 @@ namespace spawner
 {
 	public class Test_spawner_timer : helper.tests.Scene_test
 	{
-		Spawn_point spawn_point;
-
 		public override string scene_dir
 		{
 			get {
@@ -22,8 +20,6 @@ namespace spawner
 		public override void Instanciate_scenary()
 		{
 			base.Instanciate_scenary();
-			spawn_point = helper.game_object.Find._<Spawn_point>(
-				scene, "spawn_point" ) ;
 		}
 
 		[UnityTest]

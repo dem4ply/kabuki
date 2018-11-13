@@ -14,13 +14,12 @@ namespace controller
 			{
 
 				public class Test_motor_danmaku_isometric_attack
+					: helper.tests.Scene_test
 				{
-					GameObject player, collider, scene;
-					tests_tool.Assert_colision up, down, left, right, floor;
+					GameObject player;
 					NPC_danmaku_isometric_motor_3d motor;
 
-					[SetUp]
-					public void Instanciate_scenary()
+					public override void Instanciate_scenary()
 					{
 						scene =
 							Resources.Load(
@@ -28,25 +27,7 @@ namespace controller
 								"isometric/basic_move_danmaku" ) as GameObject;
 						scene = helper.instantiate._( scene );
 						player = scene.transform.Find( "player" ).gameObject;
-						collider = helper.game_object.Find._( player, "Sphere" );
-						up = scene.transform.Find( "assert_collision_up" )
-							.GetComponent<tests_tool.Assert_colision>();
-						down = scene.transform.Find( "assert_collision_down" )
-							.GetComponent<tests_tool.Assert_colision>();
-						left = scene.transform.Find( "assert_collision_left" )
-							.GetComponent<tests_tool.Assert_colision>();
-						right = scene.transform.Find( "assert_collision_right" )
-							.GetComponent<tests_tool.Assert_colision>();
-						floor = scene.transform.Find( "floor_1" )
-							.GetComponent<tests_tool.Assert_colision>();
 						motor = player.GetComponent<NPC_danmaku_isometric_motor_3d>();
-					}
-
-					[TearDown]
-					public void clean_scenary()
-					{
-						MonoBehaviour.DestroyImmediate( scene );
-						helper.game_object.clean.scene();
 					}
 
 					[UnityTest]

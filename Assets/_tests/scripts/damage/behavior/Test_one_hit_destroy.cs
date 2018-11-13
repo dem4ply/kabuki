@@ -9,28 +9,17 @@ namespace damage
 {
 	namespace behavior
 	{
-		public class Test_one_hit_destroy
+		public class Test_one_hit_destroy : helper.tests.Scene_test
 		{
-			GameObject player, enemy_1, enemy_2, enemy_3, enemy_4, scene, damage;
+			GameObject damage;
 
 			[SetUp]
-			public void Instanciate_scenary()
+			public override void Instanciate_scenary()
 			{
 				scene =
 					Resources.Load( "_test/scene/damage/damage_big" ) as GameObject;
 				scene = helper.instantiate._( scene );
-				player = scene.transform.Find( "player fly" ).gameObject;
-				enemy_1 = scene.transform.Find( "test_enemy" ).gameObject;
-				enemy_2 = scene.transform.Find( "test_enemy (1)" ).gameObject;
-				enemy_3 = scene.transform.Find( "test_enemy (2)" ).gameObject;
-				enemy_4 = scene.transform.Find( "test_enemy (3)" ).gameObject;
 				damage = scene.transform.Find( "damage" ).gameObject;
-			}
-
-			[TearDown]
-			public void clean_scenary()
-			{
-				MonoBehaviour.DestroyImmediate( scene );
 			}
 
 			[UnityTest]

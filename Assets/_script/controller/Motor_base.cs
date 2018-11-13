@@ -81,11 +81,7 @@ namespace controller {
 			/// </summary>
 			protected override void _init_cache() {
 				_init_cache_animator();
-				my_rol = GetComponent<rol_sheet.Rol_sheet>();
-				if ( !my_rol )
-					Debug.Log( string.Format(
-						"[{0}][{1}] no encontro el componente de rol",
-						this.GetType(), name ) );
+				_find_my_rol();
 			}
 
 			protected virtual void _init_cache_animator() {
@@ -126,6 +122,15 @@ namespace controller {
 					Debug.LogWarning(
 						string.Format(
 							"el motor {0} no tiene un dead.Behavior", name ) );
+			}
+
+			protected void _find_my_rol()
+			{
+				my_rol = GetComponent<rol_sheet.Rol_sheet>();
+				if ( !my_rol )
+					Debug.Log( string.Format(
+						"[{0}][{1}] no encontro el componente de rol",
+						this.GetType(), name ) );
 			}
 
 			public virtual void after_update_motor() {

@@ -197,8 +197,6 @@ namespace route
 			float x = 0f;
 			float y = 0f;
 
-			var left_nodes = nodes;
-			bool is_x_positive = true;
 			for ( int i = 0; i < nodes; ++i )
 			{
 				generator_points.MoveNext();

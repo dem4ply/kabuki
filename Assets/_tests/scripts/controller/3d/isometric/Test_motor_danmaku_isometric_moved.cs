@@ -14,12 +14,13 @@ namespace controller
 			{
 
 				public class Test_motor_danmaku_isometric_moved
+					: helper.tests.Scene_test
 				{
-					GameObject player, collider, scene;
+					GameObject player;
 					tests_tool.Assert_colision up, down, left, right, floor;
 
 					[SetUp]
-					public void Instanciate_scenary()
+					public override void Instanciate_scenary()
 					{
 						scene =
 							Resources.Load(
@@ -27,7 +28,6 @@ namespace controller
 								"isometric/basic_move_danmaku" ) as GameObject;
 						scene = helper.instantiate._( scene );
 						player = scene.transform.Find( "player" ).gameObject;
-						collider = helper.game_object.Find._( player, "Sphere" );
 						up = scene.transform.Find( "assert_collision_up" )
 							.GetComponent<tests_tool.Assert_colision>();
 						down = scene.transform.Find( "assert_collision_down" )
@@ -38,12 +38,6 @@ namespace controller
 							.GetComponent<tests_tool.Assert_colision>();
 						floor = scene.transform.Find( "floor_1" )
 							.GetComponent<tests_tool.Assert_colision>();
-					}
-
-					[TearDown]
-					public void clean_scenary()
-					{
-						MonoBehaviour.DestroyImmediate( scene );
 					}
 
 					[UnityTest]

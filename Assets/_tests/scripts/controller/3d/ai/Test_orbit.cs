@@ -14,19 +14,23 @@ namespace controller
 			{
 				namespace behavior
 				{
-					public class Test_orit
+					public class Test_orbit : helper.tests.Scene_test
 					{
-						GameObject player, collider, scene;
-						tests_tool.Assert_colision up, down, left, right, center;
+						GameObject player, collider;
+						tests_tool.Assert_colision up, down, left, right;
+
+						public override string scene_dir
+						{
+							get {
+								return
+									"_test/scene/controller/3d/" +
+									"ai/behavior/orbit";
+							}
+						}
 
 						[SetUp]
-						public void Instanciate_scenary()
+						public override  void Instanciate_scenary()
 						{
-							scene =
-								Resources.Load(
-									"_test/scene/controller/3d/" +
-									"ai/behavior/orbit" ) as GameObject;
-							scene = helper.instantiate._( scene );
 							player = scene.transform.Find( "player" ).gameObject;
 							up = scene.transform.Find( "assert_collision_up" )
 								.GetComponent<tests_tool.Assert_colision>();
@@ -36,14 +40,6 @@ namespace controller
 								.GetComponent<tests_tool.Assert_colision>();
 							right = scene.transform.Find( "assert_collision_right" )
 								.GetComponent<tests_tool.Assert_colision>();
-							center = scene.transform.Find( "assert_collision_center" )
-								.GetComponent<tests_tool.Assert_colision>();
-						}
-
-						[TearDown]
-						public void clean_scenary()
-						{
-							MonoBehaviour.DestroyImmediate( scene );
 						}
 
 						[UnityTest]

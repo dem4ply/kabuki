@@ -14,39 +14,28 @@ namespace controller
 			{
 				namespace behavior
 				{
-					public class Test_look_at_gun
+					public class Test_look_at_gun : helper.tests.Scene_test
 					{
-						GameObject player, collider, scene;
-						tests_tool.Assert_colision up, down, left, right, center;
+						GameObject collider;
+						tests_tool.Assert_colision center;
 						weapon.gun.Gun_base gun;
 
-						[SetUp]
-						public void Instanciate_scenary()
+						public override string scene_dir
 						{
-							scene =
-								Resources.Load(
+							get {
+								return
 									"_test/scene/controller/3d/" +
-									"ai/behavior/orbital_gun" ) as GameObject;
-							scene = helper.instantiate._( scene );
-							player = scene.transform.Find( "player fly" ).gameObject;
-							gun = helper.game_object.Find._<weapon.gun.Linear_gun>(
-								scene, "linear_gun" );
-							up = scene.transform.Find( "assert_collision_up" )
-								.GetComponent<tests_tool.Assert_colision>();
-							down = scene.transform.Find( "assert_collision_down" )
-								.GetComponent<tests_tool.Assert_colision>();
-							left = scene.transform.Find( "assert_collision_left" )
-								.GetComponent<tests_tool.Assert_colision>();
-							right = scene.transform.Find( "assert_collision_right" )
-								.GetComponent<tests_tool.Assert_colision>();
-							center = scene.transform.Find( "assert_collision_center" )
-								.GetComponent<tests_tool.Assert_colision>();
+									"ai/behavior/orbital_gun";
+							}
 						}
 
-						[TearDown]
-						public void clean_scenary()
+						public override void Instanciate_scenary()
 						{
-							MonoBehaviour.DestroyImmediate( scene );
+							base.Instanciate_scenary();
+							gun = helper.game_object.Find._<weapon.gun.Linear_gun>(
+								scene, "linear_gun" );
+							center = scene.transform.Find( "assert_collision_center" )
+								.GetComponent<tests_tool.Assert_colision>();
 						}
 
 						[UnityTest]

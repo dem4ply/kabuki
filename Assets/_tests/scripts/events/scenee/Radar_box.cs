@@ -11,27 +11,19 @@ namespace events
 	{
 		namespace handler
 		{
-			public class Test_event_handler
+			public class Test_event_handler : helper.tests.Scene_test
 			{
-				GameObject handler, scene;
 				Event_scene event_scene;
 
 				[SetUp]
-				public void Instanciate_scenary()
+				public override void Instanciate_scenary()
 				{
 					scene =
 						Resources.Load(
 							"_test/scene/event/test_event_scene" ) as GameObject;
 					scene = helper.instantiate._( scene );
-					handler = scene.transform.Find( "event_handle" ).gameObject;
 					event_scene = scene.transform.Find( "encounter" )
 						.GetComponent<Event_scene>();
-				}
-
-				[TearDown]
-				public void clean_scenary()
-				{
-					MonoBehaviour.DestroyImmediate( scene );
 				}
 
 				[UnityTest]
