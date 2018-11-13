@@ -24,6 +24,8 @@ namespace controller
 
 					public bool aim_to_player = false;
 
+					public Weapon_controller_3d[] weapons;
+
 					public data.Properties _properties;
 
 					public data.Properties properties
@@ -71,6 +73,12 @@ namespace controller
 					{
 						base._init_cache();
 						prepare();
+						weapons = GetComponentsInChildren<Weapon_controller_3d>();
+						foreach (
+							var ai in GetComponentsInChildren<AI_controller_3d>() )
+						{
+							ai.target = target;
+						}
 					}
 				}
 			}

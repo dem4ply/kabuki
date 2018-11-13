@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 100747776327365500}
   - component: {fileID: 64119661759135402}
-  - component: {fileID: 66902572031104828}
   - component: {fileID: 123725285400990070}
   - component: {fileID: 64166590972039148}
   - component: {fileID: 373057226493922853}
+  - component: {fileID: 1007650288981760035}
   m_Layer: 0
   m_Name: linear_gun
   m_TagString: Untagged
@@ -51,19 +51,6 @@ MonoBehaviour:
   stat: {fileID: 11400000, guid: 65216834868c871409de31d1c369f4e2, type: 2}
   ammo: {fileID: 11400000, guid: 6999af89cb88d38408174984d7215e80, type: 2}
   owner: {fileID: 0}
---- !u!114 &66902572031104828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104085854607049206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2647142f0d8e42845b85bcff7d607fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug_mode: 0
 --- !u!54 &123725285400990070
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,7 +102,23 @@ MonoBehaviour:
   stat: {fileID: 0}
   target: {fileID: 0}
   aim_to_player: 1
+  weapons: []
   _properties:
     angle_x: 0
     angle_z: 0
     index: 0
+    period: 0
+    sum_delta_period: 0
+--- !u!114 &1007650288981760035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104085854607049206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fadc17a4140f54588eec23fc668ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 0

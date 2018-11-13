@@ -15,7 +15,7 @@ namespace weapon
 
 			public override Bullet_controller_3d shot()
 			{
-				var bullet = ammo.instanciate( transform.position );
+				var bullet = ammo.instanciate( transform.position, owner );
 				bullet.shot( direction_shot );
 				return bullet;
 			}

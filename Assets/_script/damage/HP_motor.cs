@@ -57,7 +57,7 @@ namespace damage
 					Debug.LogError( "no tiene el componente de dano" );
 					return;
 				}
-				if ( is_my_damage( damage ) )
+				if ( is_my_damage( damage ) || is_from_my_faction( damage ) )
 					return;
 				take_damage( damage );
 				damage.taken( this );
@@ -76,6 +76,13 @@ namespace damage
 			{
 				if ( damage.owner != null )
 					return damage.owner == motor.my_rol;
+				return false;
+			}
+
+			protected virtual bool is_from_my_faction( Damage damage )
+			{
+				if ( damage.owner != null )
+					return damage.owner.faction == motor.my_rol.faction;
 				return false;
 			}
 

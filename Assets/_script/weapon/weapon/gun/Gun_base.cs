@@ -13,8 +13,6 @@ namespace weapon
 			public Gun_stat stat;
 			public Ammo ammo;
 
-			public rol_sheet.Rol_sheet owner;
-
 			protected bool _continue_shotting = false;
 			public bool continue_shotting
 			{

@@ -1,11 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!4 &4568936784791590 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 100747776327365500, guid: 47f39737f43da2040aa2f6f0560e8e3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 105226552285346650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1101119374786850
 GameObject:
   m_ObjectHideFlags: 0
@@ -50,6 +44,12 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &4568936784791590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 100747776327365500, guid: 47f39737f43da2040aa2f6f0560e8e3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 105226552285346650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1219529632180186
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,8 +65,9 @@ GameObject:
   - component: {fileID: 54872425782459246}
   - component: {fileID: 114373019754253862}
   - component: {fileID: 114480077590533756}
-  - component: {fileID: 114857486947601938}
   - component: {fileID: 6047858139868004316}
+  - component: {fileID: 3074498276970503531}
+  - component: {fileID: 114857486947601938}
   m_Layer: 8
   m_Name: base enemy
   m_TagString: Untagged
@@ -194,28 +195,14 @@ MonoBehaviour:
   state: {fileID: 0}
   stat: {fileID: 0}
   target: {fileID: 0}
+  aim_to_player: 0
+  weapons: []
   _properties:
     angle_x: 0
     angle_z: 0
     index: 0
---- !u!114 &114857486947601938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219529632180186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3da27f645386f45bcfff9858bad991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug_mode: 1
-  max_speed: 2.5
-  runner_multiply: 2
-  dead_behavior: {fileID: 11400000, guid: 9198a53ce78944a469bb0a00ca5b64e8, type: 2}
-  my_rol: {fileID: 0}
-  acceleration_time_in_ground: 0
+    period: 0
+    sum_delta_period: 0
 --- !u!114 &6047858139868004316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +223,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   motor: {fileID: 0}
+--- !u!114 &3074498276970503531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219529632180186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8585d4d3ac3f2b2438dd3f9c5b052888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 0
+  faction: {fileID: 11400000, guid: b324493c96e372445809364f9d4e1878, type: 2}
+  person: {fileID: 11400000, guid: 8129726f2af72c4429aff2f1a2cead77, type: 2}
+--- !u!114 &114857486947601938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219529632180186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3da27f645386f45bcfff9858bad991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_mode: 1
+  max_speed: 2.5
+  runner_multiply: 2
+  dead_behavior: {fileID: 11400000, guid: 9198a53ce78944a469bb0a00ca5b64e8, type: 2}
+  my_rol: {fileID: 0}
+  acceleration_time_in_ground: 0
 --- !u!1 &1841253939138694
 GameObject:
   m_ObjectHideFlags: 0

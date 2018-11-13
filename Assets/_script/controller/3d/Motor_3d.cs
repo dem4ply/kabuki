@@ -4,6 +4,7 @@ using controller;
 using chibi_base;
 using System;
 using System.Collections.Generic;
+using weapon.weapon;
 
 namespace controller {
 	namespace motor {
@@ -15,6 +16,7 @@ namespace controller {
 			#region variables protegidas
 			protected Rigidbody _rigidbody;
 			protected manager.Collision manager_collisions;
+			protected Weapon_base[] weapons;
 			#endregion
 
 			#region propiedades publicas
@@ -65,6 +67,19 @@ namespace controller {
 				base._init_cache();
 				_rigidbody = GetComponent<Rigidbody>();
 				manager_collisions = new manager.Collision();
+				_find_my_weapons();
+			}
+
+			protected void _find_my_weapons()
+			{
+				weapons = GetComponentsInChildren<Weapon_base>();
+				_set_owner_to_weapons();
+			}
+
+			protected virtual void _set_owner_to_weapons()
+			{
+				foreach ( var weapon in weapons )
+					weapon.owner = my_rol;
 			}
 		}
 	}

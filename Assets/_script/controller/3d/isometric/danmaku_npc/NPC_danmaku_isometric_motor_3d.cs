@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using weapon.gun;
+
 namespace controller
 {
 	namespace isometric
@@ -10,7 +13,7 @@ namespace controller
 			public class NPC_danmaku_isometric_motor_3d
 				: NPC_fly_isometric_motor_3d
 			{
-				public weapon.gun.Gun_base[] guns;
+				public Gun_base[] guns;
 
 				public override void attack()
 				{
@@ -26,11 +29,7 @@ namespace controller
 
 				protected void _find_my_guns()
 				{
-					guns = GetComponentsInChildren<weapon.gun.Gun_base>();
-					foreach( weapon.gun.Gun_base gun in guns )
-					{
-						gun.owner = my_rol;
-					}
+					guns = weapons.Cast<Gun_base>().ToArray();
 				}
 
 				protected override void _init_cache()

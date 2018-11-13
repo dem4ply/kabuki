@@ -82,6 +82,10 @@ namespace controller {
 			protected override void _init_cache() {
 				_init_cache_animator();
 				my_rol = GetComponent<rol_sheet.Rol_sheet>();
+				if ( !my_rol )
+					Debug.Log( string.Format(
+						"[{0}][{1}] no encontro el componente de rol",
+						this.GetType(), name ) );
 			}
 
 			protected virtual void _init_cache_animator() {

@@ -23,6 +23,9 @@ namespace controller
 					{
 						public float angle_x, angle_z;
 						public int index;
+						public float period;
+
+						public float sum_delta_period;
 					}
 				}
 			}

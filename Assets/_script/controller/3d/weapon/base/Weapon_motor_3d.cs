@@ -16,6 +16,14 @@ namespace controller
 			}
 			#endregion
 
+			public override void attack()
+			{
+				foreach ( var weapon in weapons )
+				{
+					weapon.attack();
+				}
+			}
+
 			public override void update_animator()
 			{
 			}
@@ -25,6 +33,10 @@ namespace controller
 				base._init_cache();
 				_rigidbody.useGravity = false;
 				_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			}
+
+			protected override void _set_owner_to_weapons()
+			{
 			}
 		}
 
