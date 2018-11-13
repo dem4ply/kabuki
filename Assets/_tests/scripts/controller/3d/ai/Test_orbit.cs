@@ -22,15 +22,14 @@ namespace controller
 						public override string scene_dir
 						{
 							get {
-								return
-									"_test/scene/controller/3d/" +
-									"ai/behavior/orbit";
+								return "_test/scene/controller/3d/ai/behavior/orbit";
 							}
 						}
 
 						[SetUp]
 						public override  void Instanciate_scenary()
 						{
+							base.Instanciate_scenary();
 							player = scene.transform.Find( "player" ).gameObject;
 							up = scene.transform.Find( "assert_collision_up" )
 								.GetComponent<tests_tool.Assert_colision>();
